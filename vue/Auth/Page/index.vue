@@ -19,13 +19,14 @@
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </form>
       </main>
-      <button class="w-100 btn btn-lg btn-primary" @click="test" type="submit">test</button>
-
   </div>
 </template>
 
 <script setup>
-const test = () => {console.log(import.meta.env.VITE_API)}
+const env = import.meta.env.VITE_API
+
+
+const test = () => {console.log(env)}
 </script>
 
 <style scoped>
