@@ -2,7 +2,12 @@
 
 namespace App\Domain\Auth\Controllers;
 
-class Authcontroller  
+use App\Core\Http\Controllers\Controller;
+
+class Authcontroller extends Controller
 {
-    // 
+    public function test()
+    {
+        return 'hallo';
+    }
 }
