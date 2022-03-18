@@ -4,7 +4,7 @@ namespace App\Domain\Auth\Models;
 
 use Eloquent;
 
-class Auth extends Eloquent
+class Users extends Eloquent
 {
     use HasFactory;
 }

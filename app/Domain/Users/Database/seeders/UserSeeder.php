@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Database\Seeders;
+namespace App\Domain\Users\Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \App\Domain\Models\User::factory(10)->create();
+        \App\Domain\Users\Models\User::factory(10)->create();
     }
 }

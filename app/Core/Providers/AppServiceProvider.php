@@ -23,14 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->addMigrationFolder('App\Core\Database');
-    }
-
-    
-
-    protected function addMigrationFolder(String $folder)
-    {
-        $this->loadMigrationsFrom(__DIR__.$folder.`/*/*.php`);
+        $this->loadMigrationsFrom(glob('App/Domain/' . "*" . '/Database/' . "/*.php"));
     }
 
 }

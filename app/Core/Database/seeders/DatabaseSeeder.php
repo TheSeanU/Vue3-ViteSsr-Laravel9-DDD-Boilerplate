@@ -14,18 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            UserSeeder::class,
-            foreach ($this->addToDatabaseSeeder() as $items)
-            {
-                return $items
-            }
-        ]);
+        
+        foreach ($this->addToDatabaseSeeder() as $items)
+        {
+            dd($items);
+            $this->call([$items]);
+        }
     }
 
 
-    public function addToDatabaseSeeder () {
-        
+    protected function addToDatabaseSeeder () {
+       return glob('App/Domain/' . "*" . '/Database/seeders/' . "/*.php");
     }
 
 }
