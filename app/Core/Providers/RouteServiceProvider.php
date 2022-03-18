@@ -19,9 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->configureRateLimiting();
-        $this->addRouteService('api', '',  'App\Domain\Auth\Controllers', 'App\Domain\Auth\Routes\auth.php');
-        
+        $this->configureRateLimiting();        
     }
     
     /**
@@ -34,9 +32,17 @@ class RouteServiceProvider extends ServiceProvider
      * 
      * @return void
      */   
-    protected function addRouteService(String $prefix, String $middleware, String $namespace, String $path)
-    {
-        Route::prefix($prefix)->middleware($middleware)->namespace($namespace)->group(base_path($path));
+    public function addRouteService(
+        String $prefix, 
+        String $middleware, 
+        String $namespace, 
+        String $path
+    ) {
+        parent::boot();
+        
+        static::creating(
+           Route::prefix($prefix)->middleware($middleware)->namespace($namespace)->group(base_path($path))
+        );
     }
     
     /**
