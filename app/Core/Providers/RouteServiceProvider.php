@@ -20,25 +20,13 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-        $this->addRouteService('api', '',  'App\Domain\Auth\Controllers', 'App\Domain\Auth\Routes\auth.php');
-        
+
+        $paths = glob('App/Domain/' . "*" . '/Routes/' . "*.php");
+        $namespace = glob('App/Domain/' . "*" . '/Controllers/');
+
+        foreach ($paths as $path) Route::prefix('api')->namespace($namespace)->group(base_path($path));
     }
-    
-    /**
-     * Create route file links
-     *
-     * @param String $prefix
-     * @param String $middleware
-     * @param String $namespace
-     * @param String $path
-     * 
-     * @return void
-     */   
-    protected function addRouteService(String $prefix, String $middleware, String $namespace, String $path)
-    {
-        Route::prefix($prefix)->middleware($middleware)->namespace($namespace)->group(base_path($path));
-    }
-    
+
     /**
      * Configure the rate limiters for the application.
      *
@@ -52,3 +40,4 @@ class RouteServiceProvider extends ServiceProvider
     }
 
 }
+
