@@ -1,6 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
 
-namespace App\Domain\Users\Database\Factories;
+namespace App\Core\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+class DatabaseFactory extends Factory
 {
     /**
      * Define the model's default state.

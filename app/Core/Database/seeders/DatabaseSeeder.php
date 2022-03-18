@@ -11,20 +11,18 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      *
      * @return void
-     */
+     */ 
     public function run()
     {
-        
-        foreach ($this->addToDatabaseSeeder() as $items)
-        {
-            dd($items);
-            $this->call([$items]);
+        foreach ($this->addToDatabaseSeeder() as $seeders) 
+        { 
+            $this->call([$seeders . "::class",]);
         }
     }
 
 
     protected function addToDatabaseSeeder () {
-       return glob('App/Domain/' . "*" . '/Database/seeders/' . "/*.php");
+        return str_replace(".php", "", glob('App/Domain/' . "*" . '/Database/Seeders/' . "*.php"));
     }
 
 }
