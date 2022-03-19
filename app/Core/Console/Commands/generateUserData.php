@@ -11,7 +11,7 @@ class generateUserData extends Command
      *
      * @var string
      */
-    protected $signature = 'migrate:fresher --seedit';
+    protected $signature = 'migrate-seed';
 
     /**
      * The console command description.
@@ -27,6 +27,18 @@ class generateUserData extends Command
      */
     public function handle()
     {
-        return 0;
+        /**
+         * Run the database seeder command.
+         *
+         * @param  string  $database
+         * @return void
+         */
+        $this->call('migrate:fresh');
+        
+        $this->call('db:seed', array_filter([
+            '--class' => 'App\\Core\\Database\\Seeders\\DatabaseSeeder',
+            '--force' => true,
+        ]));
+        
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domain\Users\Database\Seeders;
+namespace App\Domain\Auth\Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Domain\Users\Models\User;
+use App\Domain\Auth\Models\Auth;
 
-class UserSeeder extends Seeder
+class AuthSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -16,6 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        Auth::factory(10)->create();
     }
 }

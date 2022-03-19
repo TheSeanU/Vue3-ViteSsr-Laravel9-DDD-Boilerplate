@@ -5,6 +5,8 @@ namespace App\Core\Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
+use App\Domain\Users\Database\Seeders\UserTableSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,15 +16,11 @@ class DatabaseSeeder extends Seeder
      */ 
     public function run()
     {
-        foreach ($this->addToDatabaseSeeder() as $seeders) 
-        { 
-            $this->call([$seeders . "::class",]);
+        $files_arr =  str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php")); //store filenames into $files_array
+        foreach ($files_arr as $key => $file){
+            if ($file !== 'DatabaseSeeder.php' && $file[0] !== "." ){
+                $this->call( explode('.', $file)[0] );
+            }
         }
     }
-
-
-    protected function addToDatabaseSeeder () {
-        return str_replace(".php", "", glob('App/Domain/' . "*" . '/Database/Seeders/' . "*.php"));
-    }
-
 }

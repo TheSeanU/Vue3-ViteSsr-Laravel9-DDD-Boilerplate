@@ -4,7 +4,7 @@ namespace App\Domain\Users\Controllers;
 
 use App\Core\Http\Controllers\Controller;
 
-class Userscontroller extends Controller
+class Usercontroller extends Controller
 {
     public function index()
     {
