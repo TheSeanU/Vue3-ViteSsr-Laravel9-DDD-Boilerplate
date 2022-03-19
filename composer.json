@@ -24,7 +24,11 @@
             "App\\": "app/",
             "App\\Core\\Database\\Seeders\\": "app/Core/Database/Seeders/",
             "App\\Core\\Database\\Factories\\": "app/Core/Database/Factories/"
-        }
+        },
+        "classmap": [
+            "app/Domain/*/Database/Seeders",
+            "app/Domain/*/Database/Factories"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

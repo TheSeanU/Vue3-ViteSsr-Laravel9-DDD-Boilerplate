@@ -1,15 +1,19 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Domain\Auth\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
+use App\Domain\Auth\Models\Auth;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
 class AuthFactory extends Factory
 {
+    protected $model = Auth::class;
+
     /**
      * Define the model's default state.
      *
@@ -19,8 +23,8 @@ class AuthFactory extends Factory
     {
         return [
             'email' => $this->faker->unique()->safeEmail(),
-            'created_at' => now(),
             'token' => Str::random(10),
+            'created_at' => now(),
         ];
     }
 

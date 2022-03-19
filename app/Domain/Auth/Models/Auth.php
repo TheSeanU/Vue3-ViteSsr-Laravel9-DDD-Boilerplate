@@ -10,4 +10,8 @@ use Eloquent;
 class Auth extends Eloquent
 {
     use AddCorrectFactoryTrait;
+
+    protected $table = 'password_resets';
+
+    
 }

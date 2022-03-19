@@ -5,6 +5,8 @@ namespace App\Core\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use Illuminate\Contracts\Foundation\Application;
+
 class AppServiceProvider extends ServiceProvider
 {
 
@@ -26,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(glob('App/Domain/' . "*" . '/Database/Migrations/' . "*.php"));
+        $this->loadMigrationsFrom(glob('App/Core/Database/Migrations/' . "*.php"));
     }
 
 }

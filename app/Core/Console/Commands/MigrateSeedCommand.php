@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Core\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class generateUserData extends Command
+class MigrateSeedCommand extends Command
 {
     /**
      * The name and signature of the console command.

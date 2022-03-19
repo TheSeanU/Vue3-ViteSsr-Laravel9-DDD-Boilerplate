@@ -6,8 +6,8 @@ use App\Core\Http\Controllers\Controller;
 
 class Authcontroller extends Controller
 {
-    public function test()
+    public function index()
     {
-        return 'hallo';
+        # code...
     }
 }

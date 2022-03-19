@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace App\Core\Console;
 
@@ -26,7 +26,5 @@ class Kernel extends ConsoleKernel
     protected function commands()
     {
         $this->load('App/Core/Console/Commands');
-
-        // require base_path('routes/console.php');
     }
 }
