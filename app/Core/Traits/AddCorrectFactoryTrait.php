@@ -14,7 +14,7 @@ trait AddCorrectFactoryTrait {
     
     protected static function newFactory()
     {
-        return AuthFactory::new();
+        // return AuthFactory::new();
 
         // $factory = str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php"));
         

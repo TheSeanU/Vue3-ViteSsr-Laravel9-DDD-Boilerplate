@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use App\Core\Traits\AddCorrectFactoryTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use App\Domain\Users\Database\Factories\UserFactory;
+
 class User extends Authenticatable
 {
-    use AddCorrectFactoryTrait, Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.

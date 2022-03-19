@@ -25,6 +25,7 @@ class AuthFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'token' => Str::random(10),
             'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 
