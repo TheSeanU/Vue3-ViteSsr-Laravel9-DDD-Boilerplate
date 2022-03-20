@@ -1,13 +1,13 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Users\Database\Seeders;
+namespace App\Domain\Post\Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Domain\Users\Models\User;
+use App\Domain\Post\Models\Post;
 
-class UserSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -16,6 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+        Post::factory(10)->create();
     }
 }

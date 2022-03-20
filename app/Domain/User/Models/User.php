@@ -1,19 +1,17 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Users\Models;
+namespace App\Domain\User\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-use App\Core\Traits\AddCorrectFactoryTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-use App\Domain\Users\Database\Factories\UserFactory;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

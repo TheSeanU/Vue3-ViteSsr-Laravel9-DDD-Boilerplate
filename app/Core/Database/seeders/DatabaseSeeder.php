@@ -5,7 +5,7 @@ namespace App\Core\Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use App\Domain\Users\Database\Seeders\UserTableSeeder;
+use App\Domain\User\Database\Seeders\UserTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {

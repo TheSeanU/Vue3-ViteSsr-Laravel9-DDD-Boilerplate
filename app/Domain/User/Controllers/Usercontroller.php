@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Users\Controllers;
+namespace App\Domain\User\Controllers;
 
 use App\Core\Http\Controllers\Controller;
 

@@ -172,11 +172,14 @@ return [
          */
         App\Core\Providers\AppServiceProvider::class,
         App\Core\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Core\Providers\EventServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
-        
+        App\Core\Providers\EventServiceProvider::class,
         App\Core\Providers\ConfigServiceProvider::class,
+        
+        App\Core\Providers\FactoryServiceProvider::class,
+        App\Core\Providers\MigrationsServiceProvider::class,
+        // App\Core\Providers\BroadcastServiceProvider::class,
+
 
 
     ],

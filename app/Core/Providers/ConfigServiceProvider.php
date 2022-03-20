@@ -24,10 +24,6 @@ class ConfigServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->factoryName = str_replace(".php", "", glob('App/Domain/' . "*" . '/Database/Factories/' . "*.php"));
-
-        // $this->app->bind('path.database', function() {
-        //     return realpath(glob('App/Domain/' . "*" . '/Database/Migrations/' . "*.php"));
-        // });
+        //
     }
 }

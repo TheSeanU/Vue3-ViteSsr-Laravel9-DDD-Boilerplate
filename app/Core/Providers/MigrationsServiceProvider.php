@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 use Illuminate\Support\Str;
 
-class AppServiceProvider extends ServiceProvider
+class MigrationsServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
