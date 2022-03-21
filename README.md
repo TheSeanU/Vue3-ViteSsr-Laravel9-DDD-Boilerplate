@@ -1,4 +1,6 @@
-# My laravel project with Vite, vue
+# My laravel project with Vite, Vue & Domain Driven Design.
+
+## My own project to build my app in domain driven design using laravel and vue.
 
 ### Project setup
 
