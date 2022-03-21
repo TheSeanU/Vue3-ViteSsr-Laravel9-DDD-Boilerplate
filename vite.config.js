@@ -3,6 +3,6 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   envDir: "../",
-  root: "./vue",
+  root: "./Vue",
   plugins: [vue()],
 })
