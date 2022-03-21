@@ -20,7 +20,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "App\\Core\\": "app/Core/",
+            "App\\Domain\\": "app/Domain/",
+            "App\\Interface\\": "app/Interface/"
         },
         "classmap": [
             "app/Domain/*/Database/Seeders",

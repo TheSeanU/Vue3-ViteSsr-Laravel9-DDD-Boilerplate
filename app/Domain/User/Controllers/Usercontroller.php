@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\Controllers;
 
-use App\Core\Http\Controllers\Controller;
+use App\Core\Controllers\Controller;
 
 class Usercontroller extends Controller
 {

@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace App\Core\Console;
+namespace App\Core\Kernels;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Foundation\Console\Kernel;
 
-class Kernel extends ConsoleKernel
+class CommandsKernel extends Kernel
 {
     /**
      * Define the application's command schedule.
@@ -25,6 +25,6 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load('App/Core/Console/Commands');
+        $this->load('App/Core/Commands');
     }
 }

@@ -1,10 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace App\Core\Http;
+namespace App\Core\Kernels;
 
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Foundation\Http\Kernel;
 
-class Kernel extends HttpKernel
+class MiddlewareKernel extends Kernel
 {
     /**
      * The application's global HTTP middleware stack.
@@ -15,11 +15,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        \App\Core\Http\Middleware\TrustProxies::class,
+        \App\Core\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
-        \App\Core\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \App\Core\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \App\Core\Http\Middleware\TrimStrings::class,
+        \App\Core\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -30,12 +30,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Core\Http\Middleware\EncryptCookies::class,
+            \App\Core\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Core\Http\Middleware\VerifyCsrfToken::class,
+            \App\Core\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -53,11 +53,11 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'auth' => \App\Core\Http\Middleware\Authenticate::class,
+        'auth' => \App\Core\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Core\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \App\Core\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
