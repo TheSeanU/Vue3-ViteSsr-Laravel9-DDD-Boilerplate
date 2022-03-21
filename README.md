@@ -10,7 +10,7 @@ npm install
 composer install
 
 mysql -u root
-# run: create database Rapp;
+# run: create database;
 
 cp .env.example .env
 code .env
