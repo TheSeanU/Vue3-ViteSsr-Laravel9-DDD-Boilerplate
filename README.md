@@ -53,6 +53,11 @@ php artisan serve
         |-- Routes
     Interface
     |-- *
+    UI
+    |-- Core
+    |-- Domain
+    |-- Interface
+    
     
 
 ### Automatic index:
