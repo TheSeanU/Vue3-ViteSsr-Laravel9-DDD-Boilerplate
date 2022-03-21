@@ -1,6 +1,5 @@
 <?php declare(strict_types = 1);
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Domain\Auth\Controllers\Authcontroller;
@@ -11,4 +10,4 @@ use App\Domain\Auth\Controllers\Authcontroller;
 |--------------------------------------------------------------------------
 */
 
-Route::get('test', [Authcontroller::class, 'test']);
+Route::get('auth', [Authcontroller::class, 'index']);

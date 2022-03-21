@@ -27,15 +27,14 @@ class FactoryServiceProvider extends ServiceProvider
     public function boot()
     {         
         Factory::guessFactoryNamesUsing(function (string $modelName) {
-            $factory_path = str_replace(".php", "", 
+            $factoryPath = str_replace(".php", "", 
                 glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php")
             );
             
-            foreach ($factory_path as $key => $path) {
+            foreach ($factoryPath as $key => $path) {
                 $factoryModelName = str_replace('Factory', '', Str::afterlast($path, '\\'));              
-                if(Str::afterlast($modelName, '\\') ===  $factoryModelName) {
+                if(Str::afterlast($modelName, '\\') ===  $factoryModelName) 
                     return $path;
-                }
             }
         }); 
     }

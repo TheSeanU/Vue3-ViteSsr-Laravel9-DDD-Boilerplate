@@ -1,9 +1,8 @@
 <?php declare(strict_types = 1);
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Domain\Auth\Controllers\Postcontroller;
+use App\Domain\Post\Controllers\Postcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,4 +10,4 @@ use App\Domain\Auth\Controllers\Postcontroller;
 |--------------------------------------------------------------------------
 */
 
-Route::get('test', [Postcontroller::class, 'test']);
+Route::get('post', [Postcontroller::class, 'index']);
