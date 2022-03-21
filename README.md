@@ -26,7 +26,7 @@
     Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
     Factories:   "App\\Domain\\*\\Database\\\Factories\\".
     Routes:      "App\\Domain\\*\\Routes".
-``
+```
 
 ### Custom commands:
     Command: $ php artisan migrate-seed // equals php artisan mirgate::fresh -seed 
