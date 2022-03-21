@@ -16,18 +16,7 @@ class FactoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Factory::guessFactoryNamesUsing(function (string $modelName) {
-            $factory_path = str_replace(".php", "", 
-                glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php")
-            );
-            
-            foreach ($factory_path as $key => $path){
-                return match ($modelName) {
-                    $modelName => $path,
-                    default => throw new LogicException('Unknown factory'),
-                };
-            }
-        }); 
+        //
     }
 
     /**
@@ -36,7 +25,18 @@ class FactoryServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        //
+    {         
+        Factory::guessFactoryNamesUsing(function (string $modelName) {
+            $factory_path = str_replace(".php", "", 
+                glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php")
+            );
+            
+            foreach ($factory_path as $key => $path) {
+                $factoryModelName = str_replace('Factory', '', Str::afterlast($path, '\\'));              
+                if(Str::afterlast($modelName, '\\') ===  $factoryModelName) {
+                    return $path;
+                }
+            }
+        }); 
     }
 }
