@@ -29,4 +29,4 @@
 ```
 
 ### Custom commands:
-    Command: $ php artisan migrate-seed // equals php artisan mirgate::fresh -seed 
+    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh -seed 
