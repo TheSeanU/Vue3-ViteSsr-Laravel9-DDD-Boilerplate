@@ -22,7 +22,5 @@ class DatabaseSeeder extends Seeder
                 $this->call( explode('.', $file)[0] );
             }
         }
-
-        $this->call([CoreSeeder::class]);
     }
 }
