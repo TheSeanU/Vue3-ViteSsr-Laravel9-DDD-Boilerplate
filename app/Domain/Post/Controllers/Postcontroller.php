@@ -4,10 +4,23 @@ namespace App\Domain\Post\Controllers;
 
 use App\Core\Controllers\Controller;
 
+use App\Domain\Post\Interface\PostInterface;
+
 class Postcontroller extends Controller
 {
-    public function index()
-    {
-        # code...
-    }
+   private $postRepository;
+  
+   public function __construct(PostInterface $postRepository)
+   {
+       $this->postRepository = $postRepository;
+   }
+
+   public function index()
+   {
+        $posts = $this->postRepository->all();
+
+        return new JsonResponse([
+            $posts
+        ], 401);
+   }
 }

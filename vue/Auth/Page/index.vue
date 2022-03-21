@@ -18,15 +18,21 @@
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </form>
+        <button class="btn btn-primary" @click="test" type="submit">test</button>
       </main>
   </div>
 </template>
 
 <script setup>
+import axios from 'axios';
+
 const env = import.meta.env.VITE_API
 
-
-const test = () => {console.log(env)}
+const test = () => {
+  axios.get(`${env}/user`).then(res => {
+    console.log(res);
+  })
+}
 </script>
 
 <style scoped>

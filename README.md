@@ -1,6 +1,6 @@
 # My laravel project with Vite, Vue & Domain Driven Design.
 
-##### My own project to build my app in domain driven design using laravel and vue.
+##### My own project to build my app in domain driven design using laravel and vue. added Repository Pattern – PHP Design Pattern
 
 ### Project setup
 
@@ -40,19 +40,23 @@ php artisan serve
         |-- Controllers
         |-- Database
         |-- Exceptions
+        |-- Interface
         |-- Kernels
         |-- Middleware
         |-- Providers
+        |-- Repository
     Domain
-        |-- * // = Names
+        |-- * //= Names
             |-- Controllers
             |-- Database
+            |-- Interface
             |-- Models
+            |-- Repository
             |-- Request
             |-- Routes
     Interface
         |-- *
-    Vue // = UI
+    Vue //= UI
         |-- Core
             |-- *
         |-- Domain
@@ -67,6 +71,9 @@ php artisan serve
     Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
     Factories:   "App\\Domain\\*\\Database\\\Factories\\".
     Routes:      "App\\Domain\\*\\Routes".
+
+    Interface: "App\\Domain\\*\\Interface\\".
+    Repository: "App\\Domain\\*\\Repository\\".
 ```
 
 ### Custom commands:

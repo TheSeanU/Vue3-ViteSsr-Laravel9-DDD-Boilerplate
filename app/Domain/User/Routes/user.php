@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Core\Http\Middleware\EnsureTokenIsValid;
 use App\Domain\User\Controllers\Usercontroller;
 
 /*
@@ -11,7 +10,4 @@ use App\Domain\User\Controllers\Usercontroller;
 |--------------------------------------------------------------------------
 */
 
-
-Route::middleware([EnsureTokenIsValid::class])->group(function () {
-    Route::get('user', [Usercontroller::class, 'index']);
-});
+Route::get('user', [Usercontroller::class, 'index']);

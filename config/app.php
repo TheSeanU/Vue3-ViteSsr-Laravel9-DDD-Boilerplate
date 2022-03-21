@@ -162,7 +162,7 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
-
+        Illuminate\View\ViewServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -176,6 +176,8 @@ return [
         App\Core\Providers\EventServiceProvider::class,
         App\Core\Providers\ConfigServiceProvider::class,
         
+        App\Core\Providers\RepositoryServiceProvider::class,
+
         App\Core\Providers\FactoryServiceProvider::class,
         App\Core\Providers\MigrationsServiceProvider::class,
         // App\Core\Providers\BroadcastServiceProvider::class,
