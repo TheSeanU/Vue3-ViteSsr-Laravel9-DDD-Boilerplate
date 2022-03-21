@@ -34,7 +34,6 @@ Run in another terminal the laravel development server:
 php artisan serve
 ```
 
-
 ### Laravel domain driven design data stucture;
     Core
         |-- Commands
@@ -45,7 +44,7 @@ php artisan serve
         |-- Middleware
         |-- Providers
     Domain
-        |-- *
+        |-- * // = Names
             |-- Controllers
             |-- Database
             |-- Models
@@ -53,13 +52,15 @@ php artisan serve
             |-- Routes
     Interface
         |-- *
-    vue // = UI
+    Vue // = UI
         |-- Core
+            |-- *
         |-- Domain
+            |-- *
         |-- Interface
+            |-- *
     
     
-
 ### Automatic index:
 ```sh
     Migrations:  "App\\Domain\\*\\Database\\\Migrations\\".
