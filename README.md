@@ -1,10 +1,31 @@
-test project for laravel ddd and vue.
+My laravel project with Vite, vue
 
-New artisan command for (php artisan migrate:fresh --seed). is now $php artisan migrate-seed
+Laravel domain driven design data stucture;
+    Core
+    |-- Commands
+    |-- Controllers
+    |-- Database
+    |-- Exceptions
+    |-- Kernels
+    |-- Middleware
+    |-- Providers
+    Domain
+    |-- *
+        |-- Controllers
+        |-- Database
+        |-- Models
+        |-- Request
+        |-- Routes
+    Interface
+    |-- *
+    
 
-Migrations are indexed in: "App\\Domain\\*\\Database\\\Migrations\\".
-Seeders are indexed in: "App\\Domain\\*\\Database\\\Seeders\\".
-Factories are indexed in: "App\\Domain\\*\\Database\\\Factories\\".
+Automatic index:
+    Migrations:  "App\\Domain\\*\\Database\\\Migrations\\".
+    Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
+    Factories:   "App\\Domain\\*\\Database\\\Factories\\".
+    Routes:      "App\\Domain\\*\\Routes".
 
-Routes are indexed in: "App\\Domain\\*\\Routes".
 
+Custom commands
+    Command: $ php artisan migrate-seed // equals php artisan mirgate::fresh -seed 
