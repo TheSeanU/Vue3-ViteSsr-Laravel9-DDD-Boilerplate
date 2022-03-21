@@ -37,26 +37,26 @@ php artisan serve
 
 ### Laravel domain driven design data stucture;
     Core
-    |-- Commands
-    |-- Controllers
-    |-- Database
-    |-- Exceptions
-    |-- Kernels
-    |-- Middleware
-    |-- Providers
-    Domain
-    |-- *
+        |-- Commands
         |-- Controllers
         |-- Database
-        |-- Models
-        |-- Request
-        |-- Routes
+        |-- Exceptions
+        |-- Kernels
+        |-- Middleware
+        |-- Providers
+    Domain
+        |-- *
+            |-- Controllers
+            |-- Database
+            |-- Models
+            |-- Request
+            |-- Routes
     Interface
-    |-- *
-    UI
-    |-- Core
-    |-- Domain
-    |-- Interface
+        |-- *
+    vue // = UI
+        |-- Core
+        |-- Domain
+        |-- Interface
     
     
 
