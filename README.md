@@ -15,7 +15,7 @@ code .env
 # edit if needed: DB_PORT=, DB_DATABASE=Rapp, DB_USERNAME=, DB_PASSWORD=
 
 php artisan key:generate
-php artisan migrate:fresh --seed
+php artisan migrate-seed
 ```
 
 ### Run project
