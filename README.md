@@ -14,7 +14,7 @@ mysql -u root
 
 cp .env.example .env
 code .env
-# edit if needed: DB_PORT=, DB_DATABASE=Rapp, DB_USERNAME=, DB_PASSWORD=
+# edit if needed: DB_PORT=, DB_DATABASE=laravel_, DB_USERNAME=, DB_PASSWORD=
 
 php artisan key:generate
 php artisan migrate-seed
