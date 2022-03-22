@@ -8,6 +8,6 @@ class Authcontroller extends Controller
 {
     public function index()
     {
-        # code...
+       return 'basdjyhfca';
     }
 }

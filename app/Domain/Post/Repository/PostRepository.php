@@ -5,7 +5,7 @@ namespace App\Domain\Post\Repository;
 use App\Domain\Post\Models\Post;
 
 use App\Core\Repository\BaseRepository;
-use App\Domain\Post\Repository\PostInterface;
+use App\Domain\Post\Interface\PostInterface;
 
 use Illuminate\Support\Collection;
 

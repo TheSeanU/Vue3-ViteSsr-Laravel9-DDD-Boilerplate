@@ -2,11 +2,10 @@
 
 namespace App\Domain\Auth\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-use Eloquent;
-
-class Auth extends Eloquent
+class Auth extends Model
 {
     use HasFactory;
     

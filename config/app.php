@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'nl_NL',
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,26 +163,24 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
-
+        
         /*
          * Application Service Providers...
          */
         App\Core\Providers\AppServiceProvider::class,
+        App\Core\Providers\RepositoryServiceProvider::class,
         App\Core\Providers\AuthServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
         App\Core\Providers\EventServiceProvider::class,
         App\Core\Providers\ConfigServiceProvider::class,
         
-        App\Core\Providers\RepositoryServiceProvider::class,
-
         App\Core\Providers\FactoryServiceProvider::class,
         App\Core\Providers\MigrationsServiceProvider::class,
         // App\Core\Providers\BroadcastServiceProvider::class,
-
-
 
     ],
 
@@ -198,7 +196,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
 ];
