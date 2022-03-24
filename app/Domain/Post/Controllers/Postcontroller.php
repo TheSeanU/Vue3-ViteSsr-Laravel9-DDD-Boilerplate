@@ -20,8 +20,6 @@ class Postcontroller extends Controller
    {
         $posts = $this->postRepository->all();
 
-        return new JsonResponse([
-            $posts
-        ], 401);
+        return new JsonResponse([$posts]);
    }
 }

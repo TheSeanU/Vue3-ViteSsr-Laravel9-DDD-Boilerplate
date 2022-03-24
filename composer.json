@@ -23,8 +23,7 @@
         "psr-4": {
             "App\\": "app/",
             "App\\Core\\": "app/Core/",
-            "App\\Domain\\": "app/Domain/",
-            "App\\Interface\\": "app/Interface/"
+            "App\\Domain\\": "app/Domain/"
         },
         "classmap": [
             "app/Domain/*/Database/Seeders",
