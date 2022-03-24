@@ -3,9 +3,6 @@
 namespace App\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,8 +12,8 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {                     
-        //
+    {
+        $this->app->singleton(UserService::class, AuthService::class);
     }
 
     /**
@@ -26,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(glob('App/Domain/' . "*" . '/Database/Migrations/' . "*.php"));
-        $this->loadMigrationsFrom(glob('App/Core/Database/Migrations/' . "*.php")); 
+        //...
     }
 }

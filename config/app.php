@@ -167,12 +167,12 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Core\Providers\RepositoryServiceProvider::class,
         
         /*
          * Application Service Providers...
          */
         App\Core\Providers\AppServiceProvider::class,
-        App\Core\Providers\RepositoryServiceProvider::class,
         App\Core\Providers\AuthServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
         App\Core\Providers\EventServiceProvider::class,
