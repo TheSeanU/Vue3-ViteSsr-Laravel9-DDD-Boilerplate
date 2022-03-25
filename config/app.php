@@ -174,7 +174,10 @@ return [
         * Application Service Providers...
         */
         App\Core\Providers\AppServiceProvider::class,
+        
+        App\Core\Providers\BaseRepositoryServiceProvider::class,
         App\Core\Providers\RepositoryServiceProvider::class,
+        
         App\Core\Providers\AuthServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
         App\Core\Providers\EventServiceProvider::class,
@@ -196,11 +199,6 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-
-
-
-    'paths' => InterfaceLoader::interfaceRepository(),
-
     'aliases' => Facade::defaultAliases()->merge([
         //...
     ])->toArray(),

@@ -9,19 +9,19 @@ use App\Domain\User\Interface\UserInterface;
 
 class Usercontroller extends Controller
 {
-   private $userRepository;
-  
-   public function __construct(UserInterface $userRepository)
-   {
-       $this->userRepository = $userRepository;
-   }
+     private $userRepository;
 
-   public function index(): JsonResponse
-   {
-        $users = $this->userRepository->all();
+     public function __construct(UserInterface $userRepository)
+     {
+          $this->userRepository = $userRepository;
+     }
 
-        return new JsonResponse([
-            $users
-        ]);
-   }
+     public function index(): JsonResponse
+     {
+          $users = $this->userRepository->all();
+
+          return new JsonResponse([
+               $users
+          ]);
+     }
 }

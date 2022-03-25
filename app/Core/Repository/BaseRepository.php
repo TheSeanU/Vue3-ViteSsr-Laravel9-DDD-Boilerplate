@@ -2,17 +2,17 @@
 
 namespace App\Core\Repository;   
 
-use App\Core\Interface\RepositoryInterface; 
-
+use App\Core\Interface\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;   
 
 class BaseRepository implements RepositoryInterface 
-{     
+{
+   
     /**      
      * @var Model      
      */     
-     protected $model;       
-
+    protected $model;       
+    
     /**      
      * BaseRepository constructor.      
      *      
