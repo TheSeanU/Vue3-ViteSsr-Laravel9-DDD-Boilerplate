@@ -1,7 +1,10 @@
-<?php
-$repository = str_replace(".php", "::class", glob('App\\Domain\\' . "*" . '\\Repository\\' . '*.php'));
-$interface = str_replace(".php", "::class", glob('App\\Domain\\' . "*" . '\\Interface\\' . '*.php'));
+<?php declare(strict_types=1);
 
-$interfaceRepository = array_combine($interface, $repository);
+// $repository = glob('App\Domain\\' . '*' . '\\Repository\\' . '*.php', GLOB_BRACE);
+// $interface = glob('App\Domain\\' . '*' . '\\Interface\\' . '*.php', GLOB_BRACE);
 
-return $interfaceRepository;
+// return [
+//     array_combine($repository, $interface)
+// ];
+
+

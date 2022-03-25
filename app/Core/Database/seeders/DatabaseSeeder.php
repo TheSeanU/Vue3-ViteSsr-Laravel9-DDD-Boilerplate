@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $files_arr =  str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));
         foreach ($files_arr as $file){
             if ($file !== 'DatabaseSeeder.php' && $file[0] !== "." ){
-                $this->call( explode('.', $file)[0] );
+                $this->call(explode('.', $file)[0]);
             }
         }
     }

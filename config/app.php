@@ -138,9 +138,10 @@ return [
 
     'providers' => [
 
+        
         /*
-         * Laravel Framework Service Providers...
-         */
+        * Laravel Framework Service Providers...
+        */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -163,16 +164,16 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
-        /*
-         * Package Service Providers...
-         */
-        App\Core\Providers\RepositoryServiceProvider::class,
         
         /*
-         * Application Service Providers...
-         */
+        * Package Service Providers...
+        */
+        
+        /*
+        * Application Service Providers...
+        */
         App\Core\Providers\AppServiceProvider::class,
+        App\Core\Providers\RepositoryServiceProvider::class,
         App\Core\Providers\AuthServiceProvider::class,
         App\Core\Providers\RouteServiceProvider::class,
         App\Core\Providers\EventServiceProvider::class,
@@ -196,7 +197,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'repsitoryPath' => glob('App\Domain\\' . '*' . '\\Repository\\' . '*.php'),
     ])->toArray(),
 
 ];
