@@ -2,9 +2,8 @@
 
 namespace App\Core\Kernels;
 
-use Illuminate\Foundation\Http\Kernel;
-
-class MiddlewareKernel extends Kernel
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
@@ -29,7 +28,9 @@ class MiddlewareKernel extends Kernel
      * @var array<string, array<int, class-string|string>>
      */
     protected $middlewareGroups = [
-        'web' => [
+        'web' => [],
+        
+        'api' => [
             \App\Core\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -37,9 +38,6 @@ class MiddlewareKernel extends Kernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Core\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
-
-        'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
