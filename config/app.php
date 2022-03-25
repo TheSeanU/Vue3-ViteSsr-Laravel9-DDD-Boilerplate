@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Helpers\interfaceLoader;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -196,8 +197,12 @@ return [
     |
     */
 
+
+
+    'paths' => InterfaceLoader::interfaceRepository(),
+
     'aliases' => Facade::defaultAliases()->merge([
-        'repsitoryPath' => glob('App\Domain\\' . '*' . '\\Repository\\' . '*.php'),
+        //...
     ])->toArray(),
 
 ];

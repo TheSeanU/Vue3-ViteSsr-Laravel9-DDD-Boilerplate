@@ -3,7 +3,7 @@
 namespace App\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Core\Traits\HelpsMapBindings;
 /** 
 * Class RepositoryServiceProvider 
 * @package App\Core\Providers 
@@ -17,12 +17,13 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {     
-        $models = array('Post', 'User');
-
+        // $models = config('app.paths');
+        $models = array('Post', 'User'); 
+               
         foreach ($models as $model) {
             $this->app->singleton(
-                "App\Domain\\{$model}\\Interface\\{$model}Interface", 
-                "App\Domain\\{$model}\\Repository\\{$model}Repository"
+                "App\\Domain\\{$model}\\Interface\\{$model}Interface", 
+                "App\\Domain\\{$model}\\Repository\\{$model}Repository"
             );
         }   
     }
