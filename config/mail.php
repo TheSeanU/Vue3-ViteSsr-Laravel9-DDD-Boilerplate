@@ -110,7 +110,7 @@ return [
         'theme' => 'default',
 
         'paths' => [
-            resource_path('views/vendor/mail'),
+            __DIR__ . 'vue/mail',
         ],
     ],
 
