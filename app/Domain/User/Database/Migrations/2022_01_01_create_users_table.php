@@ -26,8 +26,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $seeder = new UserSeeder();
-        $seeder->run();
+        (new UserSeeder())->run();
     }
 
     /**
