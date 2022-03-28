@@ -69,6 +69,7 @@ php artisan serve
 ```sh
     Migrations:  "App\\Domain\\*\\Database\\\Migrations\\".
     # call seeders in migrations instead. *
+    ### to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
     # Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
     Factories:   "App\\Domain\\*\\Database\\\Factories\\".
     Routes:      "App\\Domain\\*\\Routes".

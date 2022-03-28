@@ -9,6 +9,8 @@ use App\Domain\Auth\Models\Auth;
 
 class AuthSeeder extends Seeder
 {
+    public static $autoIndex = true;
+
     /**
      * Seed the application's database.
      *
