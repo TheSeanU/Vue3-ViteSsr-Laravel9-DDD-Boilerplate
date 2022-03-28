@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 use App\Domain\Post\Models\Post;
+use Faker\Core\Number;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -22,7 +23,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=> '1',
+            'user_id'=> (new Number)->randomDigitNotZero(),
             'email' => $this->faker->unique()->safeEmail(),
             'token' => Str::random(10),
             'created_at' => now(),

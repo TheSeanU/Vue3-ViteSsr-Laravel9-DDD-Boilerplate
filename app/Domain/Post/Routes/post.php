@@ -10,5 +10,5 @@ use App\Domain\Post\Controllers\Postcontroller;
 |--------------------------------------------------------------------------
 */
 
-Route::get('post', [Postcontroller::class, 'index']);
-Route::get('find', [Postcontroller::class, 'find']);
+Route::get('index', [Postcontroller::class, 'index']);
+Route::get('{post}', [Postcontroller::class, 'find']);

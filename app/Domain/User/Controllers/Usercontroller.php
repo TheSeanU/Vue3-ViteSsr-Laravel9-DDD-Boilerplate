@@ -18,19 +18,15 @@ class Usercontroller extends Controller
 
      public function index(): JsonResponse
      {
-          $users = $this->userRepository->all();
-
           return new JsonResponse([
-               $users
+               $this->userRepository->all()
           ]);
      }
 
      public function find(): JsonResponse
      {
-          $users = $this->userRepository->findorfail('2');
-
           return new JsonResponse([
-               $users
+               $this->userRepository->findById('1')
           ]);
      }
 }

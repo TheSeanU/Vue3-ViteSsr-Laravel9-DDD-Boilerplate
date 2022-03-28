@@ -33,7 +33,7 @@ class UserRepository extends BaseRepository implements UserInterface
     /**
      * @return Collection
      */
-    public function findorfail($id): Collection
+    public function findById($id): Collection
     {
         return $this->model->where('id', $id)->with('posts')->get();
     }

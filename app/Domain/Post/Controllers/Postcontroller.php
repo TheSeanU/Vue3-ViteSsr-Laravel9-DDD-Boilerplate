@@ -16,7 +16,7 @@ class Postcontroller extends Controller
        $this->postRepository = $postRepository;
    }
 
-   public function index()
+   public function index(): JsonResponse
    {
         $posts = $this->postRepository->all();
 
@@ -24,9 +24,9 @@ class Postcontroller extends Controller
    }
 
 
-    public function findorfail()
+    public function find(): JsonResponse
     {
-        $posts = $this->postRepository->findorfail('1');
+        $posts = $this->postRepository->findById('1');
 
         return new JsonResponse([$posts]);
     }

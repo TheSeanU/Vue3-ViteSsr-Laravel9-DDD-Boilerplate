@@ -10,5 +10,5 @@ use App\Domain\User\Controllers\Usercontroller;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/{user}', [ Usercontroller::class, 'index']);
-Route::get('find', [Usercontroller::class, 'find']);
+Route::get('index', [ Usercontroller::class, 'index']);
+Route::get('{user}', [ Usercontroller::class, 'find']);
