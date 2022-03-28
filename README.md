@@ -78,7 +78,7 @@ php artisan serve
     Repository: "App\\Domain\\*\\Repository\\".
 ```
 
-### * Call seeders: 
+### * Call seeders inside migration files: 
 ##### Hierarchy for model relations now works with the date you put in front of the migration file.
 ```sh
     use App\Domain\*\Database\Seeders\CustomSeeder;
