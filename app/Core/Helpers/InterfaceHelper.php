@@ -2,7 +2,7 @@
 
 namespace App\Core\Helpers;
 
-class InterfaceLoader {     
+class InterfaceHelper {     
     
     public static function interfaceRepository()
     {               

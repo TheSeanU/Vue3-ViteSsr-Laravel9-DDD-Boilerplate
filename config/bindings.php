@@ -1,9 +1,9 @@
 <?php
 
-use App\Core\Helpers\InterfaceLoader;
+use App\Core\Helpers\InterfaceHelper;
 
 return [
     'bindings' => [
-        ...(new InterfaceLoader)->interfaceRepository()
+        ...(new InterfaceHelper)->interfaceRepository()
     ]
 ];

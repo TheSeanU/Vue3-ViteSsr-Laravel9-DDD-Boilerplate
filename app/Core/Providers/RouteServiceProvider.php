@@ -2,13 +2,11 @@
 
 namespace App\Core\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-
 use Illuminate\Http\Request;
-
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
+use App\Core\Helpers\RouteHelper;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -19,12 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $paths = glob('App/Domain/' . "*" . '/Routes/' . "*.php");
-        $namespace = glob('App/Domain/' . "*" . '/Controllers/');
-
-        foreach ($paths as $path) Route::prefix('api/' . str_replace('.php', '', basename($path)))
-            ->namespace($namespace)
-            ->group(base_path($path));
+        (new RouteHelper)->RoutePathLoader();
 
         $this->configureRateLimiting();
     }

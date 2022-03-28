@@ -3,9 +3,6 @@
 namespace App\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-use Illuminate\Support\Str;
 
 class MigrationsServiceProvider extends ServiceProvider
 {

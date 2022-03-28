@@ -2,10 +2,8 @@
 
 namespace App\Core\Providers;
 
+use App\Core\Helpers\FactoryHelper;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-use Illuminate\Support\Str;
 
 class FactoryServiceProvider extends ServiceProvider
 {
@@ -26,16 +24,6 @@ class FactoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {         
-        Factory::guessFactoryNamesUsing(function (string $modelName) {
-            $factoryPath = str_replace(".php", "", 
-                glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php")
-            );
-            
-            foreach ($factoryPath as $path) {
-                $factoryModelName = str_replace('Factory', '', Str::afterlast($path, '\\'));              
-                if(Str::afterlast($modelName, '\\') ===  $factoryModelName) 
-                    return $path;
-            }
-        }); 
+        (new FactoryHelper)->FactoryPathLoader();
     }
 }

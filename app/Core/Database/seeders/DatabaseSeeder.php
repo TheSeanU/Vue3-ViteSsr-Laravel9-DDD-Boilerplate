@@ -2,7 +2,7 @@
 
 namespace App\Core\Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Core\Helpers\SeederHelper;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,11 +14,6 @@ class DatabaseSeeder extends Seeder
      */ 
     public function run()
     {
-        $files_arr =  str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));            
-        foreach ($files_arr as $file){
-            if (isset($file::$autoIndex) && $file !== 'DatabaseSeeder.php' && $file[0] !== "." ){
-                $this->call(explode('.', $file)[0]);
-            }
-        }
+        $this->call((new SeederHelper)->SeederPathLoader());
     }
 }

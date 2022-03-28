@@ -3,7 +3,6 @@
 namespace App\Domain\Post\Controllers;
 
 use App\Core\Controllers\Controller;
-
 use App\Domain\Post\Interface\PostInterface;
 use Illuminate\Http\JsonResponse;
 
@@ -18,16 +17,12 @@ class Postcontroller extends Controller
 
    public function index(): JsonResponse
    {
-        $posts = $this->postRepository->all();
-
-        return new JsonResponse([$posts]);
+        return new JsonResponse([$this->postRepository->all()]);
    }
 
 
     public function find(): JsonResponse
     {
-        $posts = $this->postRepository->findById('1');
-
-        return new JsonResponse([$posts]);
+        return new JsonResponse([$this->postRepository->findById('1')]);
     }
 }
