@@ -3,27 +3,53 @@
 namespace App\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
-/** 
-* Class RepositoryServiceProvider 
-* @package App\Core\Providers 
-*/ 
+use Illuminate\Support\Facades\Config;
 class RepositoryServiceProvider extends ServiceProvider
 {
 
     /**
-     * Register any application services.
+     * Configuration String
+     */
+    const CONFIG_STRING = 'bindings';
+
+
+    /**
+     * Service Provider Registration
      *
-     * @return void
+     * @access public
      */
     public function register()
-    {        
-        $models = array('Post', 'User'); 
-               
-        foreach ($models as $model) {
-            $this->app->singleton(
-                "App\\Domain\\{$model}\\Interface\\{$model}Interface", 
-                "App\\Domain\\{$model}\\Repository\\{$model}Repository"
-            );
-        }   
+    {
+        if (!empty(Config::get(self::CONFIG_STRING))) {
+            $this->registerBindingGroups(Config::get(self::CONFIG_STRING));
+        }
+    }
+
+
+    /**
+     * Register Application Binding Groups
+     *
+     * @access private
+     * @param array $groups
+     */
+    private function registerBindingGroups(array $groups)
+    {
+        foreach ($groups as $bindings) {
+            $this->registerBindings($bindings);
+        }
+    }
+
+
+    /**
+     * Register Application Bindings
+     *
+     * @access private
+     * @param array $bindings
+     */
+    private function registerBindings(array $bindings)
+    {
+        foreach ($bindings as $interface => $implementation) {
+            $this->app->bind($interface, $implementation);
+        }
     }
 }
