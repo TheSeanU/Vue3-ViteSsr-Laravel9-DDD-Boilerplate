@@ -72,6 +72,7 @@ php artisan serve
     ### to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
     # Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
     Factories:   "App\\Domain\\*\\Database\\\Factories\\".
+    ### The routes auto indexer. usses the filename as /api/filename.
     Routes:      "App\\Domain\\*\\Routes".
 
     Interface: "App\\Domain\\*\\Interface\\".

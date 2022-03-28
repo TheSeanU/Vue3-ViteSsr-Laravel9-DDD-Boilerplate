@@ -35,7 +35,10 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan config:cache",
+            "@php artisan route:cache",
+            "@php artisan route:list -v"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
@@ -52,9 +55,8 @@
             "dont-discover": [
                 "Illuminate/Foundation/Mix",
                 "Illuminate/Mail/MailServiceProvider",
-                "Illuminate/Support/Facades/Blade",
-                "Illuminate/Support/Facades/View",
-                "Illuminate/View/ViewServiceProvider"
+                "Illuminate/Support/Facades/Blade"
+
             ]
         }
     },

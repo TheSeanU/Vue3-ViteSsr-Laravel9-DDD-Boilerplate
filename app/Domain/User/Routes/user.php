@@ -6,8 +6,9 @@ use App\Domain\User\Controllers\Usercontroller;
 
 /*
 |--------------------------------------------------------------------------
-| User Routes
+| User Routes 
 |--------------------------------------------------------------------------
 */
 
-Route::get('user', [Usercontroller::class, 'index']);
+Route::get('/{user}', [ Usercontroller::class, 'index']);
+Route::get('find', [Usercontroller::class, 'find']);

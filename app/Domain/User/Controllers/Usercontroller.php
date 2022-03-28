@@ -24,4 +24,13 @@ class Usercontroller extends Controller
                $users
           ]);
      }
+
+     public function find(): JsonResponse
+     {
+          $users = $this->userRepository->findorfail('2');
+
+          return new JsonResponse([
+               $users
+          ]);
+     }
 }

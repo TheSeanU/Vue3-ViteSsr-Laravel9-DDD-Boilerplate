@@ -19,14 +19,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->configureRateLimiting();
-
         $paths = glob('App/Domain/' . "*" . '/Routes/' . "*.php");
         $namespace = glob('App/Domain/' . "*" . '/Controllers/');
 
-        foreach ($paths as $path) Route::prefix('api')->namespace($namespace)->group(base_path($path));
-    }
+        foreach ($paths as $path) Route::prefix('api/' . str_replace('.php', '', basename($path)))
+            ->namespace($namespace)
+            ->group(base_path($path));
 
+        $this->configureRateLimiting();
+    }
+    
     /**
      * Configure the rate limiters for the application.
      *
