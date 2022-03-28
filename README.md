@@ -39,6 +39,9 @@ php artisan serve
         |-- Commands
         |-- Controllers
         |-- Database
+            |-- Factory
+            |-- Migrations
+            |-- Seeders
         |-- Exceptions
         |-- Interface
         |-- Kernels
@@ -49,6 +52,9 @@ php artisan serve
         |-- * //= Names
             |-- Controllers
             |-- Database
+                |-- Factory
+                |-- Migrations
+                |-- Seeders
             |-- Interface
             |-- Models
             |-- Repository
@@ -67,14 +73,13 @@ php artisan serve
     
 ### Automatic index:
 ```sh
-    Migrations:  "App\\Domain\\*\\Database\\\Migrations\\".
+    Migrations: "App\\Domain\\*\\Database\\\Migrations\\".
     # call seeders in migrations instead. *
-    ### to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
-    # Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
-    Factories:   "App\\Domain\\*\\Database\\\Factories\\".
+    # to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
+    # Seeders: "App\\Domain\\*\\Database\\\Seeders\\".
+    Factories: "App\\Domain\\*\\Database\\\Factories\\".
     ### The routes auto indexer. usses the filename as /api/filename.
-    Routes:      "App\\Domain\\*\\Routes".
-
+    Routes:"App\\Domain\\*\\Routes".
     Interface: "App\\Domain\\*\\Interface\\".
     Repository: "App\\Domain\\*\\Repository\\".
 ```
@@ -82,11 +87,12 @@ php artisan serve
 ### * Call seeders inside migration files: 
 ##### Hierarchy for model relations now works with the date you put in front of the migration file.
 ```sh
-    use App\Domain\*\Database\Seeders\CustomSeeder;
+    use App\\Domain\\*\\Database\\Seeders\\CustomSeeder;
 
     public function up()
     {
         Schema::create('table', function (Blueprint $table) {
+            //...
         });
 
         (new CustomSeeder())->run();
@@ -94,4 +100,4 @@ php artisan serve
 ```
 
 ### Custom commands:
-    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh -seed 
+    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh --seed 

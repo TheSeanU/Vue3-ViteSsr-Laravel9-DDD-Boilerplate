@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Core\Database\Seeders\FailedJobsSeeder;
+
 return new class extends Migration
 {
     /**
@@ -22,6 +24,8 @@ return new class extends Migration
             $table->longText('exception');
             $table->timestamp('failed_at')->useCurrent();
         });
+
+        (new FailedJobsSeeder())->run();
     }
 
     /**
