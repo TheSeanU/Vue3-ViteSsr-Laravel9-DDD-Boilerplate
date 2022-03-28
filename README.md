@@ -88,8 +88,7 @@ php artisan serve
         Schema::create('table', function (Blueprint $table) {
         });
 
-        $seeder = new CustomSeeder();
-        $seeder->run();
+        (new CustomSeeder())->run();
     }
 ```
 
