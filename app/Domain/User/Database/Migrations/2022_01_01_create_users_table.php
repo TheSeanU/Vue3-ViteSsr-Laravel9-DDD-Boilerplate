@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 use App\Domain\User\Database\Seeders\UserSeeder;
 
-
 return new class extends Migration
 {
     /**

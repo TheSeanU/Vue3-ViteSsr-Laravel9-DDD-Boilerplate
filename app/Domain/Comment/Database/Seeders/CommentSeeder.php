@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Post\Database\Seeders;
+namespace App\Domain\Comment\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Domain\Post\Models\Post;
+use App\Domain\Comment\Models\Comment;
 
-class PostSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -15,6 +15,6 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        Post::factory(10)->create();
+        Comment::factory(10)->create();
     }
 }

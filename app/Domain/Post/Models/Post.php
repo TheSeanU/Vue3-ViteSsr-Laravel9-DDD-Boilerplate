@@ -2,12 +2,13 @@
 
 namespace App\Domain\Post\Models;
 
-use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use Eloquent;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\{HasMany, HasOne};
+
+use App\Domain\Comment\Models\Comment;
+use App\Domain\User\Models\User;
 
 class Post extends Model
 {
@@ -15,11 +16,14 @@ class Post extends Model
 
     protected $table = 'posts';
 
-
-    public function user(): BelongsTo
+    public function users(): HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
     
 }

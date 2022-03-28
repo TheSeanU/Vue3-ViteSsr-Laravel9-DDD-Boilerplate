@@ -8,18 +8,17 @@ use Illuminate\Http\JsonResponse;
 
 class Postcontroller extends Controller
 {
-   private $postRepository;
+    private $postRepository;
   
-   public function __construct(PostInterface $postRepository)
-   {
-       $this->postRepository = $postRepository;
-   }
+    public function __construct(PostInterface $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
 
-   public function index(): JsonResponse
-   {
+    public function index(): JsonResponse
+    {
         return new JsonResponse([$this->postRepository->all()]);
-   }
-
+    }
 
     public function find(): JsonResponse
     {

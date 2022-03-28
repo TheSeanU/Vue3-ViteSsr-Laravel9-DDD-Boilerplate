@@ -10,6 +10,5 @@ class Auth extends Model
     use HasFactory;
     
     protected $table = 'password_resets';
-
     
 }
