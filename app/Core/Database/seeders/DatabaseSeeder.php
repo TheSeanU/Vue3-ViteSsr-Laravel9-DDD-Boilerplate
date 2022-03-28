@@ -16,11 +16,23 @@ class DatabaseSeeder extends Seeder
      */ 
     public function run()
     {
-        $files_arr =  str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));
-        foreach ($files_arr as $file){
-            if ($file !== 'DatabaseSeeder.php' && $file[0] !== "." ){
-                $this->call(explode('.', $file)[0]);
-            }
-        }
+        // $this->call([
+        //     \App\Domain\Auth\Database\Seeders\AuthSeeder::class,
+        //     \App\Domain\User\Database\Seeders\UserSeeder::class,
+        //     \App\Domain\Post\Database\Seeders\PostSeeder::class,
+        // ]);
+
+
+        // TODO:: make autoloader compatible with model relations.
+
+        // $files_arr =  str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));
+        
+        // dd($files_arr);
+        
+        // foreach ($files_arr as $file){
+        //     if ($file !== 'DatabaseSeeder.php' && $file[0] !== "." ){
+        //         $this->call(explode('.', $file)[0]);
+        //     }
+        // }
     }
 }

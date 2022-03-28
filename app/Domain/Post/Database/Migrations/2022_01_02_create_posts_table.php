@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Domain\Post\Database\Seeders\PostSeeder;
+
 return new class extends Migration
 {
     /**
@@ -14,11 +16,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('user_id')->constrained('users');
+
             $table->string('email')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
+
+        $seeder = new PostSeeder();
+        $seeder->run();
     }
 
     /**

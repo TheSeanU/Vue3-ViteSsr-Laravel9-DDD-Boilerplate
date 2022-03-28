@@ -22,6 +22,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'user_id'=> '1',
             'email' => $this->faker->unique()->safeEmail(),
             'token' => Str::random(10),
             'created_at' => now(),
