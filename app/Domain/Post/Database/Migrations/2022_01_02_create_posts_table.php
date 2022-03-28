@@ -26,8 +26,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
         });
 
-        $seeder = new PostSeeder();
-        $seeder->run();
+        (new PostSeeder())->run();
     }
 
     /**
