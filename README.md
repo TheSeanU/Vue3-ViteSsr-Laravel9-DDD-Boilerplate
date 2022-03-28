@@ -68,12 +68,29 @@ php artisan serve
 ### Automatic index:
 ```sh
     Migrations:  "App\\Domain\\*\\Database\\\Migrations\\".
-    Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
+    # call seeders in migrations instead. *
+    ### to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
+    # Seeders:     "App\\Domain\\*\\Database\\\Seeders\\".
     Factories:   "App\\Domain\\*\\Database\\\Factories\\".
+    ### The routes auto indexer. usses the filename as /api/filename.
     Routes:      "App\\Domain\\*\\Routes".
 
     Interface: "App\\Domain\\*\\Interface\\".
     Repository: "App\\Domain\\*\\Repository\\".
+```
+
+### * Call seeders inside migration files: 
+##### Hierarchy for model relations now works with the date you put in front of the migration file.
+```sh
+    use App\Domain\*\Database\Seeders\CustomSeeder;
+
+    public function up()
+    {
+        Schema::create('table', function (Blueprint $table) {
+        });
+
+        (new CustomSeeder())->run();
+    }
 ```
 
 ### Custom commands:

@@ -29,4 +29,12 @@ class UserRepository extends BaseRepository implements UserInterface
    {
        return $this->model->all();    
    }
+
+    /**
+     * @return Collection
+     */
+    public function findorfail($id): Collection
+    {
+        return $this->model->where('id', $id)->with('posts')->get();
+    }
 }

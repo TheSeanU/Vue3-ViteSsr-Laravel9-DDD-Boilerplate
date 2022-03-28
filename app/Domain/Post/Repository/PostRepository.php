@@ -29,4 +29,12 @@ class PostRepository extends BaseRepository implements PostInterface
    {
        return $this->model->all();    
    }
+
+    /**
+     * @return Collection
+     */
+    public function findorfail($id)
+    {
+         return $this->model->findOrFail($id);
+    }
 }

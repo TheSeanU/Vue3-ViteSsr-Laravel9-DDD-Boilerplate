@@ -9,6 +9,7 @@ use App\Domain\User\Models\User;
 
 class UserSeeder extends Seeder
 {
+
     /**
      * Seed the application's database.
      *

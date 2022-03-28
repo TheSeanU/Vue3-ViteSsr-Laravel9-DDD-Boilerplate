@@ -31,7 +31,7 @@ class FactoryServiceProvider extends ServiceProvider
                 glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php")
             );
             
-            foreach ($factoryPath as $key => $path) {
+            foreach ($factoryPath as $path) {
                 $factoryModelName = str_replace('Factory', '', Str::afterlast($path, '\\'));              
                 if(Str::afterlast($modelName, '\\') ===  $factoryModelName) 
                     return $path;

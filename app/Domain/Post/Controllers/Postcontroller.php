@@ -22,4 +22,12 @@ class Postcontroller extends Controller
 
         return new JsonResponse([$posts]);
    }
+
+
+    public function findorfail()
+    {
+        $posts = $this->postRepository->findorfail('1');
+
+        return new JsonResponse([$posts]);
+    }
 }
