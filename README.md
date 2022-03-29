@@ -35,7 +35,7 @@ php artisan serve
 ```
 
 ### Laravel domain driven design data stucture;
-    Core
+    Application
         |-- Commands
         |-- Controllers
         |-- Database

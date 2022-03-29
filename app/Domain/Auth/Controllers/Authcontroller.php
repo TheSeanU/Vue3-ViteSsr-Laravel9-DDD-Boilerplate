@@ -2,7 +2,7 @@
 
 namespace App\Domain\Auth\Controllers;
 
-use App\Core\Controllers\Controller;
+use App\Application\Controllers\Controller;
 
 class Authcontroller extends Controller
 {

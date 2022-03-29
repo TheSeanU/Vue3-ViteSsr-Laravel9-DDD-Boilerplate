@@ -1,6 +1,5 @@
 <?php
 
-use App\Core\Helpers\interfaceLoader;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -165,27 +164,27 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         /*
         * Package Service Providers...
         */
-        
+
         /*
         * Application Service Providers...
         */
-        App\Core\Providers\AppServiceProvider::class,
-        
-        App\Core\Providers\BaseRepositoryServiceProvider::class,
-        App\Core\Providers\RepositoryServiceProvider::class,
-        
-        App\Core\Providers\AuthServiceProvider::class,
-        App\Core\Providers\RouteServiceProvider::class,
-        App\Core\Providers\EventServiceProvider::class,
-        App\Core\Providers\ConfigServiceProvider::class,
-        
-        App\Core\Providers\FactoryServiceProvider::class,
-        App\Core\Providers\MigrationsServiceProvider::class,
-        // App\Core\Providers\BroadcastServiceProvider::class,
+        App\Application\Providers\AppServiceProvider::class,
+
+        App\Application\Providers\BaseRepositoryServiceProvider::class,
+        App\Application\Providers\RepositoryServiceProvider::class,
+
+        App\Application\Providers\AuthServiceProvider::class,
+        App\Application\Providers\RouteServiceProvider::class,
+        App\Application\Providers\EventServiceProvider::class,
+        App\Application\Providers\ConfigServiceProvider::class,
+
+        App\Application\Providers\FactoryServiceProvider::class,
+        App\Application\Providers\MigrationsServiceProvider::class,
+        // App\Application\Providers\BroadcastServiceProvider::class,
 
     ],
 

@@ -2,7 +2,7 @@
 
 namespace App\Domain\Post\Controllers;
 
-use App\Core\Controllers\Controller;
+use App\Application\Controllers\Controller;
 use App\Domain\Post\Interface\PostInterface;
 use Illuminate\Http\JsonResponse;
 

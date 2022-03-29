@@ -4,7 +4,7 @@ namespace App\Domain\User\Repository;
 
 use App\Domain\User\Models\User;
 
-use App\Core\Repository\BaseRepository;
+use App\Application\Repository\BaseRepository;
 use App\Domain\User\Interface\UserInterface;
 
 use Illuminate\Support\Collection;

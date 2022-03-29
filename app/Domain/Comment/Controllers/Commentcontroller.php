@@ -2,7 +2,7 @@
 
 namespace App\Domain\Comment\Controllers;
 
-use App\Core\Controllers\Controller;
+use App\Application\Controllers\Controller;
 use App\Domain\Comment\Interface\CommentInterface;
 use App\Domain\Comment\Models\Comment;
 use Illuminate\Http\JsonResponse;
