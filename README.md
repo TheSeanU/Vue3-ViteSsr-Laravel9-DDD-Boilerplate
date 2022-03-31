@@ -2,6 +2,13 @@
 
 ##### My own project to build my app in domain driven design using laravel and vue. added Repository Pattern – PHP Design Pattern
 
+
+### PHP version needed
+```sh
+needed version = PHP 8.1.* or higher. new features.
+```
+
+
 ### Project setup
 
 ```sh
