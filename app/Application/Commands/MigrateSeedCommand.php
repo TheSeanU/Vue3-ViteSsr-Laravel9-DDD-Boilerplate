@@ -18,7 +18,7 @@ class MigrateSeedCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'this command is a replacement for $php artisan migrate:fresh --seed';
 
     /**
      * Execute the console command.

@@ -164,16 +164,16 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        
         /*
         * Package Service Providers...
         */
+        // PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
         * Application Service Providers...
         */
         App\Application\Providers\AppServiceProvider::class,
-
         App\Application\Providers\BaseRepositoryServiceProvider::class,
         App\Application\Providers\RepositoryServiceProvider::class,
 

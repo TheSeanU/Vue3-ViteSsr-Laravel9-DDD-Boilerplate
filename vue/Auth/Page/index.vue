@@ -1,13 +1,13 @@
 <template>
   <div class="col">
       <main class="form-signin">
-        <form>
+        <form @click.prevent="submit">
             <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input v-model="form.email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input v-model="form.password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
             </div>
 
@@ -18,19 +18,27 @@
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </form>
-        <button class="btn btn-primary" @click="test" type="submit">test</button>
       </main>
   </div>
 </template>
 
 <script setup>
 import axios from 'axios';
+import { reactive } from 'vue';
+
+const form = reactive({
+    email: '',
+    password: '',
+});
+
+
 
 const env = import.meta.env.VITE_API
 
-const test = () => {
-  axios.get(`${env}/user`).then(res => {
-    console.log(res);
+const submit = () => {
+  axios.post(`${env}/auth/login`, form)
+  .then(function (response) {
+    console.log(response);
   })
 }
 </script>
