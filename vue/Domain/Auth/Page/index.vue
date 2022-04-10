@@ -23,8 +23,9 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import { reactive } from 'vue';
+import {login} from '../Service/index'
+
 
 const form = reactive({
     email: '',
@@ -33,14 +34,9 @@ const form = reactive({
 
 
 
-const env = import.meta.env.VITE_API
 
-const submit = () => {
-  axios.post(`${env}/auth/login`, form)
-  .then(function (response) {
-    console.log(response);
-  })
-}
+
+
 </script>
 
 <style scoped>
