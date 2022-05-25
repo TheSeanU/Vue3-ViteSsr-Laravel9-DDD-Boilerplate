@@ -1,13 +1,12 @@
 # My laravel project with Vite, Vue & Domain Driven Design.
 
-##### My own project to build my app in domain driven design using laravel and vue. added Repository Pattern – PHP Design Pattern
-
+##### My own project to build an app in domain driven design using laravel and vue. added Repository Pattern – PHP Design Pattern
 
 ### PHP version needed
+
 ```sh
 needed version = PHP 8.1.* or higher. new features.
 ```
-
 
 ### Project setup
 
@@ -42,9 +41,10 @@ php artisan serve
 ```
 
 ### Laravel domain driven design data stucture;
-    Application
+
+    Infrastructure
         |-- Commands
-        |-- Controllers
+        |-- Controller
         |-- Database
             |-- Factory
             |-- Migrations
@@ -56,8 +56,7 @@ php artisan serve
         |-- Providers
         |-- Repository
     Domain
-        |-- * //= Names
-            |-- Controllers
+        |-- *
             |-- Database
                 |-- Factory
                 |-- Migrations
@@ -66,19 +65,29 @@ php artisan serve
             |-- Models
             |-- Repository
             |-- Request
-            |-- Routes
+    Application
+        |-- *
+            |-- Middleware
+            |-- Requests
+            |-- Policies
+            |-- Jobs
     Interface
         |-- *
-    Vue //= UI
-        |-- Core
+            |-- Controllers
+            |-- Routes
+
+    Vue
+        |-- Infrastructure
             |-- *
         |-- Domain
             |-- *
+        |-- Application
+            |-- *
         |-- Interface
             |-- *
-    
-    
+
 ### Automatic index:
+
 ```sh
     Migrations: "App\\Domain\\*\\Database\\\Migrations\\".
     # call seeders in migrations instead. *
@@ -86,13 +95,15 @@ php artisan serve
     # Seeders: "App\\Domain\\*\\Database\\\Seeders\\".
     Factories: "App\\Domain\\*\\Database\\\Factories\\".
     ### The routes auto indexer. usses the filename as /api/filename.
-    Routes:"App\\Domain\\*\\Routes".
+    Routes:"App\\Interface\\*\\Routes".
     Interface: "App\\Domain\\*\\Interface\\".
     Repository: "App\\Domain\\*\\Repository\\".
 ```
 
-### * Call seeders inside migration files: 
+### \* Call seeders inside migration files:
+
 ##### Hierarchy for model relations now works with the date you put in front of the migration file.
+
 ```sh
     use App\\Domain\\*\\Database\\Seeders\\CustomSeeder;
 
@@ -107,4 +118,5 @@ php artisan serve
 ```
 
 ### Custom commands:
-    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh --seed 
+
+    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh --seed

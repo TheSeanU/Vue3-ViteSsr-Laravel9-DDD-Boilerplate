@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Create The Infrastructure
 |--------------------------------------------------------------------------
 |
 | The first thing we will do is create a new Laravel application instance
@@ -28,22 +28,22 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    App\Application\Kernels\Kernel::class
+    App\Infrastructure\Kernels\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Application\Kernels\CommandsKernel::class
+    App\Infrastructure\Kernels\CommandsKernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Application\Exceptions\Handler::class
+    App\Infrastructure\Exceptions\Handler::class
 );
 
 /*
 |--------------------------------------------------------------------------
-| Return The Application
+| Return The Infrastructure
 |--------------------------------------------------------------------------
 |
 | This script returns the application instance. The instance is given to

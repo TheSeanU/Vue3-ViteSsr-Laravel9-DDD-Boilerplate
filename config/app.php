@@ -6,7 +6,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Infrastructure Name
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -19,7 +19,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment
+    | Infrastructure Environment
     |--------------------------------------------------------------------------
     |
     | This value determines the "environment" your application is currently
@@ -32,7 +32,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Debug Mode
+    | Infrastructure Debug Mode
     |--------------------------------------------------------------------------
     |
     | When your application is in debug mode, detailed error messages with
@@ -45,7 +45,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application URL
+    | Infrastructure URL
     |--------------------------------------------------------------------------
     |
     | This URL is used by the console to properly generate URLs when using
@@ -60,7 +60,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | Infrastructure Timezone
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default timezone for your application, which
@@ -73,7 +73,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Infrastructure Locale Configuration
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
@@ -86,7 +86,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Fallback Locale
+    | Infrastructure Fallback Locale
     |--------------------------------------------------------------------------
     |
     | The fallback locale determines the locale to use when the current one
@@ -138,7 +138,7 @@ return [
 
     'providers' => [
 
-        
+
         /*
         * Laravel Framework Service Providers...
         */
@@ -164,27 +164,27 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         /*
         * Package Service Providers...
         */
         // PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
 
         /*
-        * Application Service Providers...
+        * Infrastructure Service Providers...
         */
-        App\Application\Providers\AppServiceProvider::class,
-        App\Application\Providers\BaseRepositoryServiceProvider::class,
-        App\Application\Providers\RepositoryServiceProvider::class,
+        App\Infrastructure\Providers\AppServiceProvider::class,
+        App\Infrastructure\Providers\BaseRepositoryServiceProvider::class,
+        App\Infrastructure\Providers\RepositoryServiceProvider::class,
 
-        App\Application\Providers\AuthServiceProvider::class,
-        App\Application\Providers\RouteServiceProvider::class,
-        App\Application\Providers\EventServiceProvider::class,
-        App\Application\Providers\ConfigServiceProvider::class,
+        App\Infrastructure\Providers\AuthServiceProvider::class,
+        App\Infrastructure\Providers\RouteServiceProvider::class,
+        App\Infrastructure\Providers\EventServiceProvider::class,
+        App\Infrastructure\Providers\ConfigServiceProvider::class,
 
-        App\Application\Providers\FactoryServiceProvider::class,
-        App\Application\Providers\MigrationsServiceProvider::class,
-        // App\Application\Providers\BroadcastServiceProvider::class,
+        App\Infrastructure\Providers\FactoryServiceProvider::class,
+        App\Infrastructure\Providers\MigrationsServiceProvider::class,
+        // App\Infrastructure\Providers\BroadcastServiceProvider::class,
 
     ],
 

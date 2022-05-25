@@ -9,7 +9,7 @@ trait CreatesApplication
     /**
      * Creates the application.
      *
-     * @return \Illuminate\Foundation\Application
+     * @return \Illuminate\Foundation\Infrastructure
      */
     public function createApplication()
     {

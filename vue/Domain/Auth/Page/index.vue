@@ -10,7 +10,6 @@
             <input v-model="form.password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
             </div>
-
             <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

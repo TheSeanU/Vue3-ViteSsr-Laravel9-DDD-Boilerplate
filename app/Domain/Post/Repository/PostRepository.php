@@ -4,7 +4,7 @@ namespace App\Domain\Post\Repository;
 
 use App\Domain\Post\Models\Post;
 
-use App\Application\Repository\BaseRepository;
+use App\Infrastructure\Repository\BaseRepository;
 use App\Domain\Post\Interface\PostInterface;
 
 use Illuminate\Support\Collection;
@@ -27,7 +27,7 @@ class PostRepository extends BaseRepository implements PostInterface
     */
    public function all(): Collection
    {
-       return $this->model->all();    
+       return $this->model->all();
    }
 
     /**

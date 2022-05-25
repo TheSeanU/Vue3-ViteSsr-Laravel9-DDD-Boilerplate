@@ -4,7 +4,7 @@ namespace App\Domain\User\Repository;
 
 use App\Domain\User\Models\User;
 
-use App\Application\Repository\BaseRepository;
+use App\Infrastructure\Repository\BaseRepository;
 use App\Domain\User\Interface\UserInterface;
 
 use Illuminate\Support\Collection;
@@ -27,7 +27,7 @@ class UserRepository extends BaseRepository implements UserInterface
     */
    public function all(): Collection
    {
-       return $this->model->all();    
+       return $this->model->all();
    }
 
     /**

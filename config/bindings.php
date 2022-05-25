@@ -1,6 +1,6 @@
 <?php
 
-use App\Application\Helpers\InterfaceHelper;
+use App\Infrastructure\Helpers\InterfaceHelper;
 
 return [
     'bindings' => [

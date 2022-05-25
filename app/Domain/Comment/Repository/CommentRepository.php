@@ -4,7 +4,7 @@ namespace App\Domain\Comment\Repository;
 
 use App\Domain\Comment\Models\Comment;
 
-use App\Application\Repository\BaseRepository;
+use App\Infrastructure\Repository\BaseRepository;
 use App\Domain\Comment\Interface\CommentInterface;
 
 use Illuminate\Support\Collection;
@@ -27,7 +27,7 @@ class CommentRepository extends BaseRepository implements CommentInterface
     */
    public function all(): Collection
    {
-       return $this->model->all();    
+       return $this->model->all();
    }
 
     /**

@@ -22,7 +22,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "App\\Application\\": "app/Application/",
+            "App\\Infrastructure\\": "app/Infrastructure/",
             "App\\Domain\\": "app/Domain/"
         },
         "classmap": [],
