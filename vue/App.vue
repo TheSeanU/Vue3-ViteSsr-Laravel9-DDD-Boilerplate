@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import Navigation from "./Application/Components/Navigation.vue";
+import Navigation from "./Infrastructure/Components/Navigation.vue";
 import { RouterView } from "vue-router";
 </script>
 
