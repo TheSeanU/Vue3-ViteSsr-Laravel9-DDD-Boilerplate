@@ -5,7 +5,7 @@ namespace App\Domain\Comment\Repository;
 use App\Domain\Comment\Models\Comment;
 
 use App\Infrastructure\Repository\BaseRepository;
-use App\Domain\Comment\Interface\CommentInterface;
+use App\Application\Comment\Interface\CommentInterface;
 
 use Illuminate\Support\Collection;
 

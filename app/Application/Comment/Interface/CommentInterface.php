@@ -1,11 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\User\Interface;
+namespace App\Application\Comment\Interface;
 
 use Illuminate\Support\Collection;
 
-interface UserInterface
-{   
+interface CommentInterface
+{
    public function all(): Collection;
    public function findById($id): Collection;
    // public function create(array  $data): Collection;

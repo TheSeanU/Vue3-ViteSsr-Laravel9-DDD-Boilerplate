@@ -2,21 +2,12 @@
 
 namespace App\Domain\Auth\Repository;
 
-use App\Domain\User\Models\User;
-use App\Domain\Auth\Interface\AuthInterface;
-use App\Domain\Auth\Requests\LoginRequest;
+use App\Application\Auth\Interface\AuthInterface;
 use App\Domain\User\Resources\LoggedInUserResource;
+use App\Domain\User\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\JsonResponse;
-
-use Illuminate\Http\Response;
-use Illuminate\Http\Request;
-
-use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Contracts\Auth\Guard;
-// use PHPOpenSourceSaver\JWTAuth\JWTGuard;
-
 class AuthRepository implements AuthInterface
 {
     /**
@@ -35,9 +26,9 @@ class AuthRepository implements AuthInterface
      *
      * @return JsonResponse
      */
-    public function login(LoginRequest $request): array
-    { 
-        $credentials = $request->validated();
+    public function login($request): array
+    {
+        $credentials = $request;
 
         if (!Auth::attempt($credentials)) {
             throw ['probeer het opnieuw, of klik hieronder op "wachtwoord vergeten"'];
@@ -48,7 +39,7 @@ class AuthRepository implements AuthInterface
         $user = User::find(Auth::id());
         if (!$user) {
             throw [
-                'Gebruiker met id %d is wel ingelogd maar kan niet gevonden worden in de database', 
+                'Gebruiker met id %d is wel ingelogd maar kan niet gevonden worden in de database',
                 Auth::id()
             ];
         }

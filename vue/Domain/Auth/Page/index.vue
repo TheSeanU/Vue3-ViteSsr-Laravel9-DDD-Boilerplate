@@ -28,7 +28,11 @@
                         me
                     </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">
+                <button
+                    @click.prevent="login"
+                    class="w-100 btn btn-lg btn-primary"
+                    type="submit"
+                >
                     Sign in
                 </button>
             </form>
@@ -36,14 +40,16 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { reactive } from "vue";
-import { login } from "../Service/index";
+import { getFromApi } from "../../../Infrastructure/Service/api";
 
 const form = reactive({
     email: "",
     password: "",
 });
+
+const login = () => getFromApi("post/index");
 </script>
 
 <style scoped>

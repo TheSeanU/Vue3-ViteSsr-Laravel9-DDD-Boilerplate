@@ -1,12 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Auth\Interface;
+namespace App\Application\Auth\Interface;
 
-use App\Domain\Auth\Models\Auth;
-use App\Domain\Auth\Requests\LoginRequest;
+use App\Application\Auth\Requests\LoginRequest;
 use App\Domain\User\Resources\LoggedInUserResource;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Collection;
 
 interface AuthInterface
 {

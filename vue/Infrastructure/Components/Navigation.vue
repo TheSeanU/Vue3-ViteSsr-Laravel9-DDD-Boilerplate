@@ -22,21 +22,21 @@
                 type="button"
                 class="btn btn-sm btn-outline-primary me-2"
                 to="/login"
-                >Login</router-link
-            >
+                >Login
+            </router-link>
             <router-link
                 type="button"
                 class="btn btn-sm btn-primary"
                 to="/register"
-                >Sign-up</router-link
-            >
+                >Sign-up
+            </router-link>
         </div>
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from "vue-router";
-import IconEcosystem from "../assets/icons/IconEcosystem.vue";
+import IconEcosystem from "../Assets/icons/IconEcosystem.vue";
 </script>
 
 <style scoped></style>

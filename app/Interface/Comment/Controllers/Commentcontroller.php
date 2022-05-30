@@ -3,7 +3,7 @@
 namespace App\Interface\Comment\Controllers;
 
 use App\Infrastructure\Controllers\Controller;
-use App\Domain\Comment\Interface\CommentInterface;
+use App\Application\Comment\Interface\CommentInterface;
 
 use Illuminate\Http\JsonResponse;
 

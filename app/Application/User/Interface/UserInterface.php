@@ -1,11 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Post\Interface;
+namespace App\Application\User\Interface;
 
-use App\Domain\Post\Models\Post;
 use Illuminate\Support\Collection;
 
-interface PostInterface
+interface UserInterface
 {
    public function all(): Collection;
    public function findById($id): Collection;

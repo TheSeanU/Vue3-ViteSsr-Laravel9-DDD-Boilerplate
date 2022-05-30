@@ -1,10 +1,4 @@
-const page = "../Page/index.vue";
-
-export const login = {
-    name: "login",
-    path: "/login",
-    component: page,
-};
+import page from "../Page/index.vue";
 
 export const register = {
     name: "register",

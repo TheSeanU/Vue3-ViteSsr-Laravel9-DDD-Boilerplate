@@ -4,7 +4,7 @@ namespace App\Interface\Auth\Controllers;
 
 use App\Infrastructure\Controllers\Controller;
 
-use App\Domain\Auth\Interface\AuthInterface;
+use App\Application\Auth\Interface\AuthInterface;
 use Illuminate\Http\JsonResponse;
 
 class Authcontroller extends Controller

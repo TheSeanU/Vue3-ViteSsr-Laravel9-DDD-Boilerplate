@@ -22,22 +22,4 @@ class BaseRepository implements RepositoryInterface
         $this->model = $model;
     }
 
-    /**
-    * @param array $attributes
-    *
-    * @return Model
-    */
-    public function create(array $attributes): Model
-    {
-        return $this->model->create($attributes);
-    }
-
-    /**
-    * @param $id
-    * @return Model
-    */
-    public function find($id): ?Model
-    {
-        return $this->model->find($id);
-    }
 }

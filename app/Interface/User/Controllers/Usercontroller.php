@@ -5,7 +5,7 @@ namespace App\Interface\User\Controllers;
 use Illuminate\Http\JsonResponse;
 
 use App\Infrastructure\Controllers\Controller;
-use App\Domain\User\Interface\UserInterface;
+use App\Application\User\Interface\UserInterface;
 
 class Usercontroller extends Controller
 {

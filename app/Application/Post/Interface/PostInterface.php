@@ -1,11 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace App\Domain\Comment\Interface;
+namespace App\Application\Post\Interface;
 
-use App\Domain\Comment\Models\Comment;
 use Illuminate\Support\Collection;
 
-interface CommentInterface
+interface PostInterface
 {
    public function all(): Collection;
    public function findById($id): Collection;

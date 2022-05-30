@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Infrastructure\Middleware;
+namespace App\Application\Auth\Middleware;
 
-use Closure;
-use PHPOpenSourceSaver\JWTAuth\JWTAuth;
 use PHPOpenSourceSaver\JWTAuth\JWT;
+use Closure;
 use Exception;
 
 class JwtMiddleware

@@ -1,18 +1,13 @@
 {
-    "compileOnSave": true,
+    "extends": "@vue/tsconfig/tsconfig.json",
+    "include": [
+        "env.d.ts",
+        // "vue/**/*.*",
+        // "vue/**/*.tsx",
+        // "vue/**/*.vue",
+        // "vue/**/*.js"
+    ],
     "compilerOptions": {
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
-        "declaration": true,
-        "strict": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "alwaysStrict": true,
-        "esModuleInterop": true,
-        "allowJs": true,
-        "noEmit": true,
-        "checkJs": false,
         "baseUrl": "./",
         "paths": {
             "*": [
@@ -20,11 +15,9 @@
             ]
         },
     },
-    "include": [
-        "vue/**/*.ts",
-        "vue/**/*.tsx",
-        "vue/**/*.vue",
-        "vue/**/*.js"
-    ],
-    "exclude": ["node_modules"]
+    "references": [
+        {
+            "path": "tsconfig.vite-config.json"
+        }
+    ]
 }

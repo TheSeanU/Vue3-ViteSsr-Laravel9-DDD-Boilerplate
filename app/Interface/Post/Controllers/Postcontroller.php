@@ -3,7 +3,7 @@
 namespace App\Interface\Post\Controllers;
 
 use App\Infrastructure\Controllers\Controller;
-use App\Domain\Post\Interface\PostInterface;
+use App\Application\Post\Interface\PostInterface;
 use Illuminate\Http\JsonResponse;
 
 class Postcontroller extends Controller
