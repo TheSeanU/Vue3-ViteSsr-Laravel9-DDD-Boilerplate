@@ -45,8 +45,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { getFromApi } from "../../../Infrastructure/Service/api";
-import { routes } from "../../../Infrastructure/Service/routes";
-// import { testRoute } from "../Route/index";
+import { routes } from "../../../infrastructure/service/routes/routes";
 
 const form = reactive({
     email: "",
@@ -55,10 +54,9 @@ const form = reactive({
 
 const login = () => getFromApi("post/index");
 
-const test = () => {
-    // console.log(testRoute);
-    console.log(routes.value);
-};
+const test = () => console.log(routes.value);
+
+
 </script>
 
 <style scoped>
@@ -70,7 +68,7 @@ const test = () => {
 }
 
 .form-signin .checkbox {
-    font-weight: 400;
+    font-weight: 400; 
 }
 
 .form-signin .form-floating:focus-within {

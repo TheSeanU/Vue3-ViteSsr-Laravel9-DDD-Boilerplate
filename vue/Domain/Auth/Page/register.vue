@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { getFromApi } from "../../../Infrastructure/Service/api";
-import { routes } from "../../../Infrastructure/Service/routes";
+import { routes } from "../../../infrastructure/service/routes/routes";
 
 const form = reactive({
     email: "",

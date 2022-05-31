@@ -1,5 +1,5 @@
 import axios, { Axios, type AxiosRequestConfig } from 'axios';
-import { ENDPOINT } from '../Constants/constants'
+import { ENDPOINT } from './constants'
 import handleAxiosError from 'axios';
 import handleUnexpectedError from 'axios';
 

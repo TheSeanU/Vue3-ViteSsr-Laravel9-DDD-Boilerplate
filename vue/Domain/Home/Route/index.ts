@@ -1,4 +1,4 @@
-import { createRoutes } from "../../../Infrastructure/Service/routes";
+import { createRoutes } from "../../../Infrastructure/Service/routes/routes";
 
 createRoutes('/', () => import('../Page/index.vue'));
 

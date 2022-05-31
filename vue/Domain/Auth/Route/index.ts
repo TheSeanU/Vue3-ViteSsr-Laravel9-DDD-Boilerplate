@@ -1,7 +1,11 @@
-import { createRoutes } from "../../../Infrastructure/Service/routes";
+import { createRoutes } from "../../../Infrastructure/Service/routes/routes";
 
-createRoutes('/register', () => import('../Page/register.vue'));
-createRoutes('/login', () => import('../Page/login.vue'));
+import login from '../page/login.vue'
+import register from '../page/register.vue'
+
+
+createRoutes('/register', register);
+createRoutes('/login', login);
 
 export const page = {}
 
