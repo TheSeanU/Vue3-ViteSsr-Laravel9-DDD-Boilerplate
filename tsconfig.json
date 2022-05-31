@@ -8,10 +8,11 @@
         // "vue/**/*.js"
     ],
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
             "*": [
-                "vue/*"
+                "vue/*",
+                "./vue/*"
             ]
         },
     },

@@ -75,14 +75,13 @@ php artisan serve
         |-- *
             |-- Controllers
             |-- Routes
-
     Vue
         |-- Infrastructure
             |-- *
         |-- Domain
-            |-- *
+            |-- ??
         |-- Application
-            |-- *
+            |-- Middleware
         |-- Interface
             |-- *
 

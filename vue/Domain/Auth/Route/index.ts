@@ -1,7 +1,8 @@
-import page from "../Page/index.vue";
+import { createRoutes } from "../../../Infrastructure/Service/routes";
 
-export const register = {
-    name: "register",
-    path: "/register",
-    component: page,
-};
+createRoutes('/register', () => import('../Page/register.vue'));
+createRoutes('/login', () => import('../Page/login.vue'));
+
+export const page = {}
+
+

@@ -1,5 +1,6 @@
 <template>
     <div class="col">
+        <h4>login</h4>
         <main class="form-signin">
             <form @click.prevent>
                 <div class="form-floating">
@@ -37,12 +38,15 @@
                 </button>
             </form>
         </main>
+        <button class="btn btn-primary" @click="test">test</button>
     </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
 import { getFromApi } from "../../../Infrastructure/Service/api";
+import { routes } from "../../../Infrastructure/Service/routes";
+// import { testRoute } from "../Route/index";
 
 const form = reactive({
     email: "",
@@ -50,6 +54,11 @@ const form = reactive({
 });
 
 const login = () => getFromApi("post/index");
+
+const test = () => {
+    // console.log(testRoute);
+    console.log(routes.value);
+};
 </script>
 
 <style scoped>

@@ -1,7 +1,5 @@
-import page from "../Page/index.vue";
+import { createRoutes } from "../../../Infrastructure/Service/routes";
 
-export const home = {
-    path: "/",
-    name: "home",
-    component: page
-};
+createRoutes('/', () => import('../Page/index.vue'));
+
+export const home = {}
