@@ -3,57 +3,63 @@
 namespace App\Interface\Auth\Controllers;
 
 use App\Infrastructure\Controllers\Controller;
-
 use App\Application\Auth\Interface\AuthInterface;
-use Illuminate\Http\JsonResponse;
+use App\Domain\User\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class Authcontroller extends Controller
 {
-    private $authRepository;
+    private $authInterface;
 
-    public function __construct(AuthInterface $authRepository)
+    public function __construct(AuthInterface $authInterface)
     {
-        $this->authRepository = $authRepository;
+        $this->authInterface = $authInterface;
     }
 
     /**
-     * Get a JWT via given credentials.
+     * Sends a reset password email to the given email
      *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function login(): JsonResponse
-    {
-        return new JsonResponse([$this->authRepository->login]);
-    }
-
-    /**
-     * Get the authenticated User.
+     * @param ResetPasswordEmail $request
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return NoContentResponse
      */
-    public function me(): JsonResponse
+    public function login()
     {
-        return new JsonResponse([$this->authRepository->me()]);
+        return $this->authInterface->login;
     }
 
     /**
      * Log the user out (Invalidate the token).
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return NoContentResponse
      */
-    public function logout(): JsonResponse
+    public function logout()
     {
-        return new JsonResponse([$this->authRepository->logout()]);
+        return $this->authInterface->logout;
     }
+
 
     /**
-     * Refresh a token.
+     * Returns the authenticated user
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return LoggedInUserResource
      */
-    public function refresh(): JsonResponse
+    public function me()
     {
-        return new JsonResponse([$this->authRepository->refresh()]);
+        return $this->authInterface->me;
     }
 
+
+    /**
+     * Change users passwords
+     *
+     * @param ChangePasswordRequest $request
+     *
+     * @return OkResponse
+     */
+    public function refresh()
+    {
+        return $this->authInterface->refresh;
+    }
 }

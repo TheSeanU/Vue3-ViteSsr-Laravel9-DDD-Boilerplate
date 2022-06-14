@@ -3,59 +3,24 @@
 namespace App\Domain\Auth\Repository;
 
 use App\Application\Auth\Interface\AuthInterface;
-use App\Domain\User\Resources\LoggedInUserResource;
-use App\Domain\User\Models\User;
-
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\JsonResponse;
+
 class AuthRepository implements AuthInterface
 {
     /**
-     * AuthRepository constructor.
-     *
-     * @param User $model
-     */
-    public function __construct(User $model)
-    {
-        $this->model = $model;
-    }
-
-
-    /**
      * Get a JWT via given credentials.
      *
-     * @return JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function login($request): array
+    public function login()
     {
-        $credentials = $request;
+        $credentials = request(['email', 'password']);
 
-        if (!Auth::attempt($credentials)) {
-            throw ['probeer het opnieuw, of klik hieronder op "wachtwoord vergeten"'];
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        cache()->pull('auth' . Auth::id());
-
-        $user = User::find(Auth::id());
-        if (!$user) {
-            throw [
-                'Gebruiker met id %d is wel ingelogd maar kan niet gevonden worden in de database',
-                Auth::id()
-            ];
-        }
-
-        // $user->remember = request('rememberMe');
-        // $user->save();
-
-        $token = Auth::login($user);
-
-        $responseData = [
-            'token' => $token,
-            'tokenTTL' => config('jwt.ttl'),
-            'user' => new LoggedInUserResource($user),
-        ];
-
-        return $responseData;
+        return $this->respondWithToken($token);
     }
 
     /**
@@ -63,10 +28,9 @@ class AuthRepository implements AuthInterface
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me(): LoggedInUserResource
+    public function me()
     {
-        return new LoggedInUserResource(Auth::user());
-
+        return response()->json(Auth::user());
     }
 
     /**
@@ -88,7 +52,7 @@ class AuthRepository implements AuthInterface
      */
     public function refresh()
     {
-        return $this->respondWithToken(Auth::refresh());
+        return $this->respondWithToken($this->refresh());
     }
 
     /**
@@ -103,8 +67,8 @@ class AuthRepository implements AuthInterface
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60,
-            'user' => new LoggedInUserResource(Auth::user()),
+            'expires_in' => Auth::factory()->getTTL() * 60
         ]);
     }
+
 }

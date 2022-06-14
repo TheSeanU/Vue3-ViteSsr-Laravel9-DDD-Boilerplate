@@ -2,7 +2,7 @@
 
 namespace App\Application\Auth\Middleware;
 
-use PHPOpenSourceSaver\JWTAuth\JWT;
+use PHPOpenSourceSaver\JWTAuth\JWT as JWTAuth;
 use Closure;
 use Exception;
 
@@ -19,7 +19,8 @@ class JwtMiddleware
     public function handle($request, Closure $next)
     {
         try {
-            $user = JWT::parseToken()->authenticate();
+            $user = (new JWTAuth)->parseToken()->authenticate();
+            
         } catch (Exception $e) {
             if ($e instanceof \PHPOpenSourceSaver\JWTAuth\Exceptions\TokenInvalidException) {
                 return response()->json(['status' => 'Token is Invalid']);
@@ -29,6 +30,6 @@ class JwtMiddleware
                 return response()->json(['status' => 'Authorization Token not found']);
             }
         }
-        return $next($request);
+        return $next($request, $user);
     }
 }

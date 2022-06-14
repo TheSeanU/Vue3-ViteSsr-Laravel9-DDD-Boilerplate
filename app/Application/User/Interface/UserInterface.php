@@ -2,13 +2,14 @@
 
 namespace App\Application\User\Interface;
 
-use Illuminate\Support\Collection;
+use App\Application\Auth\Requests\AuthRequest;
+use Illuminate\Http\JsonResponse;
 
 interface UserInterface
 {
-   public function all(): Collection;
-   public function findById($id): Collection;
-   // public function create(array  $data): Collection;
-   // public function update(array $data, $id): Collection;
-   // public function delete($id): Collection;
+   public function all(): object;
+   public function get(string|int $id): JsonResponse;
+   public function create(array $details): JsonResponse;
+   public function update(string|int $id, array $details): JsonResponse;
+   public function delete(string|int  $id): void;
 }

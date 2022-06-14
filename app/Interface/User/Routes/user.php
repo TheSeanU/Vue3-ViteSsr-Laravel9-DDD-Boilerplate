@@ -10,5 +10,11 @@ use App\Interface\User\Controllers\Usercontroller;
 |--------------------------------------------------------------------------
 */
 
-Route::get('index', [ Usercontroller::class, 'index']);
-Route::get('{user}', [ Usercontroller::class, 'find']);
+Route::get('', [Usercontroller::class, 'index']);
+Route::get('/{id}', [Usercontroller::class, 'show']);
+Route::post('', [Usercontroller::class, 'store']);
+Route::put('/{id}', [Usercontroller::class, 'update']);
+Route::delete('/{id}', [Usercontroller::class, 'delete']);
+
+
+

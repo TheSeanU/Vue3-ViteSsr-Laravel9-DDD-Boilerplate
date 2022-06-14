@@ -11,10 +11,9 @@ class RouteHelper
     public static function RoutePathLoader()
     {
         $paths = glob('App/Interface/' . "*" . '/Routes/' . "*.php");
-        $namespace = glob('App/Interface/' . "*" . '/Controllers/');
 
-        foreach ($paths as $path) Route::prefix('api/' . str_replace('.php', '', basename($path)))
-            ->namespace($namespace)
+        foreach ($paths as $path)
+            Route::prefix('api/' . str_replace('.php', '', basename($path)))
             ->group(base_path($path));
     }
 }

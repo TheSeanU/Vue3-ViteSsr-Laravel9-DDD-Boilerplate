@@ -2,13 +2,12 @@
 
 namespace App\Application\Auth\Interface;
 
-use App\Application\Auth\Requests\LoginRequest;
-use App\Domain\User\Resources\LoggedInUserResource;
+use App\Application\Auth\Requests\AuthRequest;
 
 interface AuthInterface
 {
-   public function login(LoginRequest $request): array;
+   public function login();
    public function logout();
-   public function me(): LoggedInUserResource;
+   public function me();
    public function refresh();
 }

@@ -4,37 +4,33 @@ namespace App\Domain\User\Repository;
 
 use App\Domain\User\Models\User;
 
-use App\Infrastructure\Repository\BaseRepository;
 use App\Application\User\Interface\UserInterface;
+use Illuminate\Http\JsonResponse;
 
-use Illuminate\Support\Collection;
-
-class UserRepository extends BaseRepository implements UserInterface
+class UserRepository implements UserInterface
 {
-
-   /**
-    * UserRepository constructor.
-    *
-    * @param User $model
-    */
-   public function __construct(User $model)
-   {
-       parent::__construct($model);
-   }
-
-   /**
-    * @return Collection
-    */
-   public function all(): Collection
-   {
-       return $this->model->all();
-   }
-
-    /**
-     * @return Collection
-     */
-    public function findById($id): Collection
+    public function all(): object
     {
-        return $this->model->where('id', $id)->with('posts')->get();
+        return User::all();
+    }
+
+    public function get(string|int $id): JsonResponse
+    {
+        return User::findOrFail($id);
+    }
+
+    public function create(array $details): JsonResponse
+    {
+        return User::create($details);
+    }
+
+    public function update(string|int $id, array $details): JsonResponse
+    {
+        return User::whereId($id)->update($details);
+    }
+
+    public function delete(string|int $id): void
+    {
+        User::destroy($id);
     }
 }

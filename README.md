@@ -75,7 +75,7 @@ php artisan serve
         |-- *
             |-- Controllers
             |-- Routes
-    Vue
+    src
         |-- Infrastructure
             |-- *
         |-- Domain
