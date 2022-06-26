@@ -5,9 +5,10 @@ namespace App\Domain\User\Models;
 use App\Domain\Comment\Models\Comment;
 use App\Domain\Post\Models\Post;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,8 +17,6 @@ use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
-
-    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +47,6 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

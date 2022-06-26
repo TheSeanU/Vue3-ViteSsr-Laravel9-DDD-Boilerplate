@@ -26,7 +26,7 @@ class Admincontroller extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         return new JsonResponse([
             'data' => $this->adminRepository->create([

@@ -29,31 +29,22 @@
                         me
                     </label>
                 </div>
-                <button
-                    @click.prevent="login"
-                    class="w-100 btn btn-lg btn-primary"
-                    type="submit"
-                >
+                <button class="w-100 btn btn-lg btn-primary" type="submit">
                     Sign in
                 </button>
             </form>
         </main>
-        <button class="btn btn-primary" @click="test">test</button>
     </div>
 </template>
 
 <script setup lang="ts">
 import { reactive } from "vue";
 import { getFromApi } from "../../../Infrastructure/Service/api";
-import { routes } from "../../../infrastructure/service/routes/routes";
 
 const form = reactive({
     email: "",
     password: "",
 });
-
-const login = () => getFromApi("post/index");
-const test = () => console.log(routes.value);
 </script>
 
 <style scoped>

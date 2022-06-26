@@ -2,39 +2,34 @@ import axios, {
     type Method,
     type AxiosPromise,
     type AxiosRequestConfig,
-
 } from 'axios';
 import { ENDPOINT } from './constants'
 import handleAxiosError from 'axios';
 import handleUnexpectedError from 'axios';
+import { getCookies } from './cookies';
 
-
-
-const TOKEN_COOKIE_NAME = 'Authorization';
-
-
-
-const createRequest = (method: Method, uri: string, body?: any): AxiosRequestConfig => {
+const createRequest = (method: Method, uri: string, body?: FormData | Object | unknown): AxiosRequestConfig => {
     const url = new URL(`${ENDPOINT}/${uri}`);
 
-    const headers = { Authorization: `Bearer` }
+    const token = getCookies('Authorization');
 
-    console.log(window.document);
+    const headers = {
+        Authorization: `Bearer ${token}`,
+    };
 
-
-    let data = undefined;
+    let data: FormData | Object | unknown
 
     if (method != 'GET') {
         const bodyisFormData = body instanceof FormData;
         const bodyIsJson = body instanceof Object;
 
         if (bodyisFormData) {
-            data = body;
             Object.assign(headers, { 'Content-Type': 'multipart/form-data' });
+            data = body;
 
         } else if (bodyIsJson) {
-            data = JSON.stringify(body);
             Object.assign(headers, { 'Content-Type': 'application/json' });
+            data = JSON.stringify(body);
 
         } else {
             data = body;
@@ -53,7 +48,7 @@ const makeRequest = async (config: AxiosRequestConfig): Promise<any> => {
     try {
         return await axios.request(config);
     } catch (error) {
-        if (axios.isAxiosError(error)) {
+        if (axios.isAxiosError(error) || error) {
             handleAxiosError(error);
         } else {
             handleUnexpectedError(error);
@@ -61,25 +56,11 @@ const makeRequest = async (config: AxiosRequestConfig): Promise<any> => {
     }
 }
 
-const callApi = async (method: string, uri: string, body?: object): Promise<AxiosPromise> => {
+const callApi = async (method: Method, uri: string, body?: object): Promise<AxiosPromise> => {
     const requestConfig = createRequest(method, uri, body);
-    console.log(requestConfig);
-
-
     return await makeRequest(requestConfig as AxiosRequestConfig);
 }
 
 
 export const getFromApi = (uri: string) => callApi("GET", uri);
 export const postToApi = (uri: string, body: any) => callApi("POST", uri, body);
-
-
-
-const getCookie = (name: string) => {
-    const value = `; ${window.document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-
-    return parts.length === 2 ? parts.pop()?.split(';').shift() : false;
-}
-
-

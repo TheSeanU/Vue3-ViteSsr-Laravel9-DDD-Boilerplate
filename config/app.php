@@ -168,7 +168,8 @@ return [
         /*
         * Package Service Providers...
         */
-        // PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
+        PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
+        // PHPOpenSourceSaver\JWTAuth\Providers\LumenServiceProvider::class,
 
         /*
         * Infrastructure Service Providers...
@@ -177,7 +178,7 @@ return [
         App\Infrastructure\Providers\BaseRepositoryServiceProvider::class,
         App\Infrastructure\Providers\RepositoryServiceProvider::class,
 
-        App\Infrastructure\Providers\AuthServiceProvider::class,
+        // App\Infrastructure\Providers\AuthServiceProvider::class,
         App\Infrastructure\Providers\RouteServiceProvider::class,
         App\Infrastructure\Providers\EventServiceProvider::class,
         App\Infrastructure\Providers\ConfigServiceProvider::class,
@@ -185,6 +186,7 @@ return [
         App\Infrastructure\Providers\FactoryServiceProvider::class,
         App\Infrastructure\Providers\MigrationsServiceProvider::class,
         // App\Infrastructure\Providers\BroadcastServiceProvider::class,
+
 
     ],
 
@@ -199,7 +201,8 @@ return [
     |
     */
     'aliases' => Facade::defaultAliases()->merge([
-        //...
+        'JWTAuth' => PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => PHPOpenSourceSaver\JWTAuth\Facades\JWTFactory::class,
     ])->toArray(),
 
 ];

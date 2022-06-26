@@ -17,9 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        (new RouteHelper)->RoutePathLoader();
-
         $this->configureRateLimiting();
+        (new RouteHelper)->RoutePathLoader();
     }
 
     /**

@@ -13,7 +13,8 @@ class RouteHelper
         $paths = glob('App/Interface/' . "*" . '/Routes/' . "*.php");
 
         foreach ($paths as $path)
-            Route::prefix('api/' . str_replace('.php', '', basename($path)))
+            Route::prefix('api/' . pathinfo($path)["filename"])
+            ->namespace($path)
             ->group(base_path($path));
     }
 }

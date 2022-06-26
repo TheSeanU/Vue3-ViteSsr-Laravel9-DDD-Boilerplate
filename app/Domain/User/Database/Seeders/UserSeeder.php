@@ -17,16 +17,16 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory(10)->create();
-        
+
         $basic = [
             'name' => 'Sean',
             'last_name' => 'Unett',
             'email' => 'test@test.com',
             'email_verified_at' => now(),
             'phone' => '0612345678',
-            'password' => '123456',
+            'password' => bcrypt('123456'),
         ];
-        
+
         User::create($basic);
     }
 }

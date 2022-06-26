@@ -26,9 +26,11 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
+// $app->register(\Fruitcake\Cors\CorsServiceProvider::class);
+
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    App\Infrastructure\Kernels\Kernel::class
+    App\Infrastructure\Http\Kernel::class
 );
 
 $app->singleton(

@@ -4,9 +4,9 @@
         <main class="form-signin">
             <form @click.prevent>
                 <div class="form-floating">
-                    <!-- v-model="form.email" -->
                     <input
                         type="email"
+                        v-model="form.email"
                         class="form-control"
                         id="floatingInput"
                         placeholder="name@example.com"
@@ -14,9 +14,9 @@
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                    <!-- v-model="form.password" -->
                     <input
                         type="password"
+                        v-model="form.password"
                         class="form-control"
                         id="floatingPassword"
                         placeholder="Password"
@@ -30,7 +30,7 @@
                     </label>
                 </div>
                 <button
-                    @click.prevent="login"
+                    @click.prevent="submit"
                     class="w-100 btn btn-lg btn-primary"
                     type="submit"
                 >
@@ -43,15 +43,19 @@
 
 <script setup lang="ts">
 import { reactive } from "vue";
-import { postToApi } from "../../../Infrastructure/Service/api";
-import { routes } from "../../../infrastructure/service/routes/routes";
+import { login, me } from "../../../Infrastructure/Service/auth";
+import { createRoutes } from "../../../infrastructure/service/Router/routes";
 
 const form = reactive({
-    user_id: "1",
-    types: "hallo",
+    email: "",
+    password: "",
 });
 
-const login = () => postToApi("admin", form);
+const submit = () => {
+    login(form), me();
+};
+
+createRoutes("/login", () => import("../Page/login.vue"));
 </script>
 
 <style scoped>
