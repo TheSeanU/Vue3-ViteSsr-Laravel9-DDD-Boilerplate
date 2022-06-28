@@ -2,13 +2,10 @@
 
 namespace App\Application\Admins\Requests;
 
-class AdminStoreRequest
-{
+use Illuminate\Foundation\Http\FormRequest;
 
-    public function authorize()
-    {
-        return true;
-    }
+class AdminStoreRequest extends FormRequest
+{
     /**
      * Get the validation rules that apply to the request.
      *

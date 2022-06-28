@@ -1,10 +1,10 @@
-<?php declare(strict_types = 1);
+<?php
 
-namespace App\Application\Categories\Requests;
+namespace App\Application\Auth\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest 
+class LoginRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,8 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string|min:6', 
         ];
     }
 }

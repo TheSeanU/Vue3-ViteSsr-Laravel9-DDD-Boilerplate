@@ -1,6 +1,27 @@
+import { RouteRecord, RouteRecordNormalized } from 'vue-router';
+import { addRoutes } from '../../../Infrastructure/Service/Router/router';
 import { createRoutes } from '../../../Infrastructure/Service/Router/routes';
 
-// export const login = { path: '/login', component: () => import('../Page/login.vue') }
-export const register = { path: '/register', component: () => import('../Page/register.vue') }
+const login = createRoutes(
+    'Login',
+    "/login", 
+    () => import("../Page/login.vue")
+);
 
-createRoutes("/login", () => import("../Page/login.vue"));
+const register = createRoutes(
+    'Register',
+    "/register", 
+    () => import("../Page/register.vue")
+);
+
+
+
+export const addClientRoutes = () => {
+    const routes: (any)[] = [];
+
+    if (!login) throw new Error('Login route isnt configured correct');
+    routes.push(login);
+    routes.push(register);
+
+    addRoutes(routes);
+};

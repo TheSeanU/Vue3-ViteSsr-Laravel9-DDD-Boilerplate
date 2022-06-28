@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+
 
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
@@ -35,8 +37,12 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $hidden = [
+        'id',
         'password',
         'remember_token',
+        'created_at',
+        'updated_at',
+        'email_verified_at',  
     ];
 
     /**
@@ -47,6 +53,14 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public static function publicId() 
+    {
+        return bcrypt($this->id);
+    }
+
+
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

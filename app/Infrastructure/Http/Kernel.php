@@ -3,6 +3,7 @@
 namespace App\Infrastructure\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Support\Facades\Route;
 
 class Kernel extends HttpKernel
 {
@@ -29,15 +30,15 @@ class Kernel extends HttpKernel
      * @var array<string, array<int, class-string|string>>
      */
     protected $middlewareGroups = [
-        // 'web' => [
-        //     \App\Infrastructure\Middleware\EncryptCookies::class,
-        //     \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        //     \Illuminate\Session\Middleware\StartSession::class,
-        //     // \Illuminate\Session\Middleware\AuthenticateSession::class,
-        //     \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        //     \App\Infrastructure\Middleware\VerifyCsrfToken::class,
-        //     \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        // ],
+        'web' => [
+            \App\Infrastructure\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Infrastructure\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
 
         'api' => [
             'throttle:api',

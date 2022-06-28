@@ -1,10 +1,14 @@
-import { ref, type Component } from "vue";
-import router from "./router";
-import RouteConfig from 'vue-router'
+import {type Component} from "vue";
 
-export const refRoutes = ref([] as any);
-
-
-export const addRoutes = (routes: RouteConfig[]) => {
-    for (const route of routes) router.addRoute(route);
+export const createRoutes = (
+    name: string, 
+    path: string, 
+    component: Component
+    ) => {
+    return {
+        name,
+        path,
+        component
+    }
 };
+

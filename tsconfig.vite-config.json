@@ -1,7 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.node.json",
   "include": [
-    "vite.config.*"
+    "vite.config.*",
   ],
   "compilerOptions": {
     "composite": true,
@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "noEmit": false,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "types": [
       "node"
     ]

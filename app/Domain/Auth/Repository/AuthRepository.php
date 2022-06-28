@@ -1,73 +1,104 @@
 <?php declare(strict_types = 1);
 
-// namespace App\Domain\Auth\Repository;
+namespace App\Domain\Auth\Repository;
 
-// use App\Application\Auth\Interface\AuthInterface;
-// use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Auth;
+use App\Application\Auth\Interface\AuthInterface;
+use App\Domain\User\Models\User;
 
-// class AuthRepository implements AuthInterface
-// {
-//     /**
-//      * Get a JWT via given credentials.
-//      *
-//      * @return
-//      */
-//     public function login(Request $request)
-//     {
-//         if (!$token = Auth::attempt([$request])) {
-//             return response()->json(['error' => 'Unauthorized'], 401);
-//         }
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
-//         return $this->respondWithToken($token);
-//     }
+class AuthRepository implements AuthInterface
+{   
+    /**
+     * Get a JWT via given credentials.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request)
+    {
 
-//     /**
-//      * Get the authenticated User.
-//      *
-//      * @return \Illuminate\Http\JsonResponse
-//      */
-//     public function me()
-//     {
-//         return response()->json(Auth::user());
-//     }
 
-//     /**
-//      * Log the user out (Invalidate the token).
-//      *
-//      * @return \Illuminate\Http\JsonResponse
-//      */
-//     public function logout()
-//     {
-//         Auth::logout();
+        if (!$request->validated()) {
+            return new JsonResponse($request->errors(), 422);
+        }
+        if (!$token = Auth::attempt($request->validated())) {
+            return new JsonResponse(['error' => 'Unauthorized'], 401);
+        }
 
-//         return response()->json(['message' => 'Successfully logged out']);
-//     }
+        
 
-//     /**
-//      * Refresh a token.
-//      *
-//      * @return \Illuminate\Http\JsonResponse
-//      */
-//     public function refresh()
-//     {
-//         return $this->respondWithToken($this->refresh());
-//     }
+        return $this->createNewToken($token);
+    }
 
-//     /**
-//      * Get the token array structure.
-//      *
-//      * @param  string $token
-//      *
-//      * @return \Illuminate\Http\JsonResponse
-//      */
-//     protected function respondWithToken($token)
-//     {
-//         return response()->json([
-//             'access_token' => $token,
-//             'token_type' => 'bearer',
-//             'expires_in' => Auth::factory()->getTTL() * 60
-//         ]);
-//     }
+    /**
+     * Register a User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request) {
 
-// }
+        if(!$request->validated()){
+            return new JsonResponse($request->errors()->toJson(), 400);
+        }
+
+        $user = User::create(array_merge($request->validated(),
+                ['password' => bcrypt($request->password)]
+            ));
+
+        return new JsonResponse([
+            'message' => 'User successfully registered',
+            'user' => $user
+        ], 201);
+    }
+
+    /**
+     * Log the user out (Invalidate the token).
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout() {
+        Auth::logout();
+        return new JsonResponse(['message' => 'User successfully signed out']);
+    }
+
+    /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh() {
+        return $this->createNewToken(Auth::refresh());
+    }
+
+    /**
+     * Get the authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function me()
+    {
+        return new JsonResponse(Auth::user());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function createNewToken($token){
+
+         $user = User::find(Auth::id());
+
+        return new JsonResponse([
+            'token' => $token,
+            'tokenTTL' => Auth::factory()->getTTL() * 60,
+            'user' => [Auth::user(), bcrypt(Auth::user()->id)],
+            'guard' => Auth::login($user),
+        ]);
+
+    }
+}

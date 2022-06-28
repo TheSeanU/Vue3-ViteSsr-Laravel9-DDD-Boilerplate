@@ -16,6 +16,8 @@ use PHPOpenSourceSaver\JWTAuth\JWT;
 
 class Authenticate
 {
+    private const COOKIE_NAME = 'Authorization';
+
     /**
      * Handle an incoming request.
      *
@@ -30,18 +32,25 @@ class Authenticate
         } catch (Exception $e) {
             if ($e instanceof TokenInvalidException){
                 return new Jsonresponse([
-                    'status' => 'Token is Invalid'
+                    'status' => 'Token is Invalid',
+                    'request' => $request,
                 ], 400);
+
             }else if ($e instanceof TokenExpiredException){
                 return new Jsonresponse([
-                    'status' => 'Token is Expired'
+                    'status' => 'Token is Expired',
+                    'request' => $request,
                 ], 400);
             }else{
                 return new Jsonresponse([
                     'status' => 'Authorization Token not found',
+                    'request' => $request,
                 ], 400);
             }
         }
+        // cookie(self::COOKIE_NAME, "Bearer {$request->cookies}", 60 * 24 * 30, '/', '', true);
+        // Cookie::queue(self::COOKIE_NAME, "Bearer {$request->cookies}", 60 * 24 * 30);
+
         return $next($request);
     }
 }

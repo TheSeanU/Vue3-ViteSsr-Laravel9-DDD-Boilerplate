@@ -55,7 +55,6 @@ const submit = () => {
     login(form), me();
 };
 
-createRoutes("/login", () => import("../Page/login.vue"));
 </script>
 
 <style scoped>

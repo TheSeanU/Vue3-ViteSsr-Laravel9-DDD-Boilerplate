@@ -1,4 +1,4 @@
-import { h, PropType } from "vue"
+import { h, type PropType } from "vue"
 
 
 
@@ -7,7 +7,7 @@ export default {
   props: ['modelValue'],
   emits: ['update:modelValue'],
 
-  setup(props: PropType, { emit }) {
+  setup(props: PropType<[]>, { emit }) {
     return () =>
       h(test, {
         scopedSlots: {default: props => h(props)},

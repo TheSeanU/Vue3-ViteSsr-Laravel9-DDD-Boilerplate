@@ -155,39 +155,34 @@ return [
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
-        Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
-        Illuminate\Redis\RedisServiceProvider::class,
-        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        // Illuminate\Pagination\PaginationServiceProvider::class,
+        // Illuminate\Redis\RedisServiceProvider::class,
+        // Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
 
         /*
         * Package Service Providers...
         */
         PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
-        // PHPOpenSourceSaver\JWTAuth\Providers\LumenServiceProvider::class,
 
         /*
         * Infrastructure Service Providers...
         */
-        App\Infrastructure\Providers\AppServiceProvider::class,
         App\Infrastructure\Providers\BaseRepositoryServiceProvider::class,
         App\Infrastructure\Providers\RepositoryServiceProvider::class,
-
-        // App\Infrastructure\Providers\AuthServiceProvider::class,
         App\Infrastructure\Providers\RouteServiceProvider::class,
         App\Infrastructure\Providers\EventServiceProvider::class,
-        App\Infrastructure\Providers\ConfigServiceProvider::class,
-
         App\Infrastructure\Providers\FactoryServiceProvider::class,
         App\Infrastructure\Providers\MigrationsServiceProvider::class,
+        App\Infrastructure\Providers\AuthServiceProvider::class,
+        App\Infrastructure\Providers\AppServiceProvider::class,
         // App\Infrastructure\Providers\BroadcastServiceProvider::class,
-
-
+        // App\Infrastructure\Providers\ConfigServiceProvider::class,
     ],
 
     /*
@@ -201,8 +196,7 @@ return [
     |
     */
     'aliases' => Facade::defaultAliases()->merge([
-        'JWTAuth' => PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => PHPOpenSourceSaver\JWTAuth\Facades\JWTFactory::class,
+        //
     ])->toArray(),
 
 ];
