@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Categories\Repository;
 
-use Illuminate\Http\JsonResponse;
-
 use App\Application\Categories\Interface\ChildCategoryInterface;
 use App\Domain\Categories\Models\ChildCategory;
+use Illuminate\Http\JsonResponse;
 
 class ChildCategoryRepository implements ChildCategoryInterface
 {

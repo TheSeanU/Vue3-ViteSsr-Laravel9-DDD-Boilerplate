@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Middleware;
 
@@ -14,7 +16,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'api/*',
         'sub.domain.zone' => [
-            'prefix/*'
+            'prefix/*',
         ],
     ];
 }

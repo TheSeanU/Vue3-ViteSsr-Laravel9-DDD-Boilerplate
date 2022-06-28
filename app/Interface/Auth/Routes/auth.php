@@ -1,8 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
 
+declare(strict_types = 1);
+
+use App\Interface\Auth\Controllers\Authcontroller;
 use Illuminate\Support\Facades\Route;
-
-use App\Interface\Auth\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,11 +11,11 @@ use App\Interface\Auth\Controllers\AuthController;
 |--------------------------------------------------------------------------
 */
 
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [Authcontroller::class, 'login']);
+Route::post('register', [Authcontroller::class, 'register']);
 
 Route::middleware(['auth:api'])->group(function () {
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('refresh', [AuthController::class, 'refresh']);
-    Route::post('me', [AuthController::class, 'me']);
+    Route::post('logout', [Authcontroller::class, 'logout']);
+    Route::post('refresh', [Authcontroller::class, 'refresh']);
+    Route::post('me', [Authcontroller::class, 'me']);
 });

@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\User\Database\Factories;
 
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-
-use App\Domain\User\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domain\User\Database\Factories>
@@ -18,7 +19,6 @@ class UserFactory extends Factory
      * @var string
      */
     protected $model = User::class;
-
 
     /**
      * Define the model's default state.

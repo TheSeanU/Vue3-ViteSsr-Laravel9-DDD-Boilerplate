@@ -1,9 +1,10 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Categories\Repository;
 
 use App\Application\Categories\Interface\CategoryInterface;
-
 use App\Domain\Categories\Models\Category;
 use Illuminate\Http\JsonResponse;
 

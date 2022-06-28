@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Application\Auth\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -15,7 +17,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required|string|min:6', 
+            'password' => 'required|string|min:6',
         ];
     }
 }

@@ -1,9 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Helpers;
 
-class InterfaceHelper {
-
+class InterfaceHelper
+{
     public static function interfaceRepository()
     {
         $repository = str_replace('.php', '', glob('App\\Domain\\' . '*' . '\\Repository\\' . '*.php'));

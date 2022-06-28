@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Categories\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Domain\Categories\Models\Category;
 use Faker\Core\Number;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -27,7 +28,7 @@ class CategoryFactory extends Factory
             'title' => $this->faker->unique()->safeEmail(),
             'body' => $this->faker->realText(200, 2),
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ];
     }
 
@@ -38,6 +39,5 @@ class CategoryFactory extends Factory
      */
     public function unverified()
     {
-        
     }
 }

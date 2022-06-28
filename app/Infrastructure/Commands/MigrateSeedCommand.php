@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Commands;
 
@@ -39,6 +41,5 @@ class MigrateSeedCommand extends Command
             '--class' => 'App\\Infrastructure\\Database\\Seeders\\DatabaseSeeder',
             '--force' => true,
         ]));
-
     }
 }

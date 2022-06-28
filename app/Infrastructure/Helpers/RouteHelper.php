@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Helpers;
 
@@ -12,9 +12,10 @@ class RouteHelper
     {
         $paths = glob('App/Interface/' . "*" . '/Routes/' . "*.php");
 
-        foreach ($paths as $path)
+        foreach ($paths as $path) {
             Route::prefix('api/' . pathinfo($path)["filename"])
-            ->namespace($path)
-            ->group(base_path($path));
+                ->namespace($path)
+                ->group(base_path($path));
+        }
     }
 }

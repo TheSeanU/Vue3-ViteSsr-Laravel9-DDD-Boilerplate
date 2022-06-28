@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\User\Repository;
 
-use App\Domain\User\Models\User;
-
 use App\Application\User\Interface\UserInterface;
+use App\Domain\User\Models\User;
 use Illuminate\Http\JsonResponse;
 
 class UserRepository implements UserInterface
