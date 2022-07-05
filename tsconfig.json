@@ -1,23 +1,11 @@
 {
-    "extends": "@vue/tsconfig/tsconfig.json",
-    "include": [
-        "env.d.ts",
-        "src/**/*.*",
-        "src/**/*.tsx",
-        "src/**/*.vue",
-        "src/**/*.js"
-    ],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "src/*",
-            ]
-        },
-    },
-    "references": [
-        {
-            "path": "tsconfig.vite-config.json"
-        }
-    ]
+      "files": [],
+      "references": [
+            {
+                  "path": "./tsconfig.config.json"
+            },
+            {
+                  "path": "./tsconfig.app.json"
+            }
+      ]
 }

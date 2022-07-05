@@ -15,20 +15,19 @@ class AuthRepository implements AuthInterface
     /**
      * Get a JWT via given credentials.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
     {
-
-
         if (!$request->validated()) {
             return new JsonResponse($request->errors(), 422);
         }
+
         if (!$token = Auth::attempt($request->validated())) {
             return new JsonResponse(['error' => 'Unauthorized'], 401);
         }
-
-        
 
         return $this->createNewToken($token);
     }
@@ -36,11 +35,12 @@ class AuthRepository implements AuthInterface
     /**
      * Register a User.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request)
     {
-
         if (!$request->validated()) {
             return new JsonResponse($request->errors()->toJson(), 400);
         }
@@ -96,14 +96,10 @@ class AuthRepository implements AuthInterface
      */
     protected function createNewToken($token)
     {
-
-         $user = User::find(Auth::id());
-
         return new JsonResponse([
             'token' => $token,
             'tokenTTL' => Auth::factory()->getTTL() * 60,
             'user' => [Auth::user(), bcrypt(Auth::user()->id)],
-            'guard' => Auth::login($user),
         ]);
     }
 }

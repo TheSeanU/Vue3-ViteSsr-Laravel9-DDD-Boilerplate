@@ -65,6 +65,13 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             SubstituteBindings::class,
+            StartSession::class,
+            EncryptCookies::class,
+            AddQueuedCookiesToResponse::class,
+            StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            ShareErrorsFromSession::class,
+            VerifyCsrfToken::class,
         ],
     ];
 

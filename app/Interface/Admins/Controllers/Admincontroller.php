@@ -14,11 +14,21 @@ class Admincontroller extends Controller
 {
     private $adminRepository;
 
+    /**
+     * Undocumented function
+     *
+     * @param AdminInterface $adminRepository
+     */
     public function __construct(AdminInterface $adminRepository)
     {
         $this->adminRepository = $adminRepository;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return JsonResponse
+     */
     public function index(): JsonResponse
     {
         return response()->json([
@@ -32,7 +42,8 @@ class Admincontroller extends Controller
             'data' => $this->adminRepository->create([
                 'user_id' => $request->user_id,
                 'types' => $request->types,
-            ]) ], Response::HTTP_CREATED);
+            ]),
+        ], Response::HTTP_CREATED);
     }
 
     public function show(Request $request): JsonResponse

@@ -19,33 +19,11 @@ class Usercontroller extends Controller
         $this->userRepository = $userRepository;
     }
 
-    public function index(): JsonResponse
-    {
-        return response()->json([
-            'data' => $this->userRepository->all(),
-        ]);
-    }
-
-    public function store(Request $request): JsonResponse
-    {
-        $orderDetails = $request->only([
-            'client',
-            'details',
-        ]);
-
-        return response()->json(
-            [
-                'data' => $this->userRepository->create($orderDetails),
-            ],
-            Response::HTTP_CREATED,
-        );
-    }
-
     public function show(Request $request): JsonResponse
     {
         $orderId = $request->route('id');
 
-        return response()->json([
+        return new JsonResponse([
             'data' => $this->userRepository->get($orderId),
         ]);
     }
@@ -58,7 +36,7 @@ class Usercontroller extends Controller
             'details',
         ]);
 
-        return response()->json([
+        return new JsonResponse([
             'data' => $this->userRepository->update($orderId, $orderDetails),
         ]);
     }
@@ -68,6 +46,6 @@ class Usercontroller extends Controller
         $orderId = $request->route('id');
         $this->userRepository->delete($orderId);
 
-        return response()->json(null, Response::HTTP_NO_CONTENT);
+        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
     }
 }

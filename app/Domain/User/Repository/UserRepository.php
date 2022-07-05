@@ -10,26 +10,35 @@ use Illuminate\Http\JsonResponse;
 
 class UserRepository implements UserInterface
 {
-    public function all(): object
-    {
-        return User::all();
-    }
-
+    /**
+     * findOrFail user
+     *
+     * @param  string|int $id
+     * @return JsonResponse
+     */
     public function get(string|int $id): JsonResponse
     {
-        return User::findOrFail($id);
+        return new JsonResponse(User::findOrFail($id));
     }
 
-    public function create(array $details): JsonResponse
-    {
-        return User::create($details);
-    }
-
+    /**
+     * Update user where id function
+     *
+     * @param  string|int $id
+     * @param  array      $details
+     * @return JsonResponse
+     */
     public function update(string|int $id, array $details): JsonResponse
     {
         return User::whereId($id)->update($details);
     }
 
+    /**
+     * Delete user function ??
+     *
+     * @param  string|int $id
+     * @return void
+     */
     public function delete(string|int $id): void
     {
         User::destroy($id);
