@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Images\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Domain\Images\Models\Image;
 use Faker\Core\Number;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -25,7 +26,7 @@ class ImageFactory extends Factory
             'title' => (new Number)->randomDigitNotZero(),
             'blob' => (new Number)->randomDigitNotZero(),
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ];
     }
 
@@ -36,6 +37,5 @@ class ImageFactory extends Factory
      */
     public function unverified()
     {
-        
     }
 }

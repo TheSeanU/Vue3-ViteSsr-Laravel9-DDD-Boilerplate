@@ -1,22 +1,24 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Interface\Auth\Controllers;
 
-use App\Infrastructure\Controllers\Controller;
 use App\Application\Auth\Interface\AuthInterface;
 use App\Application\Auth\Requests\LoginRequest;
 use App\Application\Auth\Requests\RegisterRequest;
-
-use Illuminate\Support\Facades\Auth;
+use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use PHPOpenSourceSaver\JWTAuth\JWTGuard;
+use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller 
+class Authcontroller extends Controller
 {
-    private $authInterface;
-    
+    protected $authInterface;
+
     /**
      * Create a new AuthController instance.
+     *
+     * @param AuthInterface $authInterface
      *
      * @return void
      */
@@ -28,6 +30,8 @@ class AuthController extends Controller
     /**
      * Get a JWT via given credentials.
      *
+     * @param LoginRequest $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function login(LoginRequest $request)
@@ -38,14 +42,18 @@ class AuthController extends Controller
     /**
      * Register a User.
      *
+     * @param RegisterRequest $request
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(RegisterRequest $request) 
+    public function register(RegisterRequest $request)
     {
-        return new JsonResponse([ 
+        return new JsonResponse(
+            [
             'message' => 'User successfully registered',
             'user' => $this->authInterface->register($request),
-        ]);
+            ],
+        );
     }
 
     /**
@@ -53,9 +61,9 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function logout() 
+    public function logout()
     {
-       return new JsonResponse($this->authInterface->logout());
+        return new JsonResponse($this->authInterface->logout());
     }
 
     /**
@@ -63,7 +71,8 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function refresh() {
+    public function refresh()
+    {
         return $this->createNewToken(Auth::refresh());
     }
 
@@ -72,7 +81,8 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function userProfile() {
+    public function userProfile()
+    {
         return new JsonResponse(Auth::user());
     }
 

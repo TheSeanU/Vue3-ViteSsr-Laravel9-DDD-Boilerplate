@@ -1,9 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Products\Repository;
 
-use App\Domain\Products\Models\Product;
 use App\Application\Products\Interface\ProductInterface;
+use App\Domain\Products\Models\Product;
 use Illuminate\Http\JsonResponse;
 
 class ProductRepository implements ProductInterface

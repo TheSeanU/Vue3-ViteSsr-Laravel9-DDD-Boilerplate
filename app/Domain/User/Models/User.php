@@ -1,19 +1,15 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\User\Models;
 
 use App\Domain\Comment\Models\Comment;
 use App\Domain\Post\Models\Post;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
-
-
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
@@ -42,7 +38,7 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
         'created_at',
         'updated_at',
-        'email_verified_at',  
+        'email_verified_at',
     ];
 
     /**
@@ -53,14 +49,6 @@ class User extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-    public static function publicId() 
-    {
-        return bcrypt($this->id);
-    }
-
-
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
@@ -92,4 +80,8 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Comment::class);
     }
 
+    public static function publicId()
+    {
+        return bcrypt($this->id);
+    }
 }

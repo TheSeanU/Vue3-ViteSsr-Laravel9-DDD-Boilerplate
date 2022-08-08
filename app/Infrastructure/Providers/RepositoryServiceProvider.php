@@ -1,17 +1,18 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\ServiceProvider;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
-
     /**
      * Configuration String
      */
     const CONFIG_STRING = 'bindings';
-
 
     /**
      * Service Provider Registration
@@ -25,12 +26,11 @@ class RepositoryServiceProvider extends ServiceProvider
         }
     }
 
-
     /**
      * Register Infrastructure Binding Groups
      *
      * @access private
-     * @param array $groups
+     * @param  array $groups
      */
     private function registerBindingGroups(array $groups)
     {
@@ -39,12 +39,11 @@ class RepositoryServiceProvider extends ServiceProvider
         }
     }
 
-
     /**
      * Register Infrastructure Bindings
      *
      * @access private
-     * @param array $bindings
+     * @param  array $bindings
      */
     private function registerBindings(array $bindings)
     {

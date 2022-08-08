@@ -1,18 +1,15 @@
-import { h, type PropType } from "vue"
+// import { defineAsyncComponent, h, type PropType } from "vue"
 
+// export default defineAsyncComponent({
+//   props: ['modelValue'],
+//   emits: ['update:modelValue'],
 
-
-// TODO:: create abstract rendered components.
-export default {
-  props: ['modelValue'],
-  emits: ['update:modelValue'],
-
-  setup(props: PropType<[]>, { emit }) {
-    return () =>
-      h(test, {
-        scopedSlots: {default: props => h(props)},
-        modelValue: props.modelValue,
-        'onUpdate:modelValue': (value) => emit('update:modelValue', value)
-      })
-  }
-}
+//   setup(props: PropType<[]>, { emit }) {
+//     return () =>
+//       h(test, {
+//         scopedSlots: {default: props => h(props)},
+//         modelValue: props.modelValue,
+//         'onUpdate:modelValue': (value) => emit('update:modelValue', value)
+//       })
+//   }
+// })

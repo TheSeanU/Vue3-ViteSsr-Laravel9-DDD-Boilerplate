@@ -1,8 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
 
-use Illuminate\Support\Facades\Route;
+declare(strict_types = 1);
 
 use App\Interface\User\Controllers\Usercontroller;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,3 @@ Route::get('/{id}', [Usercontroller::class, 'show']);
 Route::post('', [Usercontroller::class, 'store']);
 Route::put('/{id}', [Usercontroller::class, 'update']);
 Route::delete('/{id}', [Usercontroller::class, 'delete']);
-
-
-

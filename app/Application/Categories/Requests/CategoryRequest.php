@@ -1,10 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Application\Categories\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest 
+class StoreCategoryRequest extends FormRequest 
 {
     /**
      * Get the validation rules that apply to the request.

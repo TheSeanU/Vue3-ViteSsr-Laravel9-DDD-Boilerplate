@@ -1,21 +1,20 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Providers;
 
-use Illuminate\Support\ServiceProvider;
-
 use App\Infrastructure\Interface\RepositoryInterface;
 use App\Infrastructure\Repository\BaseRepository;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Class BaseRepositoryServiceProvider
+ *
  * @package App\Core\Providers
  */
 class BaseRepositoryServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any application services.
      *
@@ -23,9 +22,6 @@ class BaseRepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            RepositoryInterface::class,
-            BaseRepository::class
-        );
+        $this->app->bind(RepositoryInterface::class, BaseRepository::class);
     }
 }

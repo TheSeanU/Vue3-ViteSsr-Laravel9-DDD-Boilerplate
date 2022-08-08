@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Admins\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Domain\Admins\Models\Admin;
 use Faker\Core\Number;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -26,7 +27,7 @@ class AdminFactory extends Factory
             'types' => 'Administrator',
         
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ];
     }
 
@@ -37,6 +38,5 @@ class AdminFactory extends Factory
      */
     public function unverified()
     {
-        
     }
 }

@@ -1,16 +1,14 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Products\Models;
 
 use App\Domain\Admins\Models\Admin;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-use Illuminate\Database\Eloquent\Relations\{BelongsToMany, HasMany, HasOne};
-
 use App\Domain\Categories\Models\Category;
 use App\Domain\Images\Models\Image;
-use App\Domain\User\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
@@ -32,5 +30,4 @@ class Product extends Model
     {
         return $this->belongsToMany(Admin::class);
     }
-    
 }

@@ -1,8 +1,9 @@
-<?php declare(strict_types = 1);
+<?php
 
-use Illuminate\Support\Facades\Route;
+declare(strict_types = 1);
 
 use App\Interface\Products\Controllers\Productcontroller;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

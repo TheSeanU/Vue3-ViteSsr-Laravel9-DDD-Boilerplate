@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Infrastructure\Middleware;
 
@@ -12,6 +14,6 @@ class EncryptCookies extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'jwt_token'
+        'jwt_token',
     ];
 }

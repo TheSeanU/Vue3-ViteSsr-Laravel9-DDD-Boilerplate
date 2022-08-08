@@ -1,11 +1,12 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Images\Repository;
 
-use Illuminate\Http\JsonResponse;
-
-use App\Domain\Images\Models\Image;
 use App\Application\Images\Interface\ImageInterface;
+use App\Domain\Images\Models\Image;
+use Illuminate\Http\JsonResponse;
 
 class ImageRepository implements ImageInterface
 {

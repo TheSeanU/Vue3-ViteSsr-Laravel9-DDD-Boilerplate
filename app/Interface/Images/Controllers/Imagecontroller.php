@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Interface\Images\Controllers;
 
-use App\Infrastructure\Controllers\Controller;
 use App\Application\Images\Interface\ImageInterface;
-
+use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
 class Imagecontroller extends Controller

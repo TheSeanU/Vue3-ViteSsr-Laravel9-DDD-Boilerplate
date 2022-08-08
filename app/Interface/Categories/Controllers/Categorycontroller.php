@@ -1,10 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Interface\Categories\Controllers;
 
-use App\Infrastructure\Controllers\Controller;
 use App\Application\Categories\Interface\CategoryInterface;
-
+use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
 class Categorycontroller extends Controller

@@ -1,12 +1,13 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Products\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-
 use App\Domain\Products\Models\Product;
 use Faker\Core\Number;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -28,7 +29,7 @@ class ProductFactory extends Factory
             'user_id' => (new Number)->randomDigitNotZero(),
 
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ];
     }
 
@@ -39,6 +40,5 @@ class ProductFactory extends Factory
      */
     public function unverified()
     {
-        
     }
 }

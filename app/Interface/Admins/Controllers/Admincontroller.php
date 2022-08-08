@@ -1,11 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Interface\Admins\Controllers;
 
-use App\Infrastructure\Controllers\Controller;
 use App\Application\Admins\Interface\AdminInterface;
-use App\Application\Admins\Requests\AdminStoreRequest;
-use App\Domain\Admins\Models\Admin;
+use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,15 +14,25 @@ class Admincontroller extends Controller
 {
     private $adminRepository;
 
+    /**
+     * Undocumented function
+     *
+     * @param AdminInterface $adminRepository
+     */
     public function __construct(AdminInterface $adminRepository)
     {
         $this->adminRepository = $adminRepository;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return JsonResponse
+     */
     public function index(): JsonResponse
     {
         return response()->json([
-            'data' => $this->adminRepository->all()
+            'data' => $this->adminRepository->all(),
         ]);
     }
 
@@ -32,8 +42,8 @@ class Admincontroller extends Controller
             'data' => $this->adminRepository->create([
                 'user_id' => $request->user_id,
                 'types' => $request->types,
-            ]) ], Response::HTTP_CREATED
-        );
+            ]),
+        ], Response::HTTP_CREATED);
     }
 
     public function show(Request $request): JsonResponse
@@ -41,7 +51,7 @@ class Admincontroller extends Controller
         $id = $request->id;
 
         return response()->json([
-            'data' => $this->adminRepository->get($id)
+            'data' => $this->adminRepository->get($id),
         ]);
     }
 
@@ -50,11 +60,11 @@ class Admincontroller extends Controller
         $orderId = $request->route('id');
         $orderDetails = $request->only([
             'client',
-            'details'
+            'details',
         ]);
 
         return response()->json([
-            'data' => $this->adminRepository->update($orderId, $orderDetails)
+            'data' => $this->adminRepository->update($orderId, $orderDetails),
         ]);
     }
 

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 namespace App\Domain\Admins\Repository;
 
@@ -17,17 +19,17 @@ class AdminRepository implements AdminInterface
     {
         return Admin::findOrFail($id);
     }
-    
+
     public function create(array $details)
     {
         return Admin::create($details);
     }
-    
+
     public function update(string|int $id, array $details): JsonResponse
     {
         return Admin::whereId($id)->update($details);
     }
-    
+
     public function delete(string|int $id): void
     {
         Admin::destroy($id);

@@ -161,9 +161,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         // Illuminate\Pagination\PaginationServiceProvider::class,
         // Illuminate\Redis\RedisServiceProvider::class,
-        // Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
 
         /*
         * Package Service Providers...
