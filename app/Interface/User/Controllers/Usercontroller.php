@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Interface\User\Controllers;
 
 use App\Application\User\Interface\UserInterface;
+use App\Domain\User\Models\User;
 use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -17,6 +18,12 @@ class Usercontroller extends Controller
     public function __construct(UserInterface $userRepository)
     {
         $this->userRepository = $userRepository;
+    }
+
+
+    public function index()
+    {
+        return User::all();
     }
 
     public function show(Request $request): JsonResponse
