@@ -4,7 +4,7 @@
             "composite": true,
             "baseUrl": ".",
             "paths": {
-                  "*": ["src/*"]
+                  "*": ["ssr/*"]
             },
             "target": "es5",
             "module": "esnext",
@@ -28,6 +28,6 @@
             "checkJs": false,
             "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
       },
-      "include": ["env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+      "include": ["env.d.ts", "ssr/**/*.ts", "ssr/**/*.tsx", "ssr/**/*.vue"],
       "exclude": ["node_modules"]
 }

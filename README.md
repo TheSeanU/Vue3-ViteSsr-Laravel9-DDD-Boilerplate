@@ -75,7 +75,7 @@ php artisan serve
         |-- *
             |-- Controllers
             |-- Routes
-    src
+    ssr
         |-- Infrastructure
             |-- *
         |-- Domain
