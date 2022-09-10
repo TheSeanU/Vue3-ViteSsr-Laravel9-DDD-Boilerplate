@@ -2,7 +2,6 @@ import {defineConfig} from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import path from 'path';
-import viteSSR from 'vite-ssr/plugin';
 
 const ssrPath = path.resolve('ssr');
 
@@ -21,7 +20,7 @@ export default defineConfig(({command}) => {
                   root: ssrPath,
                   envDir: '../',
                   resolve,
-                  plugins: [vue(), vueJsx(), viteSSR()],
+                  plugins: [vue(), vueJsx()],
                   publicDir: 'random_non_existent_folder',
             };
 
@@ -37,5 +36,3 @@ export default defineConfig(({command}) => {
             },
       };
 });
-
-
