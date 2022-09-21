@@ -9,7 +9,6 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -22,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
         $this->mapWebRoutes();
-        (new RouteHelper)->RoutePathLoader();
+        (new RouteHelper)->routePathLoader();
     }
 
     /**
@@ -46,6 +45,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')->group(base_path('App/Infrastructure/Route/web.php'));
+        // Route::middleware('web')->group(base_path('App/Infrastructure/Route/web.php'));
     }
 }

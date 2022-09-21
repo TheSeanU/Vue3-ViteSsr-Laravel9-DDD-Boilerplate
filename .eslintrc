@@ -1,0 +1,415 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "globals": {
+        "defineEmits": "readonly",
+        "defineProps": "readonly",
+        "google": "readonly",
+        "NodeJS": "readonly"
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:vue/vue3-recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    },
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module",
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [
+            ".vue"
+        ],
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "vue",
+        "sort-imports-es6-autofix",
+        "promise",
+        "@typescript-eslint",
+        "unused-imports"
+    ],
+    "rules": {
+        /**
+         * STANDARD ESLINT RULES
+         */
+        "multiline-comment-style": "off",
+        "capitalized-comments": "off",
+        // TODO :: fix these rules
+        "complexity": [
+            "error",
+            5
+        ],
+        "max-lines-per-function": [
+            "warn",
+            {
+                "max": 30,
+                "skipBlankLines": true,
+                "skipComments": true
+            }
+        ],
+        // TODO :: remove all ignores for this rule
+        "max-lines": [
+            "warn",
+            {
+                "max": 300,
+                "skipBlankLines": true,
+                "skipComments": true
+            }
+        ],
+        "indent": [
+            "warn",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "comma-dangle": [
+            "warn",
+            "always-multiline"
+        ],
+        "max-len": [
+            "warn",
+            {
+                "code": 120
+            }
+        ],
+        "array-bracket-spacing": [
+            "warn",
+            "never"
+        ],
+        "space-before-blocks": [
+            "warn",
+            "always"
+        ],
+        "arrow-spacing": [
+            "warn",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "keyword-spacing": [
+            "warn",
+            {
+                "before": true,
+                "after": true
+            }
+        ],
+        "quotes": [
+            "warn",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "no-console": "warn",
+        "object-curly-spacing": "warn",
+        "arrow-parens": [
+            "warn",
+            "as-needed"
+        ],
+        "no-template-curly-in-string": "warn",
+        "arrow-body-style": [
+            "warn",
+            "as-needed"
+        ],
+        "dot-notation": "warn",
+        "grouped-accessor-pairs": [
+            "warn",
+            "getBeforeSet"
+        ],
+        "no-return-await": "warn",
+        "no-underscore-dangle": [
+            "warn",
+            {
+                "allowAfterThis": true,
+                "allow": [
+                    "__key",
+                    "__id"
+                ]
+            }
+        ],
+        "spaced-comment": "warn",
+        "yoda": "warn",
+        // TODO :: reduce the amount of TODO's before accepting this rule
+        // "no-warning-comments": "warn",
+        "max-depth": [
+            "error",
+            4
+        ],
+        "max-statements-per-line": [
+            "error",
+            {
+                "max": 2
+            }
+        ],
+        "array-callback-return": "error",
+        "require-atomic-updates": "error",
+        "block-scoped-var": "error",
+        "curly": [
+            "error",
+            "multi-or-nest"
+        ],
+        "eqeqeq": "error",
+        "func-style": [
+            "error",
+            "expression"
+        ],
+        // TODO :: should reduce the exceptions size
+        "id-length": [
+            "error",
+            {
+                "exceptions": [
+                    "e",
+                    "h",
+                    "_",
+                    "i",
+                    "a",
+                    "b"
+                ]
+            }
+        ],
+        "max-nested-callbacks": "error",
+        "new-cap": [
+            "error",
+            {
+                "newIsCapExceptions": [
+                    "default"
+                ]
+            }
+        ],
+        "@typescript-eslint/ban-ts-comment": [
+            "error",
+            {
+                "ts-ignore": "allow-with-description"
+            }
+        ],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "_"
+            }
+        ],
+        "no-else-return": [
+            "error",
+            {
+                "allowElseIf": false
+            }
+        ],
+        "no-constructor-return": "error",
+        "no-duplicate-imports": "error",
+        "no-self-compare": "error",
+        "no-unmodified-loop-condition": "error",
+        "no-unreachable-loop": "error",
+        "no-array-constructor": "error",
+        "no-alert": "error",
+        "no-caller": "error",
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-extend-native": "error",
+        "no-extra-bind": "error",
+        "no-extra-label": "error",
+        "no-floating-decimal": "error",
+        "no-implicit-globals": "error",
+        "no-invalid-this": "error",
+        "no-label-var": "error",
+        "no-lone-blocks": "error",
+        "no-lonely-if": "error",
+        "no-loop-func": "error",
+        "no-multi-assign": "error",
+        "no-negated-condition": "error",
+        "no-nested-ternary": "error",
+        "no-new-func": "error",
+        "no-new-object": "error",
+        "no-new-wrappers": "error",
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        // "no-restricted-syntax": [
+        //     "error",
+        //     {
+        //         "selector": "CallExpression[callee.object.name='localStorage']",
+        //         "message": "Do not use `localStorage` directly, use the storage service instead"
+        //     }
+        //     // TODO :: rule can be added later when new style is finished
+        //     // {
+        //     //     "selector": "FunctionExpression",
+        //     //     "message": "Function expressions are not allowed"
+        //     // }
+        // ],
+        "no-sequences": "error",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "no-throw-literal": "error",
+        "no-undef-init": "error",
+        "no-unneeded-ternary": "error",
+        "no-unused-expressions": "error",
+        "no-useless-call": "error",
+        "no-useless-computed-key": "error",
+        "no-useless-concat": "error",
+        "no-useless-constructor": "error",
+        "no-useless-rename": "error",
+        "no-useless-return": "error",
+        "no-var": "error",
+        "no-void": "error",
+        // "no-restricted-imports": [
+        //     "warn",
+        //     {
+        //         "patterns": [
+        //             "../..*"
+        //         ]
+        //     }
+        // ],
+        "object-shorthand": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-destructuring": [
+            "error",
+            {
+                "array": false,
+                "object": true
+            }
+        ],
+        "prefer-object-spread": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
+        "require-await": "error",
+        // TODO :: fix this
+        // "no-magic-numbers": ["error", {"ignore": [1]}],
+        // TODO :: what todo with this
+        // "camelcase": ["error", {"properties": "never", "ignoreDestructuring": true}],
+        /**
+         * VUE ESLINT RULES
+         */
+        "vue/no-deprecated-destroyed-lifecycle": [
+            "error"
+        ],
+        "vue/component-definition-name-casing": [
+            "error",
+            "PascalCase"
+        ],
+        "vue/html-indent": [
+            "error",
+            4,
+            {
+                "attribute": 1,
+                "baseIndent": 1,
+                "closeBracket": 0,
+                "alignAttributesVertically": true,
+                "ignores": []
+            }
+        ],
+        // Prettier handles this rule
+        "vue/max-attributes-per-line": [
+            "off"
+            // {
+            //     "singleline": 6,
+            //     "multiline": {
+            //         "max": 1,
+            //         "allowFirstLine": false
+            //     }
+            // }
+        ],
+        "vue/singleline-html-element-content-newline": "off",
+        "vue/attributes-order": [
+            "error",
+            {
+                // Not sure about the order here, will need to test more with this
+                "order": [
+                    "DEFINITION",
+                    "LIST_RENDERING",
+                    "CONDITIONALS",
+                    "RENDER_MODIFIERS",
+                    "GLOBAL",
+                    "UNIQUE",
+                    "SLOT",
+                    "TWO_WAY_BINDING",
+                    "OTHER_DIRECTIVES",
+                    "OTHER_ATTR",
+                    "EVENTS",
+                    "CONTENT"
+                ],
+                "alphabetical": false
+            }
+        ],
+        "vue/html-self-closing": [
+            "error",
+            {
+                // This is off, cause prettier can't handle it
+                "html": {
+                    "void": "always"
+                }
+            }
+        ],
+        // this is off, because we mutate
+        "vue/no-mutating-props": [
+            "off"
+        ],
+        // It's off, which is risky, but we use/abuse this for wanted side effects
+        "vue/no-side-effects-in-computed-properties": [
+            "off"
+        ],
+        "vue/multi-word-component-names": "off",
+        /**
+         * OTHER ESLINT RULES
+         */
+        "sort-imports-es6-autofix/sort-imports-es6": [
+            "warn",
+            {
+                "ignoreCase": false,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": [
+                    "none",
+                    "all",
+                    "multiple",
+                    "single"
+                ]
+            }
+        ],
+        // "promise/prefer-await-to-then": "warn",
+        "promise/prefer-await-to-callbacks": "warn",
+        "promise/no-new-statics": "warn",
+        "unused-imports/no-unused-imports": "error",
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 1
+            }
+        ],
+        "import/max-dependencies": [
+            "warn",
+            {
+                // TODO :: should become lower, 10 would be nice
+                "max": 15,
+                "ignoreTypeImports": true
+            }
+        ],
+        "import/first": "error"
+    }
+}

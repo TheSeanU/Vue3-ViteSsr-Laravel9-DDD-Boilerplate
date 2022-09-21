@@ -5,47 +5,72 @@ declare(strict_types = 1);
 namespace App\Interface\User\Controllers;
 
 use App\Application\User\Interface\UserInterface;
+use App\Domains\User\Models\User;
 use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class Usercontroller extends Controller
 {
     private $userRepository;
 
+    /**
+     * Undocumented function
+     *
+     * @param UserInterface $userRepository
+     */
     public function __construct(UserInterface $userRepository)
     {
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function index()
+    {
+        return User::all();
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
     public function show(Request $request): JsonResponse
     {
-        $orderId = $request->route('id');
-
         return new JsonResponse([
-            'data' => $this->userRepository->get($orderId),
+            'data' => $this->userRepository->findOrFailUser($request->id),
         ]);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
     public function update(Request $request): JsonResponse
     {
-        $orderId = $request->route('id');
-        $orderDetails = $request->only([
-            'client',
-            'details',
-        ]);
-
         return new JsonResponse([
-            'data' => $this->userRepository->update($orderId, $orderDetails),
+            'data' => $this->userRepository->updateUser($request->id, $request->details),
         ]);
     }
 
-    public function destroy(Request $request): JsonResponse
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     *
+     * @return void
+     */
+    public function destroy(Request $request)
     {
-        $orderId = $request->route('id');
-        $this->userRepository->delete($orderId);
-
-        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+        return $this->userRepository->deleteUser($request->id);
     }
 }

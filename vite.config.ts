@@ -1,38 +1,39 @@
-import {defineConfig} from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
+import {UserConfig, defineConfig} from 'vite';
 import path from 'path';
+import vue from '@vitejs/plugin-vue';
 
-const ssrPath = path.resolve('ssr');
+const srcPath = path.resolve('./');
 
-const resolve = {
-      alias: {
-            Infrastructure: path.join(ssrPath, 'Infrastructure'),
-            Application: path.join(ssrPath, 'Application'),
-            Interface: path.join(ssrPath, 'Interface'),
-            Domain: path.join(ssrPath, 'Domain'),
-      },
-};
-
+// eslint-disable-next-line max-lines-per-function
 export default defineConfig(({command}) => {
-      if (command === 'serve')
-            return {
-                  root: ssrPath,
-                  envDir: '../',
-                  resolve,
-                  plugins: [vue(), vueJsx()],
-                  publicDir: 'random_non_existent_folder',
-            };
+    const build = command === 'build';
 
-      return {
-            build: {
-                  target: 'es2022',
-                  assetsInclude: [],
-                  manifest: true,
-                  outDir: `public/ssr`,
-                  rollupOptions: {
-                        input: `ssr/main.ts`,
-                  },
+    const config: UserConfig = {
+        base: '/',
+        plugins: [vue()],
+        resolve: {
+            alias: {
+                ssr: path.join(srcPath, 'ssr'),
+                domains: path.join(srcPath, 'ssr/domains'),
+                application: path.join(srcPath, 'ssr/application'),
+                infrastucture: path.join(srcPath, 'ssr/infrastucture'),
             },
-      };
+        },
+        server: {
+            port: 6173,
+        },
+        build: {
+            minify: false,
+        },
+    };
+    if (build) {
+        return {
+            ...config,
+            root: path.join(srcPath, 'ssr/infrastructure/'),
+            build: {
+                emptyOutDir: true,
+            },
+        };
+    }
+    return config;
 });

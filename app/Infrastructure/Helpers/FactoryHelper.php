@@ -9,13 +9,18 @@ use Illuminate\Support\Str;
 
 class FactoryHelper
 {
-    public static function FactoryPathLoader()
+    /**
+     * Database factory path loader
+     *
+     * @return void
+     */
+    public static function factoryPathLoader()
     {
         Factory::guessFactoryNamesUsing(function (string $modelName) {
             $factoryPath = str_replace(
                 ".php",
                 "",
-                glob('App\\Domain\\' . "*" . '\\Database\\Factories\\' . "*.php"),
+                glob('App\\Domains\\*\\Database\\Factories\\*.php'),
             );
 
             foreach ($factoryPath as $path) {

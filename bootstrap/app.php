@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /*
 |--------------------------------------------------------------------------
 | Create The Infrastructure
@@ -12,7 +14,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__),
 );
 
 /*
@@ -26,22 +28,11 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
-// $app->register(\Fruitcake\Cors\CorsServiceProvider::class);
+$app->singleton(Illuminate\Contracts\Http\Kernel::class, App\Infrastructure\Http\Kernel::class);
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    App\Infrastructure\Http\Kernel::class
-);
+$app->singleton(Illuminate\Contracts\Console\Kernel::class, App\Infrastructure\Kernels\CommandsKernel::class);
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    App\Infrastructure\Kernels\CommandsKernel::class
-);
-
-$app->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Infrastructure\Exceptions\Handler::class
-);
+$app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, App\Infrastructure\Exceptions\Handler::class);
 
 /*
 |--------------------------------------------------------------------------

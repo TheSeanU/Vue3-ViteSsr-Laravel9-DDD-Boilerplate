@@ -6,11 +6,16 @@ namespace App\Infrastructure\Helpers;
 
 class SeederHelper
 {
-    public static function SeederPathLoader()
+    /**
+     * Database seeder path loader function
+     *
+     * @return void
+     */
+    public static function seederPathLoader()
     {
-        $files_arr = str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));
+        $filesArr = str_replace(".php", "", glob('App\\Domains\\*\\Database\\Seeders\\*.php'));
 
-        foreach ($files_arr as $file) {
+        foreach ($filesArr as $file) {
             if (isset($file::$autoIndex) && $file !== 'DatabaseSeeder.php' && $file[0] !== ".") {
                 return explode('.', $file)[0];
             }

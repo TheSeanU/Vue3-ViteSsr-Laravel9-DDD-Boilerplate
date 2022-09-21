@@ -1,11 +1,69 @@
 {
-      "files": [],
-      "references": [
-            {
-                  "path": "./tsconfig.config.json"
-            },
-            {
-                  "path": "./tsconfig.app.json"
-            }
-      ]
+  "compileOnSave": true,
+  "ts-node": {
+    "esm": true
+  },
+  "compilerOptions": {
+    "module": "ESNext",
+    "rootDir": ".",
+    "target": "ESNext",
+    "types": [
+      "vite/client",
+      "node"
+    ],
+    "moduleResolution": "node",
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "outDir": "dist",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    // "noImplicitThis": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    // "inlineSourceMap": true,
+    // "isolatedModules": true,
+    "useUnknownInCatchVariables": true,
+    // "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "./*": [
+        "./*"
+      ],
+      "ssr/*": [
+        "./ssr/*"
+      ],
+      "domains/*": [
+        "./ssr/domains/*"
+      ],
+      "application/*": [
+        "./ssr/application/*"
+      ],
+      "infrastructure/*": [
+        "./ssr/infrastructure/*"
+      ],
+    },
+  },
+  "include": [
+    "ssr/**/*",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./dist",
+    "dist",
+  ]
 }

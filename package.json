@@ -1,24 +1,64 @@
 {
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build",
-        "preview": "vite preview --port 5050",
-        "typecheck": "vue-tsc --noEmit"
+        "dev": "npm run server",
+        "build": "npm run build:client && npm run build:server",
+        "build:client": "vite build --ssrManifest --outDir ../../dist/client",
+        "build:server": "vite build --ssr build/entry-server.ts --outDir ../../dist/server",
+        "server": "ts-node ./ssr/infrastructure/server.ts",
+        "vue-typescript-check": "vue-tsc -p tsconfig.volar.json",
+        "generate": "vite build --ssrManifest --outDir ../../dist/static && npm run build:server && ts-node --pretty ./ssr/infrastructure/build/prerender",
+        "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
+        "lint:markup": "vue-tsc --noEmit",
+        "preview": "vite preview --port 8080 ../../dist/server"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,vue}": "eslint --fix",
+        "*": "prettier -w -u"
     },
     "dependencies": {
-        "vue": "^3.2.31",
-        "vue-router": "^4.0.12"
+        "@popperjs/core": "^2.11.6",
+        "@types/bootstrap": "^5.2.4",
+        "@types/compression": "^1.7.2",
+        "@types/express": "^4.17.13",
+        "@types/node": "^18.7.16",
+        "@vitejs/plugin-vue": "^3.1.0",
+        "@vue/tsconfig": "^0.1.3",
+        "axios": "^0.27.2",
+        "bootstrap": "^5.2.1",
+        "compression": "^1.7.4",
+        "express": "^4.18.1",
+        "serve-static": "^1.15.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.8.3",
+        "vite": "^3.1.0",
+        "vue": "^3.2.33",
+        "vue-router": "^4.1.3",
+        "vue-tsc": "^0.40.1"
     },
     "devDependencies": {
-        "@types/node": "^16.11.27",
-        "@vitejs/plugin-vue": "^2.3.1",
-        "@vitejs/plugin-vue-jsx": "^1.3.10",
-        "@vue/tsconfig": "^0.1.3",
-        "axios": "^0.25",
-        "bootstrap": "^5.1.3",
-        "typescript": "^4.6.4",
-        "vite": "^2.8.4",
-        "vue-tsc": "^0.34.7"
+        "@typescript-eslint/eslint-plugin": "^5.37.0",
+        "@typescript-eslint/parser": "^5.37.0",
+        "@vue/eslint-config-prettier": "^7.0.0",
+        "@vue/eslint-config-typescript": "^11.0.1",
+        "eslint": "^8.23.1",
+        "eslint-import-resolver-typescript": "^3.3.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "eslint-plugin-vue": "^9.4.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1",
+        "pretty-quick": "^3.1.3",
+        "sass": "^1.54.9"
     }
 }

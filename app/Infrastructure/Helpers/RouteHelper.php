@@ -8,9 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 class RouteHelper
 {
-    public static function RoutePathLoader()
+    /**
+     * Route path loader
+     *
+     * @return void
+     */
+    public static function routePathLoader()
     {
-        $paths = glob('App/Interface/' . "*" . '/Routes/' . "*.php");
+        $paths = glob('App\\Interface\\*\\Routes\\*.php');
 
         foreach ($paths as $path) {
             Route::prefix('api/' . pathinfo($path)["filename"])

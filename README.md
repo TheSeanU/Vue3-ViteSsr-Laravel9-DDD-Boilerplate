@@ -42,61 +42,63 @@ php artisan serve
 
 ### Laravel domain driven design data stucture;
 
-    Infrastructure
-        |-- Commands
-        |-- Controller
-        |-- Database
-            |-- Factory
-            |-- Migrations
-            |-- Seeders
-        |-- Exceptions
-        |-- Interface
-        |-- Kernels
-        |-- Middleware
-        |-- Providers
-        |-- Repository
-    Domain
-        |-- *
-            |-- Database
-                |-- Factory
-                |-- Migrations
-                |-- Seeders
-            |-- Interface
-            |-- Models
-            |-- Repository
-            |-- Request
-    Application
-        |-- *
-            |-- Middleware
-            |-- Requests
-            |-- Policies
-            |-- Jobs
-    Interface
-        |-- *
-            |-- Controllers
-            |-- Routes
-    ssr
-        |-- Infrastructure
-            |-- *
-        |-- Domain
-            |-- ??
-        |-- Application
-            |-- Middleware
-        |-- Interface
-            |-- *
+|-- App
+Infrastructure
+|-- Commands
+|--
+|-- Controller
+|-- Database
+|-- Factory
+|-- Migrations
+|-- Seeders
+|-- Exceptions
+|-- Interface
+|-- Kernels
+|-- Middleware
+|-- Providers
+|-- Repository
+Domains
+|-- _
+|-- Database
+|-- Factory
+|-- Migrations
+|-- Seeders
+|-- Interface
+|-- Models
+|-- Repository
+|-- Request
+Application
+|-- _
+|-- Middleware
+|-- Requests
+|-- Policies
+|-- Jobs
+Interface
+|-- _
+|-- Controllers
+|-- Routes
+ssr
+|-- Infrastructure
+|-- _
+|-- Domains
+|-- ??
+|-- Application
+|-- Middleware
+|-- Interface
+|-- \*
 
 ### Automatic index:
 
 ```sh
-    Migrations: "App\\Domain\\*\\Database\\\Migrations\\".
+    Migrations: "App\\Domains\\*\\Database\\\Migrations\\".
     # call seeders in migrations instead. *
     # to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
-    # Seeders: "App\\Domain\\*\\Database\\\Seeders\\".
-    Factories: "App\\Domain\\*\\Database\\\Factories\\".
+    # Seeders: "App\\Domains\\*\\Database\\\Seeders\\".
+    Factories: "App\\Domains\\*\\Database\\\Factories\\".
     ### The routes auto indexer. usses the filename as /api/filename.
     Routes:"App\\Interface\\*\\Routes".
-    Interface: "App\\Domain\\*\\Interface\\".
-    Repository: "App\\Domain\\*\\Repository\\".
+    Interface: "App\\Domains\\*\\Interface\\".
+    Repository: "App\\Domains\\*\\Repository\\".
 ```
 
 ### \* Call seeders inside migration files:
@@ -104,7 +106,7 @@ php artisan serve
 ##### Hierarchy for model relations now works with the date you put in front of the migration file.
 
 ```sh
-    use App\\Domain\\*\\Database\\Seeders\\CustomSeeder;
+    use App\\Domains\\*\\Database\\Seeders\\CustomSeeder;
 
     public function up()
     {

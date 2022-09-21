@@ -8,9 +8,31 @@ use Illuminate\Http\JsonResponse;
 
 interface UserInterface
 {
-    public function get(string|int $id): JsonResponse;
+    /**
+     * Find or fail user function
+     *
+     * @param int $id
+     *
+     * @return JsonResponse
+     */
+    public function findOrFailUser(int $id): JsonResponse;
 
-    public function update(string|int $id, array $details): JsonResponse;
+    /**
+     * User update function
+     *
+     * @param int   $id
+     * @param array $details
+     *
+     * @return JsonResponse
+     */
+    public function updateUser(int $id, array $details): JsonResponse;
 
-    public function delete(string|int $id): void;
+    /**
+     * User delete function
+     *
+     * @param int $id
+     *
+     * @return JsonResponse
+     */
+    public function deleteUser(int $id);
 }

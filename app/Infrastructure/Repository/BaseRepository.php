@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 class BaseRepository implements RepositoryInterface
 {
     /**
+     * Modal Protected
+     *
      * @var Model
      */
     protected $model;

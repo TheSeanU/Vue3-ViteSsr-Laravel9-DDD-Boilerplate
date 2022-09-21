@@ -32,7 +32,8 @@ class MigrateSeedCommand extends Command
         /**
          * Run the database seeder command.
          *
-         * @param  string  $database
+         * @param string  $database
+         *
          * @return void
          */
         $this->call('migrate:fresh');

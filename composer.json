@@ -11,7 +11,7 @@
         "php": "^8.0.2",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.11",
+        "laravel/framework": "^9.3.2",
         "laravel/tinker": "^2.7",
         "php-open-source-saver/jwt-auth": "^1.4"
     },
@@ -31,7 +31,7 @@
             "App\\": "app/",
             "App\\Infrastructure\\": "app/Infrastructure/",
             "App\\Application\\": "app/Application/",
-            "App\\Domain\\": "app/Domain/",
+            "App\\Domains\\": "app/Domains/",
             "App\\Interface\\": "app/Interface/"
         },
         "classmap": [],
@@ -44,13 +44,15 @@
     },
     "scripts": {
         "post-autoload-dump": [
-            "phpcbf  app",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan config:cache",
-            "@php artisan cache:clear",
             "@php artisan route:cache",
             "@php artisan route:list -v"
+        ],
+        "keys": [
+            "@php artisan key:generate",
+            "@php artisan jwt:secret --force"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

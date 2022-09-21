@@ -4,17 +4,40 @@ declare(strict_types = 1);
 
 namespace App\Application\Auth\Interface;
 
-use Illuminate\Http\Request;
+use App\Application\Auth\Requests\LoginRequest;
+use App\Application\Auth\Requests\RegisterRequest;
 
 interface AuthInterface
 {
-    public function login(Request $request);
+    /**
+     * User login function
+     *
+     * @param LoginRequest $request
+     *
+     * @return void
+     */
+    public function loginUser(LoginRequest $request);
 
-    public function register(Request $request);
+    /**
+     * User register function
+     *
+     * @param RegisterRequest $request
+     *
+     * @return void
+     */
+    public function registerUser(RegisterRequest $request);
 
-    public function logout();
+    /**
+     * User logout function
+     *
+     * @return void
+     */
+    public function logoutUser();
 
-    public function me();
-
-    public function refresh();
+    /**
+     * Loggedin user function
+     *
+     * @return void
+     */
+    public function loggedinUser();
 }

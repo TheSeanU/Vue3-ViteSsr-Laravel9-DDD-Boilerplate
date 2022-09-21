@@ -12,12 +12,14 @@ class RepositoryServiceProvider extends ServiceProvider
     /**
      * Configuration String
      */
-    const CONFIG_STRING = 'bindings';
+    private const CONFIG_STRING = 'bindings';
 
     /**
      * Service Provider Registration
      *
      * @access public
+     *
+     * @return void
      */
     public function register()
     {
@@ -29,8 +31,11 @@ class RepositoryServiceProvider extends ServiceProvider
     /**
      * Register Infrastructure Binding Groups
      *
+     * @param array $groups
+     *
      * @access private
-     * @param  array $groups
+     *
+     * @return void
      */
     private function registerBindingGroups(array $groups)
     {
@@ -42,8 +47,11 @@ class RepositoryServiceProvider extends ServiceProvider
     /**
      * Register Infrastructure Bindings
      *
+     * @param array $bindings
+     *
      * @access private
-     * @param  array $bindings
+     *
+     * @return void
      */
     private function registerBindings(array $bindings)
     {
