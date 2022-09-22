@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-use App\Interface\User\Controllers\Usercontroller;
+use App\Domains\User\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*

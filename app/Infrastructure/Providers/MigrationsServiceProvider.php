@@ -16,6 +16,6 @@ class MigrationsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(glob('App/Domains/' . "*" . '/Database/Migrations/' . "*.php"));
-        $this->loadMigrationsFrom(glob('App/Infrastructure/Database/Migrations/' . "*.php"));
+        $this->loadMigrationsFrom(glob('App/Domains/Database/Migrations/' . "*.php"));
     }
 }

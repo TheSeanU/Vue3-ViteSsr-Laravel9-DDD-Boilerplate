@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace App\Interface\User\Controllers;
+namespace App\Domains\User\Controllers;
 
-use App\Application\User\Interface\UserInterface;
+use App\Domains\User\Interface\UserInterface;
 use App\Domains\User\Models\User;
 use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;

@@ -42,50 +42,65 @@ php artisan serve
 
 ### Laravel domain driven design data stucture;
 
-|-- App
-Infrastructure
-|-- Commands
-|--
-|-- Controller
-|-- Database
-|-- Factory
-|-- Migrations
-|-- Seeders
-|-- Exceptions
-|-- Interface
-|-- Kernels
-|-- Middleware
-|-- Providers
-|-- Repository
-Domains
-|-- _
-|-- Database
-|-- Factory
-|-- Migrations
-|-- Seeders
-|-- Interface
-|-- Models
-|-- Repository
-|-- Request
-Application
-|-- _
-|-- Middleware
-|-- Requests
-|-- Policies
-|-- Jobs
-Interface
-|-- _
-|-- Controllers
-|-- Routes
-ssr
-|-- Infrastructure
-|-- _
-|-- Domains
-|-- ??
-|-- Application
-|-- Middleware
-|-- Interface
-|-- \*
+````bash
+
+    |--App
+    |   |--Infrastructure
+    |   |   |-- Commands
+    |   |   |-- Controller
+    |   |   |-- Database
+    |   |   |-- Factory
+    |   |   |-- Migrations
+    |   |   |-- Seeders
+    |   |   |-- Exceptions
+    |   |   |-- Interface
+    |   |   |-- Kernels
+    |   |   |-- Middleware
+    |   |   |-- Providers
+    |   |   |__ Repository
+    |   |
+    |   |_Domains
+    |      |-- * (Custom domain name)
+    |         |-- Database
+    |         |-- Factory
+    |         |-- Migrations
+    |         |-- Seeders
+    |         |-- Interface
+    |         |-- Models
+    |         |-- Repository
+    |         |-- Request
+    |         |-- Controllers
+    |         |-- Routes
+    |         |-- Middleware
+    |         |-- Requests
+    |         |-- Policies
+    |         |__ Jobs
+    |
+    |__ssr
+        |-- Infrastructure
+        |   |-- build
+        |   |   |-- entry-server.ts
+        |   |   |-- entry-client.ts
+        |   |   |__ main.ts
+        |   |-- index.html
+        |   |__ server.ts
+        |
+        |-- Domains
+        |   |__ * (Custom domain name)
+        |       |-- components
+        |       |-- pages (Are auto indexed by name)
+        |       |-- index.ts
+        |       |__ types.d.ts
+        |
+        |__ Application
+            |-- assets
+            |-- components
+            |-- layout
+            |-- services
+            |__ types
+
+
+```
 
 ### Automatic index:
 
@@ -99,7 +114,7 @@ ssr
     Routes:"App\\Interface\\*\\Routes".
     Interface: "App\\Domains\\*\\Interface\\".
     Repository: "App\\Domains\\*\\Repository\\".
-```
+````
 
 ### \* Call seeders inside migration files:
 

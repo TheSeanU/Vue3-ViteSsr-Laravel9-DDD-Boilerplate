@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Application\Auth\Middleware;
+namespace App\Domains\Auth\Middleware;
 
 use Closure;
 use Exception;

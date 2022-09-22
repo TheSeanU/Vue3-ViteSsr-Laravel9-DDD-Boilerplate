@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-use App\Interface\Auth\Controllers\Authcontroller;
+use App\Domains\Auth\Controllers\Authcontroller;
 use Illuminate\Support\Facades\Route;
 
 /*

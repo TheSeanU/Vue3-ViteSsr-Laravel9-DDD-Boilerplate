@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace App\Application\Auth\Interface;
+namespace App\Domains\Auth\Interface;
 
-use App\Application\Auth\Requests\LoginRequest;
-use App\Application\Auth\Requests\RegisterRequest;
+use App\Domains\Auth\Requests\LoginRequest;
+use App\Domains\Auth\Requests\RegisterRequest;
 
 interface AuthInterface
 {

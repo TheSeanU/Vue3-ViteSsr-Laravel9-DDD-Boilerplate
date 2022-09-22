@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace App\Interface\Auth\Controllers;
+namespace App\Domains\Auth\Controllers;
 
-use App\Application\Auth\Interface\AuthInterface;
-use App\Application\Auth\Requests\LoginRequest;
-use App\Application\Auth\Requests\RegisterRequest;
+use App\Domains\Auth\Interface\AuthInterface;
+use App\Domains\Auth\Requests\LoginRequest;
+use App\Domains\Auth\Requests\RegisterRequest;
 use App\Infrastructure\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 

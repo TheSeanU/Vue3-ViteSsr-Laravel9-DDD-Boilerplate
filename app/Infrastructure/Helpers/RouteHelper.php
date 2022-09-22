@@ -15,7 +15,7 @@ class RouteHelper
      */
     public static function routePathLoader()
     {
-        $paths = glob('App\\Interface\\*\\Routes\\*.php');
+        $paths = glob('App\\Domains\\*\\Routes\\*.php');
 
         foreach ($paths as $path) {
             Route::prefix('api/' . pathinfo($path)["filename"])

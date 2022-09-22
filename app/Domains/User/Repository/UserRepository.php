@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Domains\User\Repository;
 
-use App\Application\User\Interface\UserInterface;
+use App\Domains\User\Interface\UserInterface;
 use App\Domains\User\Models\User;
 use Illuminate\Http\JsonResponse;
 

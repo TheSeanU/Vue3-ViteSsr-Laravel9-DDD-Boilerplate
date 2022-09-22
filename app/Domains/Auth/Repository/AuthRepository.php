@@ -4,9 +4,9 @@ declare(strict_types = 1);
 
 namespace App\Domains\Auth\Repository;
 
-use App\Application\Auth\Interface\AuthInterface;
-use App\Application\Auth\Requests\LoginRequest;
-use App\Application\Auth\Requests\RegisterRequest;
+use App\Domains\Auth\Interface\AuthInterface;
+use App\Domains\Auth\Requests\LoginRequest;
+use App\Domains\Auth\Requests\RegisterRequest;
 use App\Domains\User\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
