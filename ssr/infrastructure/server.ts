@@ -2,7 +2,7 @@ import {ViteDevServer} from 'vite';
 import {fileURLToPath} from 'url';
 import express from 'express';
 import fs from 'fs';
-import path from 'path';
+import path, {resolve} from 'path';
 
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
     const getPath = (route: string) => path.resolve(dirname, route);
@@ -15,7 +15,8 @@ import path from 'path';
 
     if (isProd) {
         server.use((await import('compression')).default());
-        server.use('/', (await import('express')).static(getPath('dist/client'), {index: false}));
+        server.use('/', (await import('serve-static')).default(resolve('dist/client'), {index: false}));
+        // server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
     }
 
     const viteDevServer: ViteDevServer = await (
