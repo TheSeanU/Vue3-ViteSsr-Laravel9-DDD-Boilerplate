@@ -19,10 +19,8 @@ class UserSeeder extends Seeder
 
         $basic = [
             'name' => 'Sean',
-            'last_name' => 'Unett',
             'email' => 'test@test.com',
             'email_verified_at' => now(),
-            'phone' => '0612345678',
             'password' => bcrypt('123456'),
         ];
 

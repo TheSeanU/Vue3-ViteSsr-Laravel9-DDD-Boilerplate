@@ -1,9 +1,10 @@
 <?php declare(strict_types = 1);
 
-namespace App\Infrastructure\Database\Seeders;
+namespace Database\Seeders;
 
 use App\Infrastructure\Helpers\SeederHelper;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call((new SeederHelper)->SeederPathLoader());
+        $this->call([
+           \App\Domains\User\Database\Seeders\UserSeeder::class
+        ]);
     }
 }
