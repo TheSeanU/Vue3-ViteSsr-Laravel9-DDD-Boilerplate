@@ -7,13 +7,15 @@ namespace App\Infrastructure\Helpers;
 class SeederHelper
 {
     /**
-     * Database seeder path loader function
+     * Seeder path loader for DatabaseSeeder.php
+     *
+     * TODO:: not working yet
      *
      * @return void
      */
     public static function seederPathLoader()
     {
-        $filesArr = str_replace(".php", "", glob('App\\Domains\\*\\Database\\Seeders\\*.php'));
+        $filesArr = str_replace(".php", "", glob('App\\Domain\\' . "*" . '\\Database\\Seeders\\' . "*.php"));
 
         foreach ($filesArr as $file) {
             if (isset($file::$autoIndex) && $file !== 'DatabaseSeeder.php' && $file[0] !== ".") {

@@ -32,7 +32,8 @@
             "App\\Infrastructure\\": "app/Infrastructure/",
             "App\\Application\\": "app/Application/",
             "App\\Domains\\": "app/Domains/",
-            "App\\Interface\\": "app/Interface/"
+            "App\\Interface\\": "app/Interface/",
+            "Database\\Seeders\\": "database/seeders/"
         },
         "classmap": [],
         "files": []
