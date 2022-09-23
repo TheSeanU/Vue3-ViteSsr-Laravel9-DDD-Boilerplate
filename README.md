@@ -102,13 +102,13 @@ php artisan serve
 
 ### Automatic index:
 
-````sh
+```sh
     Factories: "App\\Domains\\*\\Database\\\Factories\\".
     Migrations: "App\\Domains\\*\\Database\\\Migrations\\".
-    Seeders: "App\\Domains\\*\\Database\\\Seeders\\". #### call this file in ```sh database/seeders```
+    Seeders: "App\\Domains\\*\\Database\\\Seeders\\". #### call this file in database/seeders/DatabaseSeeders.php
 
     ### The routes auto indexer. usses the filename as /api/filename.
     Routes: "App\\Interface\\*\\Routes".
     Interface: "App\\Domains\\*\\Interface\\".
     Repository: "App\\Domains\\*\\Repository\\".
-````
+```
