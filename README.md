@@ -23,7 +23,7 @@ code .env
 # edit if needed: DB_PORT=, DB_DATABASE=laravel, DB_USERNAME=, DB_PASSWORD=
 
 php artisan key:generate
-php artisan migrate-seed
+php artisan migrate:fresh --seed
 ```
 
 ### Run project
@@ -42,7 +42,7 @@ php artisan serve
 
 ### Laravel domain driven design data stucture;
 
-````bash
+```bash
 
     |--App
     |   |--Infrastructure
@@ -98,41 +98,17 @@ php artisan serve
             |-- layout
             |-- services
             |__ types
-
-
 ```
 
 ### Automatic index:
 
-```sh
-    Migrations: "App\\Domains\\*\\Database\\\Migrations\\".
-    # call seeders in migrations instead. *
-    # to auto index seeders without relations call `public static $autoIndex = true;` inside seeder file.
-    # Seeders: "App\\Domains\\*\\Database\\\Seeders\\".
+````sh
     Factories: "App\\Domains\\*\\Database\\\Factories\\".
+    Migrations: "App\\Domains\\*\\Database\\\Migrations\\".
+    Seeders: "App\\Domains\\*\\Database\\\Seeders\\". #### call this file in ```sh database/seeders```
+
     ### The routes auto indexer. usses the filename as /api/filename.
-    Routes:"App\\Interface\\*\\Routes".
+    Routes: "App\\Interface\\*\\Routes".
     Interface: "App\\Domains\\*\\Interface\\".
     Repository: "App\\Domains\\*\\Repository\\".
 ````
-
-### \* Call seeders inside migration files:
-
-##### Hierarchy for model relations now works with the date you put in front of the migration file.
-
-```sh
-    use App\\Domains\\*\\Database\\Seeders\\CustomSeeder;
-
-    public function up()
-    {
-        Schema::create('table', function (Blueprint $table) {
-            //...
-        });
-
-        (new CustomSeeder())->run();
-    }
-```
-
-### Custom commands:
-
-    Command: $php artisan migrate-seed // equals php artisan mirgate::fresh --seed
