@@ -15,8 +15,7 @@ import path, {resolve} from 'path';
 
     if (isProd) {
         server.use((await import('compression')).default());
-        server.use('/', (await import('serve-static')).default(resolve('dist/client'), {index: false}));
-        // server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
+        server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
     }
 
     const viteDevServer: ViteDevServer = await (

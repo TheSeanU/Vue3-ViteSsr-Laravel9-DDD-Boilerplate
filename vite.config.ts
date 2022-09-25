@@ -29,8 +29,9 @@ export default defineConfig(({command}) => {
     if (build) {
         return {
             ...config,
-            root: path.join(srcPath, 'ssr/infrastructure/'),
+            root: path.join(srcPath, 'ssr'),
             build: {
+                rollupOptions: {},
                 emptyOutDir: true,
             },
         };

@@ -4,15 +4,13 @@ declare(strict_types = 1);
 
 namespace App\Infrastructure\Http;
 
-use App\Application\Auth\Middleware\Authenticate;
+use App\Domains\Auth\Middleware\Authenticate;
 use App\Infrastructure\Middleware\EncryptCookies;
 use App\Infrastructure\Middleware\PreventRequestsDuringMaintenance;
-use App\Infrastructure\Middleware\RedirectIfAuthenticated;
 use App\Infrastructure\Middleware\TrimStrings;
 use App\Infrastructure\Middleware\TrustProxies;
 use App\Infrastructure\Middleware\VerifyCsrfToken;
 use Fruitcake\Cors\HandleCors;
-use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Auth\Middleware\RequirePassword;
@@ -84,10 +82,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
-        'auth.basic' => AuthenticateWithBasicAuth::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
-        'guest' => RedirectIfAuthenticated::class,
         'password.confirm' => RequirePassword::class,
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,

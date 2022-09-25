@@ -13,8 +13,9 @@
     ],
     "moduleResolution": "node",
     "lib": [
+      "DOM",
       "ESNext",
-      "dom"
+      "WebWorker"
     ],
     "jsx": "preserve",
     "baseUrl": ".",
