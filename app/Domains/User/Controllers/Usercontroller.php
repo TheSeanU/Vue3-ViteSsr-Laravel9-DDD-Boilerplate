@@ -6,7 +6,7 @@ namespace App\Domains\User\Controllers;
 
 use App\Domains\User\Interface\UserInterface;
 use App\Domains\User\Models\User;
-use App\Infrastructure\Controllers\Controller;
+use App\Application\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Infrastructure\Providers;
 
-use App\Infrastructure\Interface\RepositoryInterface;
-use App\Infrastructure\Repository\BaseRepository;
+use App\Application\Interface\RepositoryInterface;
+use App\Application\Repository\BaseRepository;
 use Illuminate\Support\ServiceProvider;
 
 /**
