@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace App\Infrastructure\Responses;
+namespace App\Application\Responses;
 
 use Illuminate\Http\Response;
 
@@ -15,4 +15,5 @@ class NoContentResponse extends Response
     {
         parent::__construct('', Response::HTTP_NO_CONTENT);
     }
+
 }

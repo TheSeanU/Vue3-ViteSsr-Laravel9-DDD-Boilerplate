@@ -5,22 +5,25 @@
         "dev": "npm run server",
         "build": "npm run build:client && npm run build:server",
         "build:client": "vite build --ssrManifest --outDir ../../dist/client",
-        "build:server": "vite build --ssr build/entry-server.ts --outDir ../../dist/server",
-        "server": "ts-node ./ssr/infrastructure/server.ts",
+        "build:server": "vite build --ssr ./ssr/infrastructure/build/entry-server.ts --outDir ../../dist/server",
         "generate": "vite build --ssrManifest --outDir ../../dist/static && npm run build:server && ts-node --pretty ./ssr/infrastructure/build/prerender",
+        "server": "ts-node ./ssr/infrastructure/server.ts",
         "serve": "cross-env NODE_ENV=production ts-node ./ssr/infrastructure/server.ts",
         "preview": "npm run build && npm run serve",
         "vue-typescript-check": "vue-tsc -p tsconfig.volar.json",
+        "lint:markup": "vue-tsc --noEmit",
         "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
-        "lint:markup": "vue-tsc --noEmit"
+        "lint:style": "stylelint src/**/*.{css,scss,vue}"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "npm lint-staged"
         }
     },
     "lint-staged": {
         "*.{ts,vue}": "eslint --fix",
+        "*.{ts,tsx}": "eslint --fix",
+        "*.{css,scss,vue}": "stylelint --fix",
         "*": "prettier -w -u"
     },
     "dependencies": {
@@ -41,6 +44,7 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.37.0",
         "@typescript-eslint/parser": "^5.37.0",
+        "@vitejs/plugin-vue": "^3.1.0",
         "@vue/eslint-config-prettier": "^7.0.0",
         "@vue/eslint-config-typescript": "^11.0.1",
         "@vue/tsconfig": "^0.1.3",
@@ -57,6 +61,9 @@
         "prettier": "^2.7.1",
         "pretty-quick": "^3.1.3",
         "sass": "^1.54.9",
+        "stylelint": "^14.12.1",
+        "stylelint-config-recommended": "^9.0.0",
+        "stylelint-config-standard": "^28.0.0",
         "ts-node": "^10.9.1",
         "typescript": "^4.8.3",
         "vue-tsc": "^0.40.1"

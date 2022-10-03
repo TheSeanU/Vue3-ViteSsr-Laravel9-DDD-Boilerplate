@@ -7,7 +7,7 @@ namespace App\Domains\Auth\Controllers;
 use App\Domains\Auth\Interface\AuthInterface;
 use App\Domains\Auth\Requests\LoginRequest;
 use App\Domains\Auth\Requests\RegisterRequest;
-use App\Infrastructure\Controllers\Controller;
+use App\Application\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
 class Authcontroller extends Controller

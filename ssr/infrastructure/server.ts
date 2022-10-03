@@ -4,21 +4,20 @@ import express from 'express';
 import fs from 'fs';
 import path, {resolve} from 'path';
 
+import ssrManifest from '../../dist/client/ssr-manifest.json' assert {type: 'json'};
+
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
     const getPath = (route: string) => path.resolve(dirname, route);
 
     const dirname = path.dirname(fileURLToPath(import.meta.url));
     const indexProd = isProd ? fs.readFileSync(getPath('../../dist/client/index.html'), 'utf-8') : '';
-    const manifest = isProd
-        ? (await import('../../dist/client/ssr-manifest.json' ?? '', {assert: {type: 'json'}})).default
-        : {};
+    const manifest = isProd ? ssrManifest : {};
 
     const server = express();
 
     if (isProd) {
         server.use((await import('compression')).default());
-        server.use('/', (await import('serve-static')).default(resolve('dist/client'), {index: false}));
-        // server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
+        server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
     }
 
     const viteDevServer: ViteDevServer = await (

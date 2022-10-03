@@ -23,14 +23,13 @@ export default defineConfig(({command}) => {
     if (build) {
         return {
             ...config,
-            root: path.join(srcPath, 'ssr/infrastructure/'),
             build: {
-                manifest: true,
+                ssr: true,
                 rollupOptions: {
-                    // overwrite default .html entry
-                    input: 'ssr/infrastructure/index.html',
+                    input: 'ssr/infrastructure/server.ts',
                 },
-                minify: false,
+                outDir: './dist',
+                ssrManifest: true,
                 emptyOutDir: true,
             },
         };

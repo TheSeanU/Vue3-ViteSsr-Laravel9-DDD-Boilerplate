@@ -38,11 +38,11 @@
     <rule ref="Generic.WhiteSpace.ScopeIndent"/>
 
     <!-- TODO :: fix all warnings -->
-    <!-- <rule ref="Generic.Metrics.CyclomaticComplexity">
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
             <property name="complexity" value="5"/>
         </properties>
-    </rule> -->
+    </rule>
 
     <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
         <!-- Exclude warning if founds a method which does not use a parameter in a extended class -->
@@ -90,7 +90,7 @@
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
     <rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue" />
     <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing" />
-    <!-- <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHintSpacing" /> -->
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHintSpacing" />
 
     <rule ref="SlevomatCodingStandard.Classes.ClassStructure" />
     <rule ref="SlevomatCodingStandard.Classes.RequireConstructorPropertyPromotion" />

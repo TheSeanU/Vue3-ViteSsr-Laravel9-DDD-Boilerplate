@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace App\Infrastructure\Database\Seeders;
+namespace App\Application\Database\Seeders;
 
 use App\Infrastructure\Helpers\SeederHelper;
 use Illuminate\Database\Seeder;

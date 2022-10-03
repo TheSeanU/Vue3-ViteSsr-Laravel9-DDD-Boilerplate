@@ -47,52 +47,59 @@ php artisan serve
     |--App
     |   |--Infrastructure
     |   |   |-- Commands
-    |   |   |-- Controller
-    |   |   |-- Database
-    |   |   |-- Factory
-    |   |   |-- Migrations
-    |   |   |-- Seeders
     |   |   |-- Exceptions
-    |   |   |-- Interface
+    |   |   |-- Helpers
+    |   |   |-- Http
     |   |   |-- Kernels
     |   |   |-- Middleware
-    |   |   |-- Providers
-    |   |   |__ Repository
+    |   |   |__ Providers
     |   |
-    |   |_Domains
-    |      |-- * (Custom domain name)
-    |         |-- Database
-    |         |-- Factory
-    |         |-- Migrations
-    |         |-- Seeders
-    |         |-- Interface
-    |         |-- Models
-    |         |-- Repository
-    |         |-- Request
-    |         |-- Controllers
-    |         |-- Routes
-    |         |-- Middleware
-    |         |-- Requests
-    |         |-- Policies
-    |         |__ Jobs
+    |   |-- Application
+    |   |   |-- Controller
+    |   |   |-- Database
+    |   |   |   |-- Factory
+    |   |   |   |-- Migrations
+    |   |   |   |__ Seeders
+    |   |   |
+    |   |   |-- Interface
+    |   |   |-- Repository
+    |   |   |__ Repsonses
+    |   |
+    |   |-- Domains
+    |       |-- * (Custom domain name)
+    |           |-- Controllers
+    |           |-- Database
+    |           |   |-- Factory
+    |           |   |-- Migrations
+    |           |   |__ Seeders
+    |           |
+    |           |-- Interface
+    |           |-- Middleware
+    |           |-- Models
+    |           |-- Repository
+    |           |-- Request
+    |           |-- Requests
+    |           |-- Resources
+    |           |__ Routes
     |
     |__ssr
-        |-- Infrastructure
+        |-- infrastructure
         |   |-- build
         |   |   |-- entry-server.ts
         |   |   |-- entry-client.ts
         |   |   |__ main.ts
+        |   |
         |   |-- index.html
         |   |__ server.ts
         |
-        |-- Domains
+        |-- domains
         |   |__ * (Custom domain name)
         |       |-- components
         |       |-- pages (Are auto indexed by name)
         |       |-- index.ts
         |       |__ types.d.ts
         |
-        |__ Application
+        |__ application
             |-- assets
             |-- components
             |-- layout
