@@ -1,9 +1,10 @@
-import {ENDPOINT} from './constants';
 import axios from 'axios';
 
+const BACKEND = 'http://localhost:8000/api';
+
 const api = axios.create({
-    baseURL: ENDPOINT,
-    withCredentials: ENDPOINT,
+    baseURL: BACKEND,
+    withCredentials: true,
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

@@ -4,9 +4,10 @@ import {createApp} from './main';
 
 const {app, router, pageProps} = createApp();
 
-// this is for ssr testing
-router.beforeResolve((_to, _from) => {
-    console.log(pageProps);
-});
+(function hydrate() {
+    app.provide('pageProps', pageProps);
 
-router.isReady().then(() => app.mount('#app', true));
+    router.isReady().then(() => {
+        app.mount('#app', true);
+    });
+})();

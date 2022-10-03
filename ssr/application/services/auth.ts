@@ -1,11 +1,18 @@
-import {Login} from 'ssr/domains/auth/types';
+import {Login} from 'ssr/domains/auth/login/types';
 import {getFromApi, postToApi} from './api';
 import {ref} from 'vue';
 import {setCookies} from './cookies';
 
+interface User {
+    name: string;
+}
+
 const AUTH_TOKEN = 'Authorization';
 
-export const loggedIn = ref({bool: false as boolean, data: Array});
+export const loggedIn = ref<{
+    bool: boolean;
+    data: Array<User>;
+}>({bool: false, data: []});
 
 export const login = async (form: Login) => {
     try {

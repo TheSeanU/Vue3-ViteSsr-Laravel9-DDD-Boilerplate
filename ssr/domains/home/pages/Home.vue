@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="row m-1 p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="row m-1 p-4 mb-3 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow">
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1">Border hero with cropped image and shadows</h1>
             <p class="lead">
@@ -36,9 +36,9 @@
                 prebuilt components, and powerful JavaScript plugins.
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                <Modal id="homepage">
+                <ModalVue id="homepage">
                     <template #button>Modal</template>
-                </Modal>
+                </ModalVue>
                 <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" @click="hallo">
                     Primary
                 </button>
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import Modal from 'ssr/application/components/Modal.vue';
+import ModalVue from 'ssr/application/components/Modal.vue';
 </script>
 
 <style scoped></style>

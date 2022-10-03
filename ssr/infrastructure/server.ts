@@ -8,8 +8,10 @@ import path, {resolve} from 'path';
     const getPath = (route: string) => path.resolve(dirname, route);
 
     const dirname = path.dirname(fileURLToPath(import.meta.url));
-    const indexProd = isProd ? fs.readFileSync(getPath('dist/client/index.html'), 'utf-8') : '';
-    const manifest = isProd ? (await import('./dist/client/ssr-manifest.json' ?? '')).default : {};
+    const indexProd = isProd ? fs.readFileSync(getPath('../../dist/client/index.html'), 'utf-8') : '';
+    const manifest = isProd
+        ? (await import('../../dist/client/ssr-manifest.json' ?? '', {assert: {type: 'json'}})).default
+        : {};
 
     const server = express();
 
@@ -45,7 +47,7 @@ import path, {resolve} from 'path';
 
             if (isProd) {
                 template = indexProd;
-                render = (await import('./dist/server/entry-server.ts' ?? '')).entryServer;
+                render = (await import('../../dist/server/entry-server.js' ?? '')).entryServer;
             } else {
                 template = fs.readFileSync(getPath('index.html'), 'utf-8');
                 template = await viteDevServer.transformIndexHtml(req.originalUrl, template);

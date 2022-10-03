@@ -1,6 +1,6 @@
 import {Router, createRouter as _createRouter, createMemoryHistory, createWebHistory} from 'vue-router';
 
-const pages = import.meta.glob('../../domains/*/pages/*.vue');
+const pages = import.meta.glob(['../../domains/*/pages/*.vue', '../../domains/*/*/pages/*.vue']);
 
 const routes = Object.keys(pages).map(path => {
     const name = path.split('/').pop()?.replace('.vue', '').toLocaleLowerCase();
@@ -23,3 +23,5 @@ export const createRouter = (): Router =>
             },
         ],
     });
+
+export const currentRoute = () => console.log(createRouter);

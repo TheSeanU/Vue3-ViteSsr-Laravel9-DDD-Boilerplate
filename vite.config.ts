@@ -19,18 +19,18 @@ export default defineConfig(({command}) => {
                 infrastucture: path.join(srcPath, 'ssr/infrastucture'),
             },
         },
-        server: {
-            port: 6173,
-        },
-        build: {
-            minify: false,
-        },
     };
     if (build) {
         return {
             ...config,
             root: path.join(srcPath, 'ssr/infrastructure/'),
             build: {
+                manifest: true,
+                rollupOptions: {
+                    // overwrite default .html entry
+                    input: 'ssr/infrastructure/index.html',
+                },
+                minify: false,
                 emptyOutDir: true,
             },
         };
