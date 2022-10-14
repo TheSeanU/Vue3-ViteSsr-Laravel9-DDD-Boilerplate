@@ -19,19 +19,17 @@ export default defineConfig(({command}) => {
                 infrastucture: path.join(srcPath, 'ssr/infrastucture'),
             },
         },
-        server: {
-            port: 6173,
-        },
-        build: {
-            minify: false,
-        },
     };
     if (build) {
         return {
             ...config,
-            root: path.join(srcPath, 'ssr'),
             build: {
-                rollupOptions: {},
+                ssr: true,
+                rollupOptions: {
+                    input: 'ssr/infrastructure/server.ts',
+                },
+                outDir: './dist',
+                ssrManifest: true,
                 emptyOutDir: true,
             },
         };

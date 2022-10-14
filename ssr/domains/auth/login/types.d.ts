@@ -1,5 +1,5 @@
 export interface Login {
     email: string;
     password: string;
-    remenber: boolean;
+    remember_token: boolean;
 }

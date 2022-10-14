@@ -10,6 +10,7 @@ use App\Domains\Auth\Requests\RegisterRequest;
 use App\Domains\User\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class AuthRepository implements AuthInterface
 {
@@ -22,6 +23,7 @@ class AuthRepository implements AuthInterface
      */
     public function loginUser(LoginRequest $request)
     {
+
         if (!$request->validated()) {
             return new JsonResponse($request->errors(), 422);
         }
@@ -29,6 +31,14 @@ class AuthRepository implements AuthInterface
         if (!$token = Auth::attempt($request->validated())) {
             return new JsonResponse(['error' => 'Unauthorized'], 401);
         }
+
+        if ($request['remember_token']) {
+            $user = User::where('id', Auth::user()->id)->first();
+
+            $user["remember_token"] = Str::random(8);
+            $user->save();
+        }
+
 
         return $this->createNewToken($token);
     }
@@ -42,19 +52,10 @@ class AuthRepository implements AuthInterface
      */
     public function registerUser(RegisterRequest $request)
     {
-        if (!$request->validated()) {
-            return new JsonResponse($request->errors()->toJson(), 400);
-        }
+        $validated = $request->validated();
+        $validated['password'] = bcrypt($validated['password']);
 
-        $user = User::create(array_merge(
-            $request->validated(),
-            ['password' => bcrypt($request->password)],
-        ));
-
-        return new JsonResponse([
-            'message' => 'User successfully registered',
-            'user' => $user,
-        ], 201);
+        return User::create($validated);
     }
 
     /**
@@ -64,8 +65,7 @@ class AuthRepository implements AuthInterface
      */
     public function logoutUser()
     {
-        Auth::logout();
-        return new JsonResponse(['message' => 'User successfully signed out']);
+        return Auth::logout();
     }
 
     /**
@@ -75,7 +75,7 @@ class AuthRepository implements AuthInterface
      */
     public function loggedinUser()
     {
-        return new JsonResponse(Auth::user());
+        return Auth::user();
     }
 
     /**

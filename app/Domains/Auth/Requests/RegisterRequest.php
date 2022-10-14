@@ -16,9 +16,16 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|between:2,100',
-            'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|confirmed|min:6',
+            'name' => 'required|string|max:25|unique:users',
+            'email' => 'required|string|email|max:50|unique:users',
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[-+_!@#$%^&*.,?]).\S*$/',
+                'same:confirm_password',
+            ],
+            'confirm_password' => 'required',
         ];
     }
 }
