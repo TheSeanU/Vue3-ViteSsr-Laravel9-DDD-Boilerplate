@@ -1,5 +1,5 @@
 import {ViteDevServer} from 'vite';
-import {fileURLToPath} from 'url';
+import {fileURLToPath} from 'node:url';
 import express from 'express';
 import fs from 'fs';
 import path, {resolve} from 'path';
@@ -50,7 +50,7 @@ import ssrManifest from '../../dist/client/ssr-manifest.json' assert {type: 'jso
             } else {
                 template = fs.readFileSync(getPath('index.html'), 'utf-8');
                 template = await viteDevServer.transformIndexHtml(req.originalUrl, template);
-                render = (await viteDevServer.ssrLoadModule('ssr/infrastructure/build/entry-server.ts')).entryServer;
+                render = (await viteDevServer.ssrLoadModule('build/entry-server.ts')).entryServer;
             }
 
             const [appHtml, preloadLinks] = await render(req.originalUrl, manifest);

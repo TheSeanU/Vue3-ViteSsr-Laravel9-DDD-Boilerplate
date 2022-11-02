@@ -23,14 +23,13 @@ export default defineConfig(({command}) => {
     if (build) {
         return {
             ...config,
+            root: 'ssr/infrastructure',
             build: {
-                ssr: true,
-                rollupOptions: {
-                    input: 'ssr/infrastructure/server.ts',
-                },
                 outDir: './dist',
-                ssrManifest: true,
                 emptyOutDir: true,
+                // rollupOptions: {
+                //     input: 'ssr/infrastructure/server.ts',
+                // },
             },
         };
     }
