@@ -1,23 +1,24 @@
 import {ViteDevServer} from 'vite';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath} from 'url';
 import express from 'express';
 import fs from 'fs';
 import path, {resolve} from 'path';
-
-import ssrManifest from '../../dist/client/ssr-manifest.json' assert {type: 'json'};
 
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
     const getPath = (route: string) => path.resolve(dirname, route);
 
     const dirname = path.dirname(fileURLToPath(import.meta.url));
     const indexProd = isProd ? fs.readFileSync(getPath('../../dist/client/index.html'), 'utf-8') : '';
-    const manifest = isProd ? ssrManifest : {};
+    const manifest = isProd
+        ? (await import('../../dist/client/ssr-manifest.json' ?? '', {assert: {type: 'json'}})).default
+        : {};
 
     const server = express();
 
     if (isProd) {
         server.use((await import('compression')).default());
-        server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
+        server.use('/', (await import('serve-static')).default(resolve('dist/client'), {index: false}));
+        // server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
     }
 
     const viteDevServer: ViteDevServer = await (
@@ -50,7 +51,7 @@ import ssrManifest from '../../dist/client/ssr-manifest.json' assert {type: 'jso
             } else {
                 template = fs.readFileSync(getPath('index.html'), 'utf-8');
                 template = await viteDevServer.transformIndexHtml(req.originalUrl, template);
-                render = (await viteDevServer.ssrLoadModule('build/entry-server.ts')).entryServer;
+                render = (await viteDevServer.ssrLoadModule('ssr/infrastructure/build/entry-server.ts')).entryServer;
             }
 
             const [appHtml, preloadLinks] = await render(req.originalUrl, manifest);
