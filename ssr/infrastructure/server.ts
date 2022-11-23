@@ -4,6 +4,7 @@ import express from 'express';
 import fs from 'fs';
 import path, {resolve} from 'path';
 
+// eslint-disable-next-line complexity
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
     const getPath = (route: string) => path.resolve(dirname, route);
 
@@ -64,8 +65,10 @@ import path, {resolve} from 'path';
         }
     });
 
+    const port = process.env.PORT || 6173
+    server.listen(port)
     // eslint-disable-next-line no-console
-    server.listen(6173, () => console.log('Server running at http://localhost:6173'));
+    console.log(`Server running at http://localhost:${port}`)
 
     return {server, viteDevServer};
 })();
