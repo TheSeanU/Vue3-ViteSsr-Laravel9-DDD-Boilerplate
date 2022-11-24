@@ -1,45 +1,22 @@
 {
-  "compileOnSave": true,
-  "ts-node": {
-    "esm": true
-  },
   "compilerOptions": {
+    "strict": true,
     "module": "ESNext",
-    "rootDir": ".",
+    
+    "moduleResolution": "Node",
+
     "target": "ESNext",
-    "types": [
-      "vite/client",
-      "node"
-    ],
-    "moduleResolution": "node",
     "lib": [
       "DOM",
-      "ESNext",
-      "WebWorker"
+      "DOM.Iterable",
+      "ESNext"
     ],
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "outDir": "dist",
-    "allowJs": true,
-    "checkJs": false,
-    "strict": true,
-    "noEmit": true,
+    "types": [
+      "vite/client"
+    ],
     "skipLibCheck": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "alwaysStrict": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "declaration": true,
     "esModuleInterop": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "inlineSourceMap": true,
-    "isolatedModules": true,
-    "useUnknownInCatchVariables": true,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
       "./*": [
         "./*"
@@ -58,13 +35,11 @@
       ],
     },
   },
-  "include": [
-    "ssr/**/*",
-    "vite.config.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "./dist",
-    "dist",
-  ]
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+
 }

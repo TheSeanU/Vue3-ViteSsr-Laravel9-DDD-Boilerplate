@@ -1,19 +1,14 @@
 import {ViteDevServer} from 'vite';
-import {fileURLToPath} from 'url';
+// import {fileURLToPath} from 'url';
 import express from 'express';
 import fs from 'fs';
 import path, {resolve} from 'path';
 
 // eslint-disable-next-line complexity
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
-    const getPath = (route: string) => path.resolve(dirname, route);
-
-    const dirname = path.dirname(fileURLToPath(import.meta.url));
-    const indexProd = isProd ? fs.readFileSync(getPath('../../dist/client/index.html'), 'utf-8') : '';
-    const manifest = isProd
-        ? (await import('../../dist/client/ssr-manifest.json' ?? '', {assert: {type: 'json'}})).default
-        : {};
-
+    const indexProd = isProd ? path.resolve(`${root}/dist/client`) : '';
+    const manifest = isProd ? (await import(`${root}/dist/client/ssr-manifest.json` ?? '')).default : {};
+    
     const server = express();
 
     if (isProd) {
@@ -48,9 +43,9 @@ import path, {resolve} from 'path';
 
             if (isProd) {
                 template = indexProd;
-                render = (await import('../../dist/server/entry-server.js' ?? '')).entryServer;
+                render = (await import(`${root}/dist/server/entry-server.js` ?? '')).entryServer;
             } else {
-                template = fs.readFileSync(getPath('index.html'), 'utf-8');
+                template = fs.readFileSync('ssr/infrastructure/index.html', 'utf-8');               
                 template = await viteDevServer.transformIndexHtml(req.originalUrl, template);
                 render = (await viteDevServer.ssrLoadModule('ssr/infrastructure/build/entry-server.ts')).entryServer;
             }
