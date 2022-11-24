@@ -5,7 +5,7 @@
         "build": "npm run build:client && npm run build:server",
         
         "build:client": "vite build --ssrManifest --outDir ../../dist/client",
-        "build:server": "vite build --ssr build/entry-server.ts --outDir ../../dist/server",
+        "build:server": "vite build --ssr ./ssr/infrastructure/build/entry-server.ts --outDir ../../dist/server",
 
         "server": "ts-node ./ssr/infrastructure",
         "server:prod": "cross-env NODE_ENV=production ts-node ./ssr/infrastructure",

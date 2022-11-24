@@ -23,11 +23,13 @@ export default defineConfig(({command}) => {
     if (build) {
         return {
             ...config,
-            root: 'ssr/infrastructure',
             build: {
                 outDir: './dist',
                 emptyOutDir: true,
                 minify: false,
+                rollupOptions: {
+                    input: '/ssr/infrastructure/index.html',
+                },
             },
         };
     }

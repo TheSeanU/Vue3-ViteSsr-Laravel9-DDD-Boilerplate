@@ -1,12 +1,11 @@
 import {ViteDevServer} from 'vite';
-// import {fileURLToPath} from 'url';
+import {resolve} from 'path';
 import express from 'express';
 import fs from 'fs';
-import path, {resolve} from 'path';
 
 // eslint-disable-next-line complexity
 (async function startServer(root = process.cwd(), isProd = process.env.NODE_ENV === 'production', hmrPort) {
-    const indexProd = isProd ? path.resolve(`${root}/dist/client`) : '';
+    const indexProd = isProd ? resolve(`${root}/dist/client`) : '';
     const manifest = isProd ? (await import(`${root}/dist/client/ssr-manifest.json` ?? '')).default : {};
     
     const server = express();
@@ -14,7 +13,6 @@ import path, {resolve} from 'path';
     if (isProd) {
         server.use((await import('compression')).default());
         server.use('/', (await import('serve-static')).default(resolve('dist/client'), {index: false}));
-        // server.use('/', (await import('express')).static(resolve('dist/client'), {index: false}));
     }
 
     const viteDevServer: ViteDevServer = await (
@@ -61,7 +59,9 @@ import path, {resolve} from 'path';
     });
 
     const port = process.env.PORT || 6173
+    
     server.listen(port)
+    
     // eslint-disable-next-line no-console
     console.log(`Server running at http://localhost:${port}`)
 
