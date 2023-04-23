@@ -1,0 +1,142 @@
+{
+  "vite/modulepreload-polyfill": [],
+  "node_modules/bootstrap/dist/css/bootstrap.min.css": [],
+  "\u0000commonjsHelpers.js": [],
+  "\u0000C:/Users/sstwu/Downloads/Development/Vue3-ViteSsr-Laravel9-DDD-Boilerplate/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js?commonjs-module": [],
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js": [],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
+  "node_modules/vue-router/dist/vue-router.mjs": [],
+  "\u0000vite/preload-helper": [],
+  "ssr/application/services/router.ts": [],
+  "\u0000C:/Users/sstwu/Downloads/Development/Vue3-ViteSsr-Laravel9-DDD-Boilerplate/node_modules/axios/index.js?commonjs-module": [],
+  "\u0000C:/Users/sstwu/Downloads/Development/Vue3-ViteSsr-Laravel9-DDD-Boilerplate/node_modules/axios/lib/axios.js?commonjs-module": [],
+  "node_modules/axios/lib/helpers/bind.js": [],
+  "node_modules/axios/lib/utils.js": [],
+  "node_modules/axios/lib/helpers/buildURL.js": [],
+  "node_modules/axios/lib/core/InterceptorManager.js": [],
+  "node_modules/axios/lib/helpers/normalizeHeaderName.js": [],
+  "node_modules/axios/lib/core/AxiosError.js": [],
+  "node_modules/axios/lib/defaults/transitional.js": [],
+  "node_modules/axios/lib/helpers/toFormData.js": [],
+  "node_modules/axios/lib/core/settle.js": [],
+  "node_modules/axios/lib/helpers/cookies.js": [],
+  "node_modules/axios/lib/helpers/isAbsoluteURL.js": [],
+  "node_modules/axios/lib/helpers/combineURLs.js": [],
+  "node_modules/axios/lib/core/buildFullPath.js": [],
+  "node_modules/axios/lib/helpers/parseHeaders.js": [],
+  "node_modules/axios/lib/helpers/isURLSameOrigin.js": [],
+  "node_modules/axios/lib/cancel/CanceledError.js": [],
+  "node_modules/axios/lib/helpers/parseProtocol.js": [],
+  "node_modules/axios/lib/adapters/xhr.js": [],
+  "node_modules/axios/lib/helpers/null.js": [],
+  "node_modules/axios/lib/defaults/index.js": [],
+  "node_modules/axios/lib/core/transformData.js": [],
+  "node_modules/axios/lib/cancel/isCancel.js": [],
+  "node_modules/axios/lib/core/dispatchRequest.js": [],
+  "node_modules/axios/lib/core/mergeConfig.js": [],
+  "node_modules/axios/lib/env/data.js": [],
+  "node_modules/axios/lib/helpers/validator.js": [],
+  "node_modules/axios/lib/core/Axios.js": [],
+  "node_modules/axios/lib/cancel/CancelToken.js": [],
+  "node_modules/axios/lib/helpers/spread.js": [],
+  "node_modules/axios/lib/helpers/isAxiosError.js": [],
+  "node_modules/axios/lib/axios.js": [],
+  "node_modules/axios/index.js": [],
+  "ssr/application/services/api.ts": [],
+  "ssr/application/services/cookies.ts": [],
+  "ssr/application/services/auth.ts": [],
+  "\u0000plugin-vue:export-helper": [],
+  "ssr/application/assets/icons/Icon.vue": [],
+  "ssr/application/layout/Navigation.vue?vue&type=script&setup=true&lang.ts": [],
+  "ssr/application/layout/Navigation.vue?vue&type=style&index=0&lang.css": [],
+  "ssr/application/layout/BasicLayout.vue?vue&type=script&setup=true&lang.ts": [],
+  "ssr/infrastructure/build/main.ts": [],
+  "ssr/infrastructure/build/entry-client.ts": [],
+  "ssr/infrastructure/index.html": [],
+  "Login.b6a9c136.js": [
+    "\\assets\\Login.bd2af192.css"
+  ],
+  "Register.3d684de0.js": [
+    "\\assets\\Register.1741f6cb.css"
+  ],
+  "Home.26725820.js": [],
+  "Password.e060e370.js": [],
+  "Profile.7f7b5b73.js": [],
+  "404.a8820855.js": [],
+  "ssr/domains/auth/login/components/Form.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/login/components/Form.vue?vue&type=style&index=0&scoped=f7291f3f&lang.css": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/login/components/Form.vue": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/login/pages/Login.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/login/pages/Login.vue?vue&type=style&index=0&scoped=b858de9c&lang.css": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/login/pages/Login.vue": [
+    "/assets/Login.b6a9c136.js",
+    "/assets/Login.bd2af192.css"
+  ],
+  "ssr/domains/auth/auth.ts": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/components/Form.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/components/Form.vue?vue&type=style&index=0&scoped=ccbe34c0&lang.css": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/components/Form.vue": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/pages/Register.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/pages/Register.vue?vue&type=style&index=0&scoped=0c393ca1&lang.scss": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/domains/auth/register/pages/Register.vue": [
+    "/assets/Register.3d684de0.js",
+    "/assets/Register.1741f6cb.css"
+  ],
+  "ssr/application/components/Modal.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Home.26725820.js"
+  ],
+  "ssr/domains/home/pages/Home.vue": [
+    "/assets/Home.26725820.js"
+  ],
+  "ssr/domains/password/pages/Password.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Password.e060e370.js"
+  ],
+  "ssr/domains/password/pages/Password.vue": [
+    "/assets/Password.e060e370.js"
+  ],
+  "ssr/domains/profile/pages/Profile.vue?vue&type=script&setup=true&lang.ts": [
+    "/assets/Profile.7f7b5b73.js"
+  ],
+  "ssr/domains/profile/pages/Profile.vue": [
+    "/assets/Profile.7f7b5b73.js"
+  ],
+  "ssr/application/layout/404.vue": [
+    "/assets/404.a8820855.js"
+  ]
+}

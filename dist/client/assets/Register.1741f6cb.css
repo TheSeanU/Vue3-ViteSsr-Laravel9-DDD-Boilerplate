@@ -1,0 +1,30 @@
+
+.form-register input[type='text'][data-v-ccbe34c0] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-register input[type='email'][data-v-ccbe34c0] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+.form-register input[type='password'][data-v-ccbe34c0] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+#confirm_password[data-v-ccbe34c0] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.bg-gradient[data-v-0c393ca1] {
+  box-shadow: inset -5px -5px 15px 0px rgba(0, 0, 0, 0.3137254902);
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+}
+@media (max-width: 575.98px) {
+.bg-gradient[data-v-0c393ca1] {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+}
